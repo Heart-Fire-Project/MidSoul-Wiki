@@ -14,8 +14,10 @@ const config: Config = {
   url: "https://heimnad.github.io",
   baseUrl: "/MidSoul-Wiki/",
 
-  organizationName: "heart-fire-project",
-  projectName: "midsoul-wiki",
+  organizationName: "HeimNad",
+  projectName: "MidSoul-Wiki",
+  deploymentBranch: "gh-pages",
+  trailingSlash: false,
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
