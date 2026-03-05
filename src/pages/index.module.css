@@ -1,0 +1,642 @@
+/* ═══════════════════════════════════════════════════
+   午夜灵魂 Wiki — Homepage
+   Theme: #7367F0 · Midnight Ethereal
+   ═══════════════════════════════════════════════════ */
+
+/* ── tokens: dark (default) ─────────────────────── */
+.root {
+  --primary:   #7367F0;
+  --primary-l: #9d94f5;
+  --primary-d: #5046d4;
+  --soul:      #7ecfff;
+  --soul-dim:  rgba(126, 207, 255, 0.15);
+  --guard:     #ff6b6b;
+  --guard-dim: rgba(255, 107, 107, 0.12);
+  --gold:      #f0c060;
+  --bg:        #06050f;
+  --surface:   #0c0b1e;
+  --surface2:  #11102a;
+  --border:    rgba(115, 103, 240, 0.18);
+  --text:      #ede9ff;
+  --dim:       rgba(237, 233, 255, 0.45);
+  --font-disp: 'Noto Serif SC', serif;
+  --font-body: 'Noto Sans SC', sans-serif;
+
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+/* ── tokens: light ──────────────────────────────── */
+:global([data-theme='light']) .root {
+  --soul:      #2e8abf;
+  --soul-dim:  rgba(46, 138, 191, 0.1);
+  --guard:     #d43a3a;
+  --guard-dim: rgba(212, 58, 58, 0.08);
+  --gold:      #8a5c00;
+  --bg:        #f5f3ff;
+  --surface:   #edeafe;
+  --surface2:  #e4e0fd;
+  --border:    rgba(115, 103, 240, 0.2);
+  --text:      #1a1440;
+  --dim:       rgba(26, 20, 64, 0.55);
+}
+
+/* ══════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8rem 2rem 6rem;
+  overflow: hidden;
+}
+
+/* — background layer — */
+.heroBg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.orb1, .orb2, .orb3 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  animation: orbDrift 18s ease-in-out infinite;
+}
+.orb1 {
+  width: 55vw; height: 55vw;
+  max-width: 700px; max-height: 700px;
+  background: radial-gradient(circle, rgba(115,103,240,0.35) 0%, transparent 70%);
+  top: -15%; left: -10%;
+  animation-delay: 0s;
+}
+.orb2 {
+  width: 40vw; height: 40vw;
+  max-width: 520px; max-height: 520px;
+  background: radial-gradient(circle, rgba(126,207,255,0.2) 0%, transparent 70%);
+  bottom: -10%; right: 5%;
+  animation-delay: -6s;
+}
+.orb3 {
+  width: 30vw; height: 30vw;
+  max-width: 380px; max-height: 380px;
+  background: radial-gradient(circle, rgba(255,107,107,0.15) 0%, transparent 70%);
+  top: 40%; left: 55%;
+  animation-delay: -12s;
+}
+
+@keyframes orbDrift {
+  0%, 100% { transform: translate(0,    0)    scale(1);    }
+  25%       { transform: translate(30px, -40px) scale(1.06); }
+  50%       { transform: translate(-25px, 30px) scale(0.94); }
+  75%       { transform: translate(20px,  25px) scale(1.03); }
+}
+
+/* subtle perspective grid */
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(115,103,240,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(115,103,240,0.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%);
+}
+
+/* — content — */
+.heroContent {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 820px;
+  animation: riseIn 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(36px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+.eyebrow {
+  font-size: 0.68rem;
+  letter-spacing: 0.35em;
+  color: var(--gold);
+  margin: 0 0 2.5rem;
+  opacity: 0.75;
+  animation: riseIn 1s 0.15s cubic-bezier(0.16,1,0.3,1) both;
+}
+
+.heroTitle {
+  margin: 0 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  animation: riseIn 1s 0.25s cubic-bezier(0.16,1,0.3,1) both;
+}
+
+.titleZh {
+  font-family: var(--font-disp);
+  font-size: clamp(4.5rem, 13vw, 9.5rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.18em;
+  /* dark: white → lavender → primary → soul-blue */
+  background: linear-gradient(
+    140deg,
+    #ffffff   0%,
+    #c8c2ff  30%,
+    var(--primary) 60%,
+    var(--soul)   100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 50px rgba(115,103,240,0.55));
+}
+
+/* light: dark indigo → primary → soul */
+:global([data-theme='light']) .titleZh {
+  background: linear-gradient(
+    140deg,
+    #1a1040  0%,
+    #4840b8 35%,
+    var(--primary) 65%,
+    #2e8abf 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 40px rgba(115,103,240,0.25));
+}
+
+.titleEn {
+  font-size: clamp(0.55rem, 1.5vw, 0.75rem);
+  letter-spacing: 0.7em;
+  color: var(--dim);
+  font-weight: 300;
+}
+
+.heroTagline {
+  font-size: clamp(0.9rem, 2vw, 1.05rem);
+  line-height: 2.4;
+  color: var(--dim);
+  letter-spacing: 0.06em;
+  margin: 0 0 3rem;
+  animation: riseIn 1s 0.35s cubic-bezier(0.16,1,0.3,1) both;
+}
+
+.heroActions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: riseIn 1s 0.45s cubic-bezier(0.16,1,0.3,1) both;
+}
+
+.ctaPrimary {
+  display: inline-block;
+  padding: 0.85em 2.6em;
+  background: var(--primary);
+  color: #fff !important;
+  text-decoration: none !important;
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  border-radius: 2px;
+  border: 1px solid var(--primary);
+  box-shadow: 0 0 30px rgba(115,103,240,0.4), inset 0 1px 0 rgba(255,255,255,0.15);
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+.ctaPrimary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.12), transparent);
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+.ctaPrimary:hover { transform: translateY(-3px); box-shadow: 0 0 50px rgba(115,103,240,0.6); }
+.ctaPrimary:hover::after { opacity: 1; }
+
+.ctaSecondary {
+  display: inline-block;
+  padding: 0.85em 2em;
+  border: 1px solid var(--border);
+  color: var(--dim) !important;
+  text-decoration: none !important;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  border-radius: 2px;
+  background: rgba(115,103,240,0.05);
+  transition: all 0.25s ease;
+}
+.ctaSecondary:hover {
+  border-color: rgba(115,103,240,0.5);
+  color: var(--text) !important;
+  transform: translateY(-3px);
+  background: rgba(115,103,240,0.1);
+}
+
+.heroScroll {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2rem;
+  color: var(--dim);
+  animation: bounce 2.4s ease-in-out infinite;
+  opacity: 0.4;
+}
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0);    }
+  50%       { transform: translateX(-50%) translateY(8px);  }
+}
+
+/* ══════════════════════════════════════════════════
+   FACTIONS
+   ══════════════════════════════════════════════════ */
+.factions {
+  display: grid;
+  grid-template-columns: 1fr 80px 1fr;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.factionSoul,
+.factionGuard {
+  padding: 5rem 4rem;
+  display: flex;
+  flex-direction: column;
+}
+.factionSoul {
+  background: linear-gradient(140deg, var(--soul-dim) 0%, transparent 55%);
+  border-right: 1px solid rgba(126,207,255,0.1);
+}
+.factionGuard {
+  background: linear-gradient(220deg, var(--guard-dim) 0%, transparent 55%);
+  border-left: 1px solid rgba(255,107,107,0.1);
+  align-items: flex-end;
+  text-align: right;
+}
+
+.factionInner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  max-width: 380px;
+}
+.factionGuard .factionInner { align-items: flex-end; }
+
+.factionGlyph {
+  font-size: 2.8rem;
+  line-height: 1;
+}
+.factionSoul  .factionGlyph { color: var(--soul);  filter: drop-shadow(0 0 14px rgba(126,207,255,0.7)); }
+.factionGuard .factionGlyph { color: var(--guard); filter: drop-shadow(0 0 14px rgba(255,107,107,0.7)); }
+
+.factionName {
+  font-family: var(--font-disp);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 400;
+  letter-spacing: 0.45em;
+  margin: 0;
+  line-height: 1;
+}
+.factionSoul  .factionName { color: var(--soul);  text-shadow: 0 0 40px rgba(126,207,255,0.35); }
+.factionGuard .factionName { color: var(--guard); text-shadow: 0 0 40px rgba(255,107,107,0.35); }
+
+.factionEn {
+  font-size: 0.62rem;
+  letter-spacing: 0.55em;
+  opacity: 0.3;
+  margin: -0.4rem 0 0;
+}
+
+.factionDesc {
+  font-size: 0.9rem;
+  line-height: 2.1;
+  color: var(--dim);
+  margin: 0;
+}
+
+.factionTraits {
+  list-style: none;
+  padding: 0;
+  margin: 0.3rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+.factionTraits li {
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--dim);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  opacity: 0.65;
+}
+.factionTraits li span { opacity: 0.4; }
+.factionGuard .factionTraits li { flex-direction: row-reverse; }
+
+/* divider */
+.factionDivider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 3rem 0;
+}
+
+.dividerLine {
+  flex: 1;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(115,103,240,0.5) 20%,
+    rgba(115,103,240,0.5) 80%,
+    transparent
+  );
+  animation: linePulse 3s ease-in-out infinite;
+}
+@keyframes linePulse {
+  0%, 100% { box-shadow: 0 0 6px rgba(115,103,240,0.3); }
+  50%       { box-shadow: 0 0 18px rgba(115,103,240,0.8); }
+}
+
+.dividerText {
+  font-family: var(--font-disp);
+  font-size: 1rem;
+  letter-spacing: 0.4em;
+  writing-mode: vertical-rl;
+  color: rgba(115,103,240,0.7);
+  padding: 1.2rem 0;
+  background: var(--bg);
+  position: relative;
+  z-index: 1;
+}
+
+/* ══════════════════════════════════════════════════
+   SECTION TITLE
+   ══════════════════════════════════════════════════ */
+.sectionTitle {
+  font-family: var(--font-disp);
+  font-weight: 400;
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  letter-spacing: 0.35em;
+  text-align: center;
+  margin: 0 0 3rem;
+}
+.sectionTitle span {
+  position: relative;
+  display: inline-block;
+  padding: 0 2em;
+}
+.sectionTitle span::before,
+.sectionTitle span::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  height: 1px;
+  width: 48px;
+  background: linear-gradient(to right, transparent, rgba(115,103,240,0.55));
+}
+.sectionTitle span::before { right: 100%; transform: rotate(180deg); }
+.sectionTitle span::after  { left:  100%; }
+
+/* ══════════════════════════════════════════════════
+   MODES
+   ══════════════════════════════════════════════════ */
+.modes {
+  padding: 6rem 2rem;
+  max-width: 980px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.modesGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.modeCard {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  padding: 2.5rem;
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.modeCard::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--primary) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.modeCard:hover { transform: translateY(-5px); border-color: rgba(115,103,240,0.38); box-shadow: 0 20px 60px rgba(115,103,240,0.1); }
+.modeCard:hover::before { opacity: 1; }
+
+.modeTop {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  margin-bottom: 1.4rem;
+}
+
+.modeIcon {
+  font-size: 2.2rem;
+  color: var(--primary-l);
+  filter: drop-shadow(0 0 10px rgba(115,103,240,0.6));
+  flex-shrink: 0;
+  margin: 0;
+  line-height: 1;
+}
+
+.modeName {
+  font-family: var(--font-disp);
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  margin: 0 0 0.3rem;
+  line-height: 1.2;
+}
+
+.modeTag {
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  opacity: 0.65;
+  margin: 0;
+}
+
+.modeDesc {
+  font-size: 0.88rem;
+  line-height: 2;
+  color: var(--dim);
+  margin: 0 0 1.5rem;
+}
+
+.modeTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.modeTags span {
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  padding: 0.28em 0.8em;
+  border: 1px solid rgba(115,103,240,0.25);
+  border-radius: 1px;
+  color: var(--dim);
+  opacity: 0.7;
+}
+
+/* ══════════════════════════════════════════════════
+   WIKI NAV
+   ══════════════════════════════════════════════════ */
+.wikiNav {
+  padding: 4rem 2rem 7rem;
+  max-width: 980px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+  border-top: 1px solid var(--border);
+}
+
+.wikiGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+
+.wikiCard {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  padding: 2rem 1.8rem;
+  background: var(--surface);
+  text-decoration: none !important;
+  color: var(--text) !important;
+  transition: background 0.25s ease, transform 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+.wikiCard::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary-d), var(--primary-l));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.wikiCard:hover { background: var(--surface2); }
+.wikiCard:hover::after { transform: scaleX(1); }
+
+.wikiGlyph {
+  display: block;
+  font-size: 1.6rem;
+  color: var(--primary-l);
+  filter: drop-shadow(0 0 8px rgba(115,103,240,0.5));
+  margin-bottom: 1rem;
+  transition: filter 0.25s, transform 0.25s;
+}
+.wikiCard:hover .wikiGlyph {
+  filter: drop-shadow(0 0 16px rgba(115,103,240,0.9));
+  transform: scale(1.1);
+}
+
+.wikiLabel {
+  display: block;
+  font-family: var(--font-disp);
+  font-size: 1.15rem;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.5rem;
+}
+
+.wikiSub {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--dim);
+  letter-spacing: 0.06em;
+  line-height: 1.7;
+  opacity: 0.55;
+}
+
+.wikiArrow {
+  display: block;
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--primary-l);
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.25s, transform 0.25s;
+}
+.wikiCard:hover .wikiArrow { opacity: 0.7; transform: translateX(0); }
+
+/* ══════════════════════════════════════════════════
+   ATTRIBUTION
+   ══════════════════════════════════════════════════ */
+.attr {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  padding: 2.5rem 2rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  color: var(--dim);
+  opacity: 0.35;
+  border-top: 1px solid var(--border);
+}
+
+.attrDeco { color: var(--primary-l); }
+
+/* ══════════════════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .factions {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+  .factionSoul  { padding: 3.5rem 2rem; align-items: center; text-align: center; border-right: none; border-bottom: 1px solid rgba(126,207,255,0.08); }
+  .factionGuard { padding: 3.5rem 2rem; align-items: center; text-align: center; border-left: none; border-top: 1px solid rgba(255,107,107,0.08); }
+  .factionSoul  .factionInner,
+  .factionGuard .factionInner { align-items: center; }
+  .factionGuard .factionTraits li { flex-direction: row; }
+  .factionDivider { flex-direction: row; width: 100%; height: 60px; padding: 0 2rem; }
+  .dividerLine { flex: 1; width: auto; height: 1px; background: linear-gradient(to right, transparent, rgba(115,103,240,0.5) 30%, rgba(115,103,240,0.5) 70%, transparent); animation: none; }
+  .dividerText { writing-mode: horizontal-tb; padding: 0 1rem; }
+  .wikiGrid { grid-template-columns: repeat(2, 1fr); }
+  .modesGrid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+  .hero { padding: 6rem 1.5rem 4rem; }
+  .factionSoul, .factionGuard { padding: 3rem 1.5rem; }
+  .modes, .wikiNav { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .wikiGrid { grid-template-columns: 1fr; }
+  .modeCard { padding: 1.8rem 1.5rem; }
+}

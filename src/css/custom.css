@@ -1,0 +1,749 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap');
+
+/* ═══════════════════════════════════════════════════
+   MidSoul Wiki — Global Theme
+   Primary: #7367F0 | Supports light + dark mode
+   ═══════════════════════════════════════════════════ */
+
+/* ── Shared tokens (theme-agnostic) ─────────────── */
+:root {
+  --ifm-color-primary: #7367F0;
+  --ifm-color-primary-dark: #5a50d4;
+  --ifm-color-primary-darker: #4840b8;
+  --ifm-color-primary-darkest: #36309c;
+  --ifm-color-primary-light: #9d94f5;
+  --ifm-color-primary-lighter: #bdb8f9;
+  --ifm-color-primary-lightest: #dddafc;
+  --ifm-code-font-size: 94%;
+  --ifm-line-height-base: 2;
+  --ifm-font-family-base: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --ifm-heading-font-family: 'Noto Serif SC', serif;
+}
+
+/* ── Light mode tokens ──────────────────────────── */
+:root,
+[data-theme='light'] {
+  --ms-border: rgba(115, 103, 240, 0.2);
+  --ms-surface: rgba(115, 103, 240, 0.05);
+  --ms-surface2: rgba(115, 103, 240, 0.08);
+  --ms-text-dim: rgba(30, 20, 80, 0.55);
+  --ms-text-muted: rgba(30, 20, 80, 0.35);
+  --ms-icon: rgba(30, 20, 80, 0.5);
+  --ms-icon-hover: rgba(30, 20, 80, 0.85);
+  --ms-navbar-bg: rgba(255, 255, 255, 0.88);
+}
+
+/* ── Dark mode tokens ───────────────────────────── */
+[data-theme='dark'] {
+  --ms-border: rgba(115, 103, 240, 0.18);
+  --ms-surface: rgba(115, 103, 240, 0.08);
+  --ms-surface2: rgba(115, 103, 240, 0.12);
+  --ms-text-dim: rgba(237, 233, 255, 0.5);
+  --ms-text-muted: rgba(237, 233, 255, 0.3);
+  --ms-icon: rgba(237, 233, 255, 0.5);
+  --ms-icon-hover: rgba(237, 233, 255, 0.9);
+  --ms-navbar-bg: rgba(6, 5, 15, 0.88);
+
+  --ifm-background-color: #06050f;
+  --ifm-background-surface-color: #0c0b1e;
+  --ifm-card-background-color: #0c0b1e;
+  --ifm-navbar-background-color: var(--ms-navbar-bg);
+  --ifm-navbar-shadow: 0 1px 0 0 var(--ms-border);
+  --ifm-footer-background-color: #04030a;
+  --ifm-toc-border-color: var(--ms-border);
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.35);
+}
+
+/* ══════════════════════════════════════════════════
+   NAVBAR — structure (shared)
+   ══════════════════════════════════════════════════ */
+.navbar {
+  border-bottom: 1px solid var(--ms-border);
+  padding: 0 1rem;
+  background: var(--ms-navbar-bg);
+  position: relative;
+}
+
+/* 把毛玻璃效果改到伪元素上，不影响子元素定位基准 */
+.navbar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Navbar logo — MidSoul-Logo.png */
+.navbar__brand {
+  gap: 0.5rem;
+  align-items: center;
+  margin-right: 0rem !important;
+}
+
+/* Nav item icons (lucide-style SVG via CSS) */
+.nav-wiki::before,
+.nav-blog::before {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-right: 5px;
+  vertical-align: -2px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex-shrink: 0;
+  opacity: 0.75;
+  transition: opacity 0.2s;
+}
+
+.nav-wiki:hover::before,
+.nav-blog:hover::before {
+  opacity: 1;
+}
+
+/* Book icon — 百科 */
+[data-theme='dark'] .nav-wiki::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23ede9ff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20'/%3E%3C/svg%3E");
+}
+
+[data-theme='light'] .nav-wiki::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%231a1440' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20'/%3E%3C/svg%3E");
+}
+
+/* History icon — 更新日志 */
+[data-theme='dark'] .nav-blog::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23ede9ff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8'/%3E%3Cpath d='M3 3v5h5'/%3E%3Cpath d='M12 7v5l4 2'/%3E%3C/svg%3E");
+}
+
+[data-theme='light'] .nav-blog::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%231a1440' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8'/%3E%3Cpath d='M3 3v5h5'/%3E%3Cpath d='M12 7v5l4 2'/%3E%3C/svg%3E");
+}
+
+/* Nav links */
+.navbar__link {
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.navbar__link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--ifm-color-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.navbar__link:hover::after,
+.navbar__link--active::after {
+  transform: scaleX(1);
+}
+
+/* ── Right side: equal spacing ── */
+.navbar__items--right {
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.navbar__items--right>*,
+.navbar__items--right .navbar__item {
+  margin: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Heart Fire Project link */
+.navbar-github-link {
+  height: 34px !important;
+  min-width: 7rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 0.7rem !important;
+  letter-spacing: 0.1em !important;
+  padding: 0 1.2em !important;
+  border: 1px solid var(--ms-border) !important;
+  border-radius: 2px !important;
+  background: var(--ms-surface) !important;
+  color: var(--ms-text-dim) !important;
+  transition: all 0.2s ease !important;
+  white-space: nowrap;
+}
+
+.navbar-github-link::after {
+  display: none !important;
+}
+
+.navbar-github-link:hover {
+  color: var(--ifm-color-primary) !important;
+  border-color: rgba(115, 103, 240, 0.45) !important;
+  background: var(--ms-surface2) !important;
+}
+
+/* Color mode toggle */
+[class*='colorModeToggle'] button,
+[class*='toggleButton'] {
+  width: 34px !important;
+  height: 34px !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 1px solid var(--ms-border) !important;
+  border-radius: 2px !important;
+  background: var(--ms-surface) !important;
+  transition: border-color 0.2s, background 0.2s !important;
+}
+
+[class*='colorModeToggle'] button:hover,
+[class*='toggleButton']:hover {
+  border-color: rgba(115, 103, 240, 0.45) !important;
+  background: var(--ms-surface2) !important;
+}
+
+[class*='colorModeToggle'] svg,
+[class*='toggleButton'] svg,
+[class*='lightToggleIcon'],
+[class*='darkToggleIcon'] {
+  fill: var(--ms-icon) !important;
+  stroke: var(--ms-icon) !important;
+  width: 16px !important;
+  height: 16px !important;
+  transition: fill 0.2s, stroke 0.2s !important;
+}
+
+[class*='colorModeToggle'] button:hover svg,
+[class*='toggleButton']:hover svg {
+  fill: var(--ms-icon-hover) !important;
+  stroke: var(--ms-icon-hover) !important;
+}
+
+/* Search */
+[class*='searchBarContainer'],
+[class*='searchBarContainer']>* {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.navbar__search-input {
+  height: 34px !important;
+  border: 1px solid var(--ms-border) !important;
+  border-radius: 2px !important;
+  font-family: var(--ifm-font-family-base) !important;
+  font-size: 0.82rem !important;
+  transition: border-color 0.2s, background 0.2s !important;
+}
+
+[data-theme='dark'] .navbar__search-input {
+  background-color: rgba(115, 103, 240, 0.06) !important;
+  /* replace black search icon with a light-colored one */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3E%3Ccircle cx='8.5' cy='8.5' r='5.75' stroke='%23ede9ff' stroke-opacity='0.35' stroke-width='1.5'/%3E%3Cpath d='M13 13l3.5 3.5' stroke='%23ede9ff' stroke-opacity='0.35' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") !important;
+  color: rgba(237, 233, 255, 0.8) !important;
+}
+
+[data-theme='dark'] .navbar__search-input:focus {
+  border-color: rgba(115, 103, 240, 0.5) !important;
+  background-color: rgba(115, 103, 240, 0.1) !important;
+}
+
+[data-theme='dark'] .navbar__search-input::placeholder {
+  color: rgba(237, 233, 255, 0.25) !important;
+}
+
+/* ══════════════════════════════════════════════════
+   FOOTER
+   ══════════════════════════════════════════════════ */
+.footer {
+  border-top: 1px solid var(--ms-border);
+  padding: 3rem 2rem 2rem;
+}
+
+.footer__title {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: none;
+  border-bottom: 1px solid var(--ms-border);
+  padding-bottom: 0.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.footer__item {
+  margin: 0.35rem 0;
+}
+
+.footer__link-item {
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  transition: color 0.2s, padding-left 0.2s;
+}
+
+.footer__link-item:hover {
+  padding-left: 4px;
+}
+
+.footer__copyright {
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  border-top: 1px solid var(--ms-border);
+  padding-top: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* ══════════════════════════════════════════════════
+   DOCS — SIDEBAR
+   ══════════════════════════════════════════════════ */
+.menu {
+  padding:0.5rem 0.6rem !important;
+  font-size: 0.85rem;
+}
+
+.menu__link {
+  font-size: 0.84rem;
+  letter-spacing: 0.04em;
+  border-radius: 3px;
+  padding: 0.45rem 0.9rem;
+  transition: background 0.2s, color 0.2s, padding-left 0.2s;
+  line-height: 1.5;
+}
+
+.menu__link:hover {
+  background: var(--ms-surface2);
+  padding-left: 1.1rem;
+}
+
+.menu__link--active {
+  background: var(--ms-surface2) !important;
+  color: var(--ifm-color-primary) !important;
+  border-left: 2px solid var(--ifm-color-primary);
+  padding-left: calc(0.9rem - 2px);
+  font-weight: 500;
+}
+
+/* ══════════════════════════════════════════════════
+   DOCS — ARTICLE
+   ══════════════════════════════════════════════════ */
+
+/* H1 */
+.markdown h1 {
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 400;
+  font-size: 2.2rem;
+  letter-spacing: 0.12em;
+  border-bottom: 1px solid var(--ms-border);
+  padding-bottom: 0.6em;
+  margin-bottom: 1.5rem;
+}
+
+[data-theme='dark'] .markdown h1 {
+  background: linear-gradient(120deg, #ffffff, #c8c2ff 60%, #9d94f5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme='light'] .markdown h1 {
+  background: linear-gradient(120deg, #1a1040, #5a50d4 60%, #7367F0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* H2 */
+.markdown h2 {
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+  letter-spacing: 0.1em;
+  border-bottom: 1px solid var(--ms-border);
+  padding-bottom: 0.35em;
+  margin-top: 2.5rem;
+}
+
+/* H3 */
+.markdown h3 {
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 400;
+  font-size: 1.15rem;
+  letter-spacing: 0.08em;
+  margin-top: 2rem;
+}
+
+/* Tables */
+.markdown table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.85rem;
+  margin: 1.5rem 0;
+  border: 1px solid var(--ms-border);
+}
+
+.markdown thead tr {
+  background: var(--ms-surface2);
+}
+
+.markdown th {
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  font-size: 0.8rem;
+  border: 1px solid var(--ms-border);
+  padding: 0.7rem 1rem;
+}
+
+.markdown td {
+  border: 1px solid var(--ms-border);
+  padding: 0.6rem 1rem;
+  line-height: 1.8;
+}
+
+.markdown tbody tr:hover td {
+  background: var(--ms-surface);
+}
+
+/* Inline code */
+.markdown code {
+  background: var(--ms-surface2);
+  border: 1px solid var(--ms-border);
+  border-radius: 3px;
+  font-size: 0.88em;
+  padding: 0.15em 0.45em;
+  color: var(--ifm-color-primary);
+}
+
+/* Blockquote */
+.markdown blockquote {
+  border-left: 3px solid var(--ifm-color-primary);
+  background: var(--ms-surface);
+  margin: 1.5rem 0;
+  padding: 0.8rem 1.2rem;
+  border-radius: 0 3px 3px 0;
+}
+
+/* ══════════════════════════════════════════════════
+   DOCS — BREADCRUMBS
+   ══════════════════════════════════════════════════ */
+.breadcrumbs__link {
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  transition: color 0.2s;
+}
+
+.breadcrumbs__link:hover {
+  color: var(--ifm-color-primary) !important;
+}
+
+.breadcrumbs__separator {
+  opacity: 0.3;
+}
+
+/* ══════════════════════════════════════════════════
+   DOCS — TOC (right sidebar)
+   ══════════════════════════════════════════════════ */
+.table-of-contents {
+  border-left: 1px solid var(--ms-border) !important;
+  font-size: 0.78rem;
+}
+
+.table-of-contents__link {
+  letter-spacing: 0.03em;
+  transition: color 0.2s;
+  line-height: 1.6;
+  color: var(--ms-text-dim);
+}
+
+.table-of-contents__link:hover,
+.table-of-contents__link--active {
+  color: var(--ifm-color-primary) !important;
+}
+
+.table-of-contents__link--active {
+  border-left: 2px solid var(--ifm-color-primary);
+  padding-left: 4px;
+  margin-left: -6px;
+}
+
+/* ══════════════════════════════════════════════════
+   DOCS — PAGINATION
+   ══════════════════════════════════════════════════ */
+.pagination-nav {
+  gap: 1rem;
+  margin-top: 3rem;
+  border-top: 1px solid var(--ms-border);
+  padding-top: 2rem;
+}
+
+.pagination-nav__link {
+  border: 1px solid var(--ms-border);
+  border-radius: 3px;
+  background: var(--ms-surface);
+  transition: all 0.25s ease;
+  padding: 1rem 1.4rem;
+}
+
+.pagination-nav__link:hover {
+  border-color: rgba(115, 103, 240, 0.45);
+  background: var(--ms-surface2);
+  transform: translateY(-2px);
+}
+
+.pagination-nav__sublabel {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ms-text-muted);
+  margin-bottom: 0.3rem;
+}
+
+.pagination-nav__label {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  font-weight: 400;
+}
+
+/* ══════════════════════════════════════════════════
+   MISC
+   ══════════════════════════════════════════════════ */
+.theme-edit-this-page {
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: var(--ms-text-muted) !important;
+  transition: color 0.2s;
+}
+
+.theme-edit-this-page:hover {
+  color: var(--ifm-color-primary) !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(115, 103, 240, 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(115, 103, 240, 0.55);
+}
+
+/* Selection */
+::selection {
+  background: rgba(115, 103, 240, 0.3);
+  color: inherit;
+}
+
+/* ══════════════════════════════════════════════════
+   MOBILE NAVBAR  (≤ 996px)
+   ══════════════════════════════════════════════════ */
+@media (max-width: 996px) {
+
+  /* ── 顶部导航栏 ─────────────────────────────────
+     布局：[汉堡] [logo]  →  右侧只保留主题切换
+     心火计划按钮 min-width:7rem 在移动顶栏里会挤压，
+     全部隐藏；它会在侧边栏中心出现。
+  ─────────────────────────────────────────────── */
+  .navbar {
+    padding: 0 0.85rem;
+    height: 56px;
+  }
+
+  /* 确保 brand / logo 始终可见 */
+  .navbar__brand {
+    flex: 1;
+    min-width: 0;
+    margin-right: 0 !important;
+  }
+
+  .navbar__logo {
+    display: flex !important;
+    align-items: center;
+  }
+
+  .navbar__logo img {
+    height: 28px;
+    width: auto;
+    display: block !important;
+  }
+
+  /* 汉堡按钮 */
+  .navbar__toggle {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    border: 1px solid var(--ms-border);
+    border-radius: 2px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    color: inherit;
+    margin-right: 0.5rem;
+  }
+
+  .navbar__toggle:hover {
+    background: var(--ms-surface2);
+  }
+
+  /* 顶栏右侧：允许收缩以容纳搜索框 */
+  .navbar__items--right {
+    flex-shrink: 1;
+    gap: 0.4rem;
+    min-width: 0;
+  }
+
+  /* 心火计划按钮：从顶栏隐藏（移至侧边栏） */
+  .navbar__items--right .navbar-github-link {
+    display: none !important;
+  }
+
+  /* 搜索框：移动端保留在顶栏，插件在 <576px 时自动缩为 2rem 小图标 */
+  .navbar__items--right .navbar__search {
+    flex-shrink: 1;
+    min-width: 0;
+  }
+
+  /* 平板端（577–996px）限制搜索框最大宽度，防止挤压 logo */
+  .navbar__search-input {
+    max-width: 160px;
+  }
+
+  /* 禁用顶栏下划线滑入动画（仅限顶栏，非侧边栏） */
+  .navbar__items .navbar__link::after {
+    display: none !important;
+  }
+
+  /* ── 侧边栏 ─────────────────────────────────────
+     位置：从左侧滑入，full-height，毛玻璃背景
+  ─────────────────────────────────────────────── */
+  .navbar-sidebar {
+    background: var(--ms-navbar-bg) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border-right: 1px solid var(--ms-border) !important;
+  }
+
+  /* 遮罩层 */
+  .navbar-sidebar__backdrop {
+    background: rgba(0, 0, 0, 0.45) !important;
+  }
+
+  /* 侧边栏顶部 brand 区 */
+  .navbar-sidebar__brand {
+    height: 56px;
+    padding: 0 1rem;
+    border-bottom: 1px solid var(--ms-border);
+    display: flex;
+    align-items: center;
+  }
+
+  /* 侧边栏关闭按钮 */
+  .navbar-sidebar__close {
+    width: 36px !important;
+    height: 36px !important;
+    border: 1px solid var(--ms-border) !important;
+    border-radius: 2px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: background 0.2s;
+  }
+
+  .navbar-sidebar__close:hover {
+    background: var(--ms-surface2) !important;
+  }
+
+  /* 侧边栏内容区 */
+  .navbar-sidebar__items {
+    padding: 0.5rem 0.75rem;
+  }
+
+  /* 每条导航链接 — 48px 触摸高度 */
+  .navbar-sidebar__items .navbar__item {
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .navbar-sidebar__items .navbar__link {
+    width: 100%;
+    display: flex !important;
+    align-items: center;
+    min-height: 48px;
+    font-size: 0.9rem;
+    padding: 0 0.9rem !important;
+    margin: 2px 0;
+    border-radius: 3px;
+    transition: background 0.2s, padding-left 0.2s;
+  }
+
+  .navbar-sidebar__items .navbar__link:hover {
+    background: var(--ms-surface2);
+    padding-left: 1.2rem !important;
+    color: var(--ifm-color-primary);
+  }
+
+  .navbar-sidebar__items .navbar__link--active {
+    color: var(--ifm-color-primary) !important;
+    background: var(--ms-surface2);
+    border-left: 2px solid var(--ifm-color-primary);
+    padding-left: calc(0.9rem - 2px) !important;
+  }
+
+  /* 侧边栏中的心火计划链接：去掉桌面按钮样式 */
+  .navbar-sidebar__items .navbar-github-link,
+  .navbar-sidebar .navbar-github-link {
+    height: auto !important;
+    min-height: 48px !important;
+    min-width: unset !important;
+    border: none !important;
+    border-radius: 3px !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    justify-content: flex-start !important;
+    padding: 0 0.9rem !important;
+    font-size: 0.9rem !important;
+    color: inherit !important;
+    letter-spacing: 0.04em !important;
+    white-space: normal;
+  }
+
+  .navbar-sidebar__items .navbar-github-link:hover,
+  .navbar-sidebar .navbar-github-link:hover {
+    background: var(--ms-surface2) !important;
+    color: var(--ifm-color-primary) !important;
+    padding-left: 1.2rem !important;
+    border-color: transparent !important;
+  }
+
+  /* 侧边栏中的图标垂直对齐 */
+  .navbar-sidebar .nav-wiki::before,
+  .navbar-sidebar .nav-blog::before {
+    flex-shrink: 0;
+    margin-right: 0.5rem;
+    margin-top: 0;
+    vertical-align: middle;
+  }
+
+  /* 侧边栏中关闭下划线动画 */
+  .navbar-sidebar .navbar__link::after {
+    display: none !important;
+  }
+}

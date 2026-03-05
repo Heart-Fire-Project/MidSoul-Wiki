@@ -1,0 +1,19 @@
+balance:
+  label: 平衡调整
+  description: 游戏数值与机制的平衡性调整
+
+feature:
+  label: 新功能
+  description: 新增功能或玩法
+
+bugfix:
+  label: 问题修复
+  description: Bug 修复与异常处理
+
+map:
+  label: 地图更新
+  description: 地图内容的新增或改动
+
+ability:
+  label: 能力调整
+  description: 天赋、技能或宝物的改动
