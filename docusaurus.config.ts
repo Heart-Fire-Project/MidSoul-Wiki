@@ -11,8 +11,8 @@ const config: Config = {
     v4: true,
   },
 
-  url: "https://heimnad.github.io",
-  baseUrl: "/MidSoul-Wiki/",
+  url: "https://wiki.hfpro.dev",
+  baseUrl: "/MidSoul/",
 
   organizationName: "HeimNad",
   projectName: "MidSoul-Wiki",
