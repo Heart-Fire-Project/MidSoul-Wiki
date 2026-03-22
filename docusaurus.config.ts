@@ -14,9 +14,8 @@ const config: Config = {
   url: "https://wiki.hfpro.dev",
   baseUrl: "/MidSoul/",
 
-  organizationName: "HeimNad",
+  organizationName: "Heart Fire Project",
   projectName: "MidSoul-Wiki",
-  deploymentBranch: "gh-pages",
   trailingSlash: false,
 
   onBrokenLinks: "throw",

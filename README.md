@@ -21,7 +21,7 @@ MidSoul-Wiki 是 [Heart Fire Project](https://github.com/Heart-Fire-Project) 旗
 
 1. **克隆仓库**
    ```bash
-   git clone https://github.com/HeimNad/MidSoul-Wiki.git
+   git clone https://github.com/Heart-Fire-Project/MidSoul-Wiki.git
    cd MidSoul-Wiki
    ```
 
