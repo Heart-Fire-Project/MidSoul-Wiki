@@ -12,7 +12,7 @@ const config: Config = {
   },
 
   url: "https://wiki.hfpro.dev",
-  baseUrl: "/MidSoul/",
+  baseUrl: "/midsoul/",
 
   organizationName: "Heart Fire Project",
   projectName: "MidSoul-Wiki",
