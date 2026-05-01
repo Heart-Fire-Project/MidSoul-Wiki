@@ -17,3 +17,7 @@ map:
 ability:
   label: 能力调整
   description: 天赋、技能或宝物的改动
+
+improvement:
+  label: 体验优化
+  description: 游戏体验的改进与优化
