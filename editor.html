@@ -1226,30 +1226,30 @@ function renderMDX(source) {
 
       // Parse cols array
       let cols = [];
-      const colsMatch = attrs.match(/cols=\{(\[[\s\S]*?\])\}/);
+      const colsMatch = attrs.match(/cols=\{(\[[\s\S]*)\}/);
       if (colsMatch) {
-        try { cols = JSON.parse(colsMatch[1].replace(/'/g, '"')); } catch(e) {}
+        try { cols = JSON.parse(colsMatch[1].replace(/'/g, '"').replace(/,\s*([\])])/g, '$1')); } catch(e) {}
       }
 
       // Parse rows array
       let rows = [];
-      const rowsMatch = attrs.match(/rows=\{(\[[\s\S]*?\])\}/);
+      const rowsMatch = attrs.match(/rows=\{(\[[\s\S]*)\}/);
       if (rowsMatch) {
-        try { rows = JSON.parse(rowsMatch[1].replace(/'/g, '"')); } catch(e) {}
+        try { rows = JSON.parse(rowsMatch[1].replace(/'/g, '"').replace(/,\s*([\])])/g, '$1')); } catch(e) {}
       }
 
       // Parse header array
       let header = [];
-      const headerMatch = attrs.match(/header=\{(\[[\s\S]*?\])\}/);
+      const headerMatch = attrs.match(/header=\{(\[[\s\S]*)\}/);
       if (headerMatch) {
-        try { header = JSON.parse(headerMatch[1].replace(/'/g, '"')); } catch(e) {}
+        try { header = JSON.parse(headerMatch[1].replace(/'/g, '"').replace(/,\s*([\])])/g, '$1')); } catch(e) {}
       }
 
       // Parse cells array (nested)
       let cells = [];
-      const cellsMatch = attrs.match(/cells=\{(\[[\s\S]*?\])\}/);
+      const cellsMatch = attrs.match(/cells=\{(\[[\s\S]*)\}/);
       if (cellsMatch) {
-        try { cells = JSON.parse(cellsMatch[1].replace(/'/g, '"')); } catch(e) {}
+        try { cells = JSON.parse(cellsMatch[1].replace(/'/g, '"').replace(/,\s*([\])])/g, '$1')); } catch(e) {}
       }
 
       // Generate unique ID for scoping
@@ -1381,54 +1381,61 @@ function getSelection() {
   return { start, end, selected: text.slice(start, end), before: text.slice(0, start), after: text.slice(end) };
 }
 
-function insertAtCursor(before, after = '', defaultText = '文字') {
-  const { start, end, selected } = getSelection();
-  const insert = selected || defaultText;
-  const newVal = editor.value.slice(0, start) + before + insert + after + editor.value.slice(end);
-  editor.value = newVal;
-  const newStart = start + before.length;
-  const newEnd   = newStart + insert.length;
+// 通用插入辅助：用 execCommand 保留浏览器原生撤销栈
+function execInsert(text) {
   editor.focus();
-  editor.setSelectionRange(newStart, newEnd);
+  // execCommand 已被标记为废弃但主流浏览器仍完整支持，且是保留 undo 栈的唯一方式
+  if (!document.execCommand('insertText', false, text)) {
+    // 降级：直接赋值（Safari 部分情况）
+    const { start, end } = getSelection();
+    editor.value = editor.value.slice(0, start) + text + editor.value.slice(end);
+    editor.setSelectionRange(start + text.length, start + text.length);
+  }
+}
+
+function insertAtCursor(before, after = '', defaultText = '文字') {
+  editor.focus();
+  const { start, selected } = getSelection();
+  const insert = selected || defaultText;
+  execInsert(before + insert + after);
+  // 重新选中中间部分
+  const cursor = editor.selectionStart; // execCommand 后光标在末尾
+  editor.setSelectionRange(cursor - after.length - insert.length, cursor - after.length);
   scheduleUpdate();
 }
 
 function insertLinePrefix(prefix) {
-  const { start, end } = getSelection();
-  const text = editor.value;
-  // Find line start
-  let lineStart = text.lastIndexOf('\n', start - 1) + 1;
-  const line = text.slice(lineStart, text.indexOf('\n', start) === -1 ? text.length : text.indexOf('\n', start));
-  // Remove existing heading prefix if any
-  const cleaned = line.replace(/^#{1,6}\s?/, '');
-  const newLine = prefix + cleaned;
-  const newVal = text.slice(0, lineStart) + newLine + text.slice(lineStart + line.length);
-  editor.value = newVal;
   editor.focus();
+  const { start } = getSelection();
+  const text = editor.value;
+  const lineStart = text.lastIndexOf('\n', start - 1) + 1;
+  const lineEndIdx = text.indexOf('\n', start);
+  const lineEnd = lineEndIdx === -1 ? text.length : lineEndIdx;
+  const line = text.slice(lineStart, lineEnd);
+  const cleaned = line.replace(/^#{1,6}\s?|^>\s?|^-\s|^\d+\.\s/, '');
+  const newLine = prefix + cleaned;
+  // 选中整行替换
+  editor.setSelectionRange(lineStart, lineEnd);
+  execInsert(newLine);
   editor.setSelectionRange(lineStart + prefix.length, lineStart + newLine.length);
   scheduleUpdate();
 }
 
 function insertBlock(text) {
+  editor.focus();
   const { start } = getSelection();
   const val = editor.value;
-  // Ensure blank line before
   const before = val.slice(0, start);
   const after  = val.slice(start);
   const prefix = (before.length > 0 && !before.endsWith('\n\n')) ? '\n\n' : '';
   const suffix = after.startsWith('\n') ? '' : '\n';
-  editor.value = before + prefix + text + suffix + after;
-  editor.focus();
-  const pos = start + prefix.length + text.length + suffix.length;
-  editor.setSelectionRange(pos, pos);
+  execInsert(prefix + text + suffix);
   scheduleUpdate();
 }
 
 function insertRaw(text) {
-  const { start, end } = getSelection();
-  editor.value = editor.value.slice(0, start) + text + editor.value.slice(end);
   editor.focus();
-  editor.setSelectionRange(start + text.length, start + text.length);
+  execInsert(text);
   scheduleUpdate();
 }
 
@@ -1493,10 +1500,7 @@ editor.addEventListener('keydown', e => {
   // Tab indentation
   if (e.key === 'Tab') {
     e.preventDefault();
-    const { start, end } = getSelection();
-    const val = editor.value;
-    editor.value = val.slice(0, start) + '  ' + val.slice(end);
-    editor.setSelectionRange(start + 2, start + 2);
+    execInsert('  ');
   }
 });
 
