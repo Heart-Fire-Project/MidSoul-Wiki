@@ -1,0 +1,2552 @@
+{
+  "format": "tiptap-v1",
+  "frontmatter": "---\nsidebar_position: 1\n---\n",
+  "content": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": null,
+          "level": 1
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "全局机制"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "玩家状态"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "灵魂"
+          }
+        ]
+      },
+      {
+        "type": "blockquote",
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "收集碎片，于月下复活自己"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": null,
+          "level": 4
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "活跃状态"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "该状态下灵魂拥有 20 点基础血量上限，基础移速与原版大致相当，可以与游戏物件交互。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "在受击时若没有死亡，则在 7 秒内移速 +100% 且不会受到伤害⁺；若死亡，则进入垂死状态。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "ink",
+                "attrs": {
+                  "fg": null,
+                  "bg": "#F2F3F5",
+                  "fgDark": null,
+                  "bgDark": "#333333"
+                }
+              }
+            ],
+            "text": "⁺ 仙人掌、甜浆果丛、窒息伤害不触发"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": null,
+          "level": 4
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "垂死状态"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "进入此状态时生成一个灵魂之灯并重置生效能力；该状态下的灵魂不会受到伤害，但不可移动、交互或使用能力。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "首次 / 再次 / 第三次及以后进入该状态时，其基础持续时间为 60 / 40 / 20 秒；在此期间其他灵魂可通过点亮灵魂之灯来进行救助。被救助的灵魂将进入活跃状态并扣除 10 血量，随后传送到被点亮的灵魂之灯处并在 7 秒内移速 +100% 且在 15 秒内不会受到伤害。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "若灵魂在垂死状态持续期间并未被救助，则其消亡。"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "灵魂守卫者"
+          }
+        ]
+      },
+      {
+        "type": "blockquote",
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "阻止灵魂，让他们永困于此"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": null,
+          "level": 4
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "常驻状态"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "不会受到伤害；持有一把常态可以造成 10 点伤害的武器，移速约为原版的 120%，只能与灵魂宝物盒交互。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "在拥有伤害加成时，普通攻击造成的伤害与可加成的技能伤害将会翻倍。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "攻击到任意目标后，进入擦刀状态。"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": null,
+          "level": 4
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "擦刀状态"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "进入此状态时重置生效能力；该状态下的灵魂守卫者不会受到伤害，但不可移动、交互或使用能力。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "该状态基础持续时间为 7 秒，结束后进入常驻状态。"
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "游戏物件"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "在下面所述的各个物件周围蹲下即视为正在与其交互，交互进度将在经验条处显示。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "基础交互范围为 0.7 格，若处于多个物件交互范围内可以同时与它们交互。"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "灵魂碎片"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "形如回响碎片；基础交互时长 3.5 秒，交互完成时视为收集了该灵魂碎片。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "收集进度达到特定节点可能会使地图上的某些部位变化。"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "灵魂之灯"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "该物件持续发光，形如灵魂灯笼；基础交互时长 7 秒，交互完成时视为点亮了该灵魂之灯。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "点亮灵魂之灯时将救助垂死状态持续时间最短的垂死灵魂。"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "灵魂宝物盒"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "该物件持续散发萤火虫粒子，形如淡灰色潜影盒；基础交互时长 5 秒，交互完成时视为打开了该灵魂宝物盒。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "打开后的效果如下："
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              },
+              {
+                "type": "ink",
+                "attrs": {
+                  "fg": "#245BDB",
+                  "bg": null,
+                  "fgDark": "#71A0FF",
+                  "bgDark": null
+                }
+              }
+            ],
+            "text": "灵魂方："
+          },
+          {
+            "type": "text",
+            "text": "获取一个灵魂宝物，若已有则自身在 3 秒内回复 5 点血量并使最近的灵魂守卫者发光 3 秒；"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              },
+              {
+                "type": "ink",
+                "attrs": {
+                  "fg": "#D83931",
+                  "bg": null,
+                  "fgDark": "#FA7974",
+                  "bgDark": null
+                }
+              }
+            ],
+            "text": "灵魂守卫者方："
+          },
+          {
+            "type": "text",
+            "text": "自身在 10 秒内速度 +40% 并使最近的灵魂发光 5 秒。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "基础刷新时间 180 秒，若场上已有数量超过上限则暂不生成，等待其数量降低至上限以下时再立即生成。"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "传送门"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "该物件持续发光，形如幽匿尖啸体；基础交互时长 50 秒。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "交互时视为对传送门充能，正在充能的灵魂将会持续发光，并发出全局音效提示灵魂守卫者；交互完成时视为传送门开启，其将发出显著光束，灵魂可以经由其复活。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "注意，与其他物件不同，传送门可以存储交互进度，亦可以被多个玩家同时交互并加速其进程（有修正机制）。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "在未被充能时，传送门将每秒损失 0.2 秒交互进度；但在达到 35% / 70% 后不再会损失到 30% / 60% 以下。"
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "attrs": {
+          "hideHeader": false,
+          "noFirstCol": false
+        },
+        "content": [
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    100
+                  ],
+                  "align": "left",
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "交互玩家数"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    100
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "1"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    100
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "2"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    104
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "3"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    100
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "4+"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 3,
+                  "colwidth": [
+                    316
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "注意："
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "充能结算取当前正在对传送门交互的所有玩家的交互速度平均值再乘以累计倍率；因而低交互速度玩家参与交互可能降低整体交互速率！"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    100
+                  ],
+                  "align": "left",
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "提升倍率"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    100
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "+100%"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    100
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "+25%"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    104
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "+15%"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    100
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "+10%"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    100
+                  ],
+                  "align": "left",
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "累计倍率"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    100
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "100%"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    100
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "125%"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    104
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "140%"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    100
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "150%"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "其他系统"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "气息探测"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "该机制以屏幕上方 Bossbar 的颜色来展现，以与敌方的距离为判定依据；下方展示的是基础值，实际可能不同。"
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "attrs": {
+          "hideHeader": false,
+          "noFirstCol": false
+        },
+        "content": [
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    126
+                  ],
+                  "align": "left",
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "颜色"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    126
+                  ],
+                  "align": null,
+                  "backgroundColor": "#FBC0BC",
+                  "backgroundOpacity": 0.55,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "红色"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    126
+                  ],
+                  "align": null,
+                  "backgroundColor": "#FFF897",
+                  "backgroundOpacity": 0.5,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "黄色"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    126
+                  ],
+                  "align": null,
+                  "backgroundColor": "#CEDCFE",
+                  "backgroundOpacity": 0.55,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "蓝色"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    126
+                  ],
+                  "align": "left",
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "灵魂"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    126
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "≤12 格"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    126
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "12~24 格"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 2,
+                  "colwidth": [
+                    126
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "＞24 格"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    126
+                  ],
+                  "align": "left",
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "灵魂守卫者"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    126
+                  ],
+                  "align": null,
+                  "backgroundColor": "#F2F3F5",
+                  "backgroundOpacity": 0.55,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "×"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    126
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "≤24 格"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "个人设置"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "玩家可以通过打开物品栏进行个人设置的调整，这些调整仅对其本人生效。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "可以设置的项目有："
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "即时表现分："
+                  },
+                  {
+                    "type": "text",
+                    "text": "实时在聊天栏发送自身行为所获得的表现分"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "交互提示："
+                  },
+                  {
+                    "type": "text",
+                    "text": "在可进行交互时在动作栏处显示提示"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "能力状态提示："
+                  },
+                  {
+                    "type": "text",
+                    "text": "在施放能力或能力结束时显示提示，也可选择仅显示被动（不由玩家的主动操作直接触发的）"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Tip!："
+                  },
+                  {
+                    "type": "text",
+                    "text": "不定期在聊天栏内发送游戏内外的小提示"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "回响提示："
+                  },
+                  {
+                    "type": "text",
+                    "text": "周期性在聊天栏内发送回响效果"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "玩家等级"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "一般而言，玩家将在每局游戏后获得等同于其本局游戏表现分的经验值；在经验值达到上限时，玩家即会升级。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "玩家等级初始为 0 级，当前上限 128 级；0 级提升至 1 级所需经验 E₀ 为 300 点，之后按照如下递归数列计算："
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "center"
+        },
+        "content": [
+          {
+            "type": "inlineMath",
+            "attrs": {
+              "latex": "E_n=E_{n-1}+n\\times(100+n)\\,\\%\\,\\text{（向下取整）}"
+            }
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "当前升级至上限需要的经验值总量为 608291 点。"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Tip!"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "在入场前与游戏中可能会在聊天栏出现的小提示；其中蓝色背景为灵魂独有，红色背景则为守卫者独有。"
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "attrs": {
+          "hideHeader": false,
+          "noFirstCol": true
+        },
+        "content": [
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "除了目测，你也可以用气息探测来粗略判定距离"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "如果有你不再需要的提示，可以在背包中调整个人设置将它关闭"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "隐身时，疾跑在你脚下产生的粒子可能会暴露你的行踪"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "如果看不到发光的目标，可以适当拉高“实体渲染距离”设置项"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "灵气机制触发后，即使后续不满足其触发条件也不会失效"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "如果你想感受没有充能阶段的时代，或许可以试试 1.0 版本"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "有任何问题和想法都可以和制作组说！公告栏里有联系方式哦"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "心火计划诚招：建筑/模型/绘制/程序，详询制作组"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": "#CEDCFE",
+                  "backgroundOpacity": 0.6,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "正在赶往灵魂之灯的大概不止有你的队友……"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": "#CEDCFE",
+                  "backgroundOpacity": 0.6,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "在持有宝物时打开灵魂宝物盒会回复血量并让守卫者发光"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": "#CEDCFE",
+                  "backgroundOpacity": 0.6,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "在充能阶段也可以收集碎片，这会延长该阶段的倒计时"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": "#CEDCFE",
+                  "backgroundOpacity": 0.6,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "点亮灵魂之灯时，会优先以剩余时间最短的垂死灵魂为救助目标"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": "#CEDCFE",
+                  "backgroundOpacity": 0.6,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "若场上仅剩最后一个灵魂，游戏将会给予其一定帮助"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": "#CEDCFE",
+                  "backgroundOpacity": 0.6,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "即使没有损失血量，受击后也仍会获得无敌与移速提升"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": "#FBC0BC",
+                  "backgroundOpacity": 0.55,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "别守着垂死的灵魂，那完全没用"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": "#FBC0BC",
+                  "backgroundOpacity": 0.55,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "你虽然无法持有灵魂宝物，但这并不妨碍你打开灵魂宝物盒"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": "#FBC0BC",
+                  "backgroundOpacity": 0.55,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "碎片量总是略微多于需求的，不要死守着碎片"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": "#FBC0BC",
+                  "backgroundOpacity": 0.55,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "作为守卫者，你的气息探测条是不会变红的，再近也不会"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": "#FBC0BC",
+                  "backgroundOpacity": 0.55,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "只要你的武器击中了东西，无论是否造成伤害都会进入擦刀状态"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": "#FBC0BC",
+                  "backgroundOpacity": 0.55,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "如果你的武器有附魔光效，那么此时你可以造成加倍的伤害"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        }
+      }
+    ]
+  }
+}

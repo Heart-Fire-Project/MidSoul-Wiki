@@ -1,11 +1,76 @@
 import { themes as prismThemes } from "prism-react-renderer";
-import type { Config } from "@docusaurus/types";
+import { promises as fs } from "node:fs";
+import path from "node:path";
+import type { Config, LoadContext, Plugin } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
+import rehypeKatex from "rehype-katex";
+import remarkMath from "remark-math";
+
+type ImageLibraryContent = { images: string[] };
+const IMAGE_FILE = /\.(?:avif|gif|jpe?g|png|svg|webp)$/i;
+// 编辑器通过本机 File System Access API 直接读写仓库文件，属于作者工具而
+// 非公开 Wiki 功能。生产构建必须不生成此路由；仅 docusaurus start 的开发
+// 环境会加载 src/pages/editor3.tsx。
+const isDevelopment = process.env.NODE_ENV === 'development';
+const defaultPageExcludes = [
+  '**/_*.{js,jsx,ts,tsx,md,mdx}',
+  '**/_*/**',
+  '**/*.test.{js,jsx,ts,tsx}',
+  '**/__tests__/**',
+];
+
+async function readImageLibrary(directory: string, relative = ''): Promise<string[]> {
+  let entries;
+  try { entries = await fs.readdir(directory, { withFileTypes: true }); } catch { return []; }
+  const images: string[] = [];
+  for (const entry of entries) {
+    const nextRelative = relative ? `${relative}/${entry.name}` : entry.name;
+    if (entry.isDirectory()) images.push(...await readImageLibrary(path.join(directory, entry.name), nextRelative));
+    else if (IMAGE_FILE.test(entry.name)) images.push(`/img/${nextRelative}`);
+  }
+  return images.sort((left, right) => left.localeCompare(right, 'zh'));
+}
+
+/** Make static/img browsable from the editor without bundling the image files into JavaScript. */
+function imageLibraryPlugin(context: LoadContext): Plugin {
+  const imageDirectory = path.join(context.siteDir, 'static', 'img');
+  return {
+    name: 'midsoul-image-library',
+    loadContent: async () => ({ images: await readImageLibrary(imageDirectory) }),
+    contentLoaded: async ({ content, actions }) => { actions.setGlobalData(content as ImageLibraryContent); },
+    getPathsToWatch: () => [path.join(imageDirectory, '**', '*')],
+  };
+}
 
 const config: Config = {
   title: "MidSoul Wiki",
   tagline: "探索午夜灵魂的世界",
   favicon: "img/favicon.svg",
+
+  // 浏览器中的可视化编辑器在调整复杂表格时偶尔触发 ResizeObserver 警告。
+  // 这不是应用异常；只让开发服务器不为这一条警告显示全屏错误遮罩，真正的
+  // 编译错误和其他运行时错误仍保持可见。
+  plugins: [
+    imageLibraryPlugin,
+    function suppressResizeObserverOverlay() {
+      return {
+        name: 'suppress-resize-observer-overlay',
+        // Docusaurus's plugin type omits webpack-dev-server options, although the
+        // development server accepts this setting at runtime.
+        configureWebpack(): any {
+          return {
+            devServer: {
+              client: {
+                overlay: {
+                  runtimeErrors: (error: Error) => !error.message.includes('ResizeObserver loop completed with undelivered notifications'),
+                },
+              },
+            },
+          };
+        },
+      };
+    },
+  ],
 
   future: {
     v4: true,
@@ -52,6 +117,8 @@ const config: Config = {
         docs: {
           sidebarPath: "./sidebars.ts",
           routeBasePath: "wiki",
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeKatex],
         },
         blog: {
           blogTitle: "更新日志",
@@ -68,6 +135,12 @@ const config: Config = {
           onInlineTags: "warn",
           onInlineAuthors: "warn",
           onUntruncatedBlogPosts: "warn",
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeKatex],
+        },
+        pages: {
+          // 显式保留 Docusaurus 默认排除规则，再在生产环境额外排除编辑器页面。
+          exclude: isDevelopment ? defaultPageExcludes : [...defaultPageExcludes, '**/editor3.tsx'],
         },
         theme: {
           customCss: "./src/css/custom.css",
@@ -126,17 +199,17 @@ const config: Config = {
         {
           title: "百科",
           items: [
-            { label: "整体介绍", to: "/wiki/午夜灵魂/整体介绍" },
-            { label: "机制说明", to: "/wiki/午夜灵魂/机制说明" },
-            { label: "能力一览", to: "/wiki/午夜灵魂/能力一览" },
+            { label: "整体介绍（旧版）", to: "/wiki/午夜灵魂/整体介绍-旧版" },
+            { label: "机制说明（旧版）", to: "/wiki/午夜灵魂/机制说明-旧版" },
+            { label: "能力一览（旧版）", to: "/wiki/午夜灵魂/能力一览-旧版" },
           ],
         },
         {
           title: "更多",
           items: [
             { label: "回响记录", to: "/wiki/午夜灵魂/回响记录" },
-            { label: "进度碑刻", to: "/wiki/午夜灵魂/进度碑刻" },
-            { label: "饰品集册", to: "/wiki/午夜灵魂/饰品集册" },
+            { label: "进度碑刻（旧版）", to: "/wiki/午夜灵魂/进度碑刻-旧版" },
+            { label: "饰品集册（旧版）", to: "/wiki/午夜灵魂/饰品集册-旧版" },
           ],
         },
       ],

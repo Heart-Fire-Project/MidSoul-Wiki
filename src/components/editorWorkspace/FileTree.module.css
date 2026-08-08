@@ -1,0 +1,30 @@
+.sidebar { background: var(--ed-chrome); border-right: 1px solid var(--ed-line); display: flex; flex: none; flex-direction: column; width: 15rem; }
+.sidebar[data-collapsed='true'] { display: none; }
+.sidebarHead { align-items: center; color: var(--ms-text-muted); display: flex; font-size: 10.5px; height: 2.1rem; justify-content: space-between; letter-spacing: .12em; padding: 0 .35rem 0 .7rem; }
+.tree { flex: 1; min-height: 0; overflow: hidden; }
+.treeEmpty { color: var(--ms-text-muted); font-size: 11.5px; line-height: 1.8; padding: .9rem .7rem; }
+.treeRow { align-items: center; background: none; border: 0; box-sizing: border-box; color: var(--ed-ink); cursor: pointer; display: flex; font: inherit; font-size: 12.5px; gap: .35rem; line-height: 1; overflow: hidden; padding: .2rem .6rem; text-align: left; white-space: nowrap; width: 100%; }
+.treeRow:hover { background: var(--ed-hover); }
+.treeRow[data-current='true'] { background: var(--ed-active); box-shadow: inset 2px 0 0 var(--ifm-color-primary); color: var(--ifm-color-primary); }
+.treeRow[data-draft='true'] { background: color-mix(in srgb, var(--ifm-color-primary) 7%, var(--ed-chrome)); box-shadow: inset 2px 0 0 color-mix(in srgb, var(--ifm-color-primary) 55%, transparent); }
+.treeRow:focus-visible, .tool:focus-visible, .headActions button:focus-visible, .rowActions button:focus-visible { outline: 2px solid var(--ifm-color-primary); outline-offset: -1px; }
+.treeName { overflow: hidden; text-overflow: ellipsis; }
+.twisty { flex: none; font-size: 9px; opacity: .55; width: 11px; }
+.treeInput { background: var(--ed-surface); border: 1px solid var(--ifm-color-primary); border-radius: 4px; color: inherit; flex: 1; font: inherit; font-size: 12px; height: 1.5rem; margin-right: .4rem; min-width: 0; outline: none; padding: 0 .4rem; width: auto; }
+.treeInput::placeholder { color: var(--ms-text-muted); opacity: .72; }
+.treeInput:user-invalid { border-color: #d64045; box-shadow: 0 0 0 1px color-mix(in srgb, #d64045 20%, transparent); }
+.headActions { align-items: center; display: inline-flex; gap: .15rem; }
+.headActions button { align-items: center; background: none; border: 0; border-radius: 4px; color: var(--ms-text-muted); cursor: pointer; display: inline-flex; font: inherit; font-size: 12px; height: 1.4rem; justify-content: center; width: 1.4rem; }
+.headActions button:hover { background: var(--ed-hover); color: var(--ifm-color-primary); }
+.headActions .tool { gap: .3rem; padding: 0 .45rem; white-space: nowrap; width: auto; }
+.resume { background: var(--ms-surface); border: 1px dashed var(--ifm-color-primary); border-radius: 6px; color: inherit; cursor: pointer; display: flex; flex-direction: column; font: inherit; font-size: 12px; gap: .15rem; margin: .5rem; padding: .5rem .6rem; text-align: left; width: calc(100% - 1rem); }
+.resume:hover { background: var(--ed-active); }
+.hint { color: var(--ms-text-muted); font-size: 11.5px; white-space: nowrap; }
+.rowActions { align-items: center; display: inline-flex; gap: .1rem; margin-left: auto; opacity: 0; padding-right: .4rem; transition: opacity .12s; }
+.treeRow:hover .rowActions, .treeRow:focus-within .rowActions { opacity: 1; }
+.rowActions button { align-items: center; background: none; border: 0; border-radius: 4px; color: var(--ms-text-muted); cursor: pointer; display: inline-flex; font: inherit; font-size: 11px; height: 1.25rem; justify-content: center; line-height: 1; min-width: 1.25rem; padding: 0 .2rem; }
+.rowActions button:hover { background: var(--ed-hover); color: var(--ifm-color-primary); }
+.rowActions button[data-danger='true'] { background: #e5484d; color: #fff; }
+
+@media (max-width: 900px) { .sidebar { display: none; } }
+@media (prefers-reduced-motion: reduce) { .rowActions { transition: none; } }

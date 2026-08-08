@@ -4,12 +4,12 @@ import Layout from '@theme/Layout';
 import styles from './index.module.css';
 
 const WIKI_CARDS = [
-  { glyph: '◈', label: '整体介绍', sub: '游戏概述 · 模式 · 地图', href: '/wiki/午夜灵魂/整体介绍' },
-  { glyph: '⚙', label: '机制说明', sub: '游戏内外全部机制', href: '/wiki/午夜灵魂/机制说明' },
-  { glyph: '⚡', label: '能力一览', sub: '天赋 · 技能 · 宝物', href: '/wiki/午夜灵魂/能力一览' },
+  { glyph: '◈', label: '整体介绍（旧版）', sub: '游戏概述 · 模式 · 地图', href: '/wiki/午夜灵魂/整体介绍-旧版' },
+  { glyph: '⚙', label: '机制说明（旧版）', sub: '游戏内外全部机制', href: '/wiki/午夜灵魂/机制说明-旧版' },
+  { glyph: '⚡', label: '能力一览（旧版）', sub: '天赋 · 技能 · 宝物', href: '/wiki/午夜灵魂/能力一览-旧版' },
   { glyph: '☽', label: '回响记录', sub: '全局概率随机效果', href: '/wiki/午夜灵魂/回响记录' },
-  { glyph: '✦', label: '进度碑刻', sub: '成就进度 · 装饰解锁', href: '/wiki/午夜灵魂/进度碑刻' },
-  { glyph: '✧', label: '饰品集册', sub: '粒子 · 特效 · 文本套组', href: '/wiki/午夜灵魂/饰品集册' },
+  { glyph: '✦', label: '进度碑刻（旧版）', sub: '成就进度 · 装饰解锁', href: '/wiki/午夜灵魂/进度碑刻-旧版' },
+  { glyph: '✧', label: '饰品集册（旧版）', sub: '粒子 · 特效 · 文本套组', href: '/wiki/午夜灵魂/饰品集册-旧版' },
 ];
 
 export default function Home(): ReactNode {
@@ -39,7 +39,7 @@ export default function Home(): ReactNode {
 
             <div className={styles.heroActions}>
               <Link className={styles.ctaPrimary} to="/wiki">进入百科</Link>
-              <Link className={styles.ctaSecondary} to="/wiki/午夜灵魂/整体介绍">游戏简介 →</Link>
+              <Link className={styles.ctaSecondary} to="/wiki/午夜灵魂/整体介绍-旧版">旧版游戏简介 →</Link>
             </div>
           </div>
 

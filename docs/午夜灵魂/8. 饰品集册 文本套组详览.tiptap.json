@@ -1,0 +1,3674 @@
+{
+  "format": "tiptap-v1",
+  "frontmatter": "---\nsidebar_position: 1\n---\n",
+  "content": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": null,
+          "level": 1
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "饰品集册/文本套组详览"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "趋光"
+          }
+        ]
+      },
+      {
+        "type": "blockquote",
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "遵循你的本能。"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "attrs": {
+          "hideHeader": false,
+          "noFirstCol": true
+        },
+        "content": [
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": "#FFDDB6",
+                  "backgroundOpacity": 0.55,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "进入垂死 / DYING"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s "
+                      },
+                      {
+                        "type": "text",
+                        "text": "陷入垂死状态，一盏灵魂之灯已经出现……"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": "#FFF897",
+                  "backgroundOpacity": 0.55,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "被救助 / HEALED"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 已脱离垂死状态"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": "#F2F3F5",
+                  "backgroundOpacity": 0.55,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "消亡 / DEAD"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 已消亡！"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": "#C5F1C1",
+                  "backgroundOpacity": 0.55,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "复活 / REVIVE"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 已复活！"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "溯回"
+          }
+        ]
+      },
+      {
+        "type": "blockquote",
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "幽冥彼岸惊鸿照，魂灯引魄照影来。"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "attrs": {
+          "hideHeader": false,
+          "noFirstCol": true
+        },
+        "content": [
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": "#FFDDB6",
+                  "backgroundOpacity": 0.55,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "进入垂死 / DYING"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s "
+                      },
+                      {
+                        "type": "text",
+                        "text": "已陨于刀光之下，点燃明灯，为其指引归路"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 已陷入一片虚无，将于顷刻后消散"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "一瞬寒光后，"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 只觉眼前一片黑暗……点燃明灯，将其带回"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": "#FFF897",
+                  "backgroundOpacity": 0.55,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "被救助 / HEALED"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 已遵循指引，寻得归途"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "灵气凝结，"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 重归战场"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s "
+                      },
+                      {
+                        "type": "text",
+                        "text": "拨开了眼前迷雾，光明又至"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": "#F2F3F5",
+                  "backgroundOpacity": 0.55,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "消亡 / DEAD"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 化作尘烟，再无法重塑"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 沉湎幻象，无以达终点"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 深度睡眠，却永不苏醒"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 魂魄消散，已万劫不复"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 再无躯壳，也再无复活"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": "#C5F1C1",
+                  "backgroundOpacity": 0.55,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "复活 / REVIVE"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 历经沧桑终归来"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 一瞬思绪回现实"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 灵力凝聚铸肉身"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 光芒万丈又得胜"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 艰苦奋斗终有报"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "闲嬉"
+          }
+        ]
+      },
+      {
+        "type": "blockquote",
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "觉得眼熟？这样的文本，此时此刻正在各个游戏上演！"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "attrs": {
+          "hideHeader": false,
+          "noFirstCol": true
+        },
+        "content": [
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": "#FFDDB6",
+                  "backgroundOpacity": 0.55,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "进入垂死 / DYING"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "众神之父赐予 "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 重伤倒地"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 被正在 APPROOOAAACHIIING 的 "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#D83931",
+                              "bg": null,
+                              "fgDark": "#FA7974",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 用阎魔刀击倒了"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 因给三国杀打好评而被击倒"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": "#FFF897",
+                  "backgroundOpacity": 0.55,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "被救助 / HEALED"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 正在杀出冥界"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "* "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 充满了决心"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "协议三，保护 "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": "！"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": "#F2F3F5",
+                  "backgroundOpacity": 0.55,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "消亡 / DEAD"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 被 "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#D83931",
+                              "bg": null,
+                              "fgDark": "#FA7974",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 拖入了万丈深渊，永不复回 "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          },
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "最终击杀！"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 未能在第 3 日达成绩效要求"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "没有人把 "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 从虫墙里拉出来，厨圣啊！"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "维什戴尔一炮就把 "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 发射到了因非冰原"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 和卡拉彼丘一起似了喵"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": "#C5F1C1",
+                  "backgroundOpacity": 0.55,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "复活 / REVIVE"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 用一句神秘的 ciallo 咒语打开了复活的大门"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "SCP-74"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s[玩家序号] %s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 的项目等级已调整为 Euclid"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "邦邦咔邦~ "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 成为了最强的勇者！"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "你的巡飞弹对 "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 不起作用了，怎么回事呢？"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 历经枯痛沉沦，终从深渊唤回残梦一痕"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "灵兽"
+          }
+        ]
+      },
+      {
+        "type": "blockquote",
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "喵？"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "attrs": {
+          "hideHeader": false,
+          "noFirstCol": true
+        },
+        "content": [
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": "#FFDDB6",
+                  "backgroundOpacity": 0.55,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "进入垂死 / DYING"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 陷入垂死状态，一盏灵魂之灯已经出现……猫儿这个睡着"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 被逮住了喵"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "救命啊喵！谁快来救救 "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 喵！"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": "#FFF897",
+                  "backgroundOpacity": 0.55,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "被救助 / HEALED"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 已脱离垂死状态，猫儿这个好运！"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 可以继续胡闹了喵"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "谢谢喵， "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 取关坏 "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#D83931",
+                              "bg": null,
+                              "fgDark": "#FA7974",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 喵"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": "#F2F3F5",
+                  "backgroundOpacity": 0.55,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "消亡 / DEAD"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 已消亡！猫儿这个死掉……"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 被 "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#D83931",
+                              "bg": null,
+                              "fgDark": "#FA7974",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 起飞了喵"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "正义执行！"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 好似喵"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "不要喵，不要再欺负 "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 了喵"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 对猫毛过敏"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": "#C5F1C1",
+                  "backgroundOpacity": 0.55,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "复活 / REVIVE"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 已复活！猫儿这个开心~"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 打赢复活赛了喵"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "EZ 喵，"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 先走一步了喵"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 可爱喵，关注 "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 谢谢喵"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    820
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": true
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "%s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " 给大家加油了喵，一定要复活喵"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        }
+      }
+    ]
+  }
+}

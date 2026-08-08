@@ -1,0 +1,13 @@
+.label {
+  display: inline-block;
+  padding: 0.1em 0.55em;
+  border: 1px solid var(--label-border, rgba(107, 114, 128, 0.3));
+  border-radius: 3px;
+  background-color: var(--label-background, transparent);
+  color: var(--label-text, inherit);
+  font-size: 0.78em;
+  font-weight: 500;
+  line-height: 1.6;
+  vertical-align: middle;
+  white-space: nowrap;
+}

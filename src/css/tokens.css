@@ -1,0 +1,50 @@
+/* MidSoul design tokens only. Layout rules stay in custom.css; component rules stay beside components. */
+:root {
+  --ifm-color-primary: #7367F0;
+  --ifm-color-primary-dark: #5a50d4;
+  --ifm-color-primary-darker: #4840b8;
+  --ifm-color-primary-darkest: #36309c;
+  --ifm-color-primary-light: #9d94f5;
+  --ifm-color-primary-lighter: #bdb8f9;
+  --ifm-color-primary-lightest: #dddafc;
+  --ifm-code-font-size: 94%;
+  --ifm-line-height-base: 2;
+  --ifm-font-family-base: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --ifm-heading-font-family: 'Noto Serif SC', serif;
+  --ifm-table-stripe-background: transparent;
+}
+
+:root,
+[data-theme='light'] {
+  --ms-border: rgba(115, 103, 240, 0.2);
+  --ms-surface: rgba(115, 103, 240, 0.05);
+  --ms-surface2: rgba(115, 103, 240, 0.08);
+  --ms-text-dim: rgba(30, 20, 80, 0.55);
+  --ms-text-muted: rgba(30, 20, 80, 0.35);
+  --ms-icon: rgba(30, 20, 80, 0.5);
+  --ms-icon-hover: rgba(30, 20, 80, 0.85);
+  --ms-navbar-bg: rgba(255, 255, 255, 0.88);
+  --ms-table-head: #f2f1fa;
+  --ms-table-head-1st: #eae7f7;
+}
+
+[data-theme='dark'] {
+  --ms-border: rgba(115, 103, 240, 0.18);
+  --ms-surface: rgba(115, 103, 240, 0.08);
+  --ms-surface2: rgba(115, 103, 240, 0.12);
+  --ms-text-dim: rgba(237, 233, 255, 0.5);
+  --ms-text-muted: rgba(237, 233, 255, 0.5);
+  --ms-icon: rgba(237, 233, 255, 0.5);
+  --ms-icon-hover: rgba(237, 233, 255, 0.9);
+  --ms-navbar-bg: rgba(6, 5, 15, 0.88);
+  --ms-table-head: #14122a;
+  --ms-table-head-1st: #1b1838;
+  --ifm-background-color: #06050f;
+  --ifm-background-surface-color: #0c0b1e;
+  --ifm-card-background-color: #0c0b1e;
+  --ifm-navbar-background-color: var(--ms-navbar-bg);
+  --ifm-navbar-shadow: 0 1px 0 0 var(--ms-border);
+  --ifm-footer-background-color: #04030a;
+  --ifm-toc-border-color: var(--ms-border);
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.35);
+}

@@ -1,0 +1,692 @@
+/*
+  站内可视化编辑器的界面。
+
+  章法只有一条：**外壳与画布是两个平面**。
+  外壳（应用栏 / 编辑栏 / 侧栏 / 状态栏）压暗、字小、只用图标和短词；
+  画布保持站点正文的真实排版，是页面上唯一"大声"的东西。
+
+  按职责分栏，不按功能堆叠：
+    应用栏 = 这个文件（身份 + 存取）
+    编辑栏 = 这段内容（样式 + 插入）
+    状态栏 = 这篇文档（统计 + 提示）
+*/
+
+/*
+  表面颜色写死两套：站点的 --ifm-background-color 只在暗色模式下定义，
+  浅色模式取到空值会让弹层变透明。
+*/
+/* 挂在根上而不是 .page：菜单由 Radix 传送到 body 下，挂在 .page 上就取不到了 */
+:global(:root) {
+  --ed-paper: #ffffff;   /* 画布：必须等于站点正文的底色，颜色才所见即所得 */
+  --ed-surface: #ffffff; /* 弹层 */
+  --ed-chrome: #f7f6fc;  /* 外壳 */
+  --ed-line: var(--ms-border);
+  --ed-ink: var(--ms-text-dim);
+  --ed-hover: var(--ms-surface);
+  --ed-active: var(--ms-surface2);
+  --ed-radius: 6px;
+}
+
+:global([data-theme='dark']) {
+  --ed-paper: #06050f;
+  --ed-surface: #0c0b1e;
+  --ed-chrome: #0a0918;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - var(--ifm-navbar-height));
+  font-size: 13px;
+}
+
+/* ── 通用外壳控件 ─────────────────────────────── */
+
+.appbar,
+.editbar,
+.fmBar,
+.statusBar {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: var(--ed-chrome);
+  border-bottom: 1px solid var(--ed-line);
+  padding: 0 0.6rem;
+  flex: none;
+}
+
+/* 外壳分层高于主体，弹出的菜单才不会被画布和侧栏盖住 */
+.appbar,
+.editbar,
+.fmBar {
+  position: relative;
+  z-index: 30;
+}
+
+.panes {
+  position: relative;
+  z-index: 0;
+}
+
+.appbar { height: 2.6rem; gap: 0.4rem; }
+.editbar { height: 2.4rem; }
+
+.tool {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  height: 1.7rem;
+  padding: 0 0.45rem;
+  border: 0;
+  border-radius: var(--ed-radius);
+  background: none;
+  color: var(--ed-ink);
+  font: inherit;
+  font-size: 12.5px;
+  line-height: 1;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.12s, color 0.12s;
+}
+
+.tool:hover:not(:disabled) {
+  background: var(--ed-hover);
+  color: var(--ifm-font-color-base);
+}
+
+.tool:disabled { opacity: 0.35; cursor: default; }
+
+.tool[data-on='true'] {
+  background: var(--ed-active);
+  color: var(--ifm-color-primary);
+}
+
+.tool:focus-visible,
+.popItem:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: -1px;
+}
+
+/* 主操作：保存。整个外壳里唯一实心的东西 */
+.primary {
+  background: var(--ifm-color-primary);
+  color: #fff;
+}
+
+.primary:hover:not(:disabled) {
+  background: var(--ifm-color-primary-dark);
+  color: #fff;
+}
+
+.icon {
+  width: 15px;
+  height: 15px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex: none;
+}
+
+.caret {
+  width: 9px;
+  height: 9px;
+  opacity: 0.5;
+  margin-left: 0.1rem;
+}
+
+.sep {
+  width: 1px;
+  height: 1.1rem;
+  margin: 0 0.35rem;
+  background: var(--ed-line);
+  flex: none;
+}
+
+.spacer { flex: 1; }
+
+.hint {
+  font-size: 11.5px;
+  color: var(--ms-text-muted);
+  white-space: nowrap;
+}
+
+/* 文件身份 */
+.docName {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  min-width: 0;
+  font-size: 12.5px;
+}
+
+.docName b {
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.docPath {
+  color: var(--ms-text-muted);
+  font-size: 11.5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ifm-color-primary);
+  flex: none;
+}
+
+/* ── 下拉菜单 ─────────────────────────────────── */
+
+.popWrap { position: relative; display: inline-flex; }
+
+/* 位置由 Radix 的 popper 负责（含碰撞翻转），这里只管长相 */
+.pop {
+  z-index: 60;
+  min-width: 11rem;
+  padding: 0.3rem;
+  border: 1px solid var(--ed-line);
+  border-radius: 9px;
+  background: var(--ed-surface);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.28);
+  animation: pop 0.11s ease-out;
+}
+
+@keyframes pop {
+  from { opacity: 0; transform: translateY(-3px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pop { animation: none; }
+}
+
+.popGroup {
+  padding: 0.45rem 0.55rem 0.2rem;
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  color: var(--ms-text-muted);
+}
+
+.popItem {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  width: 100%;
+  padding: 0.32rem 0.55rem;
+  border: 0;
+  border-radius: 5px;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-size: 12.5px;
+  text-align: left;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.popItem:hover { background: var(--ed-hover); }
+
+.popItem[data-on='true'] { color: var(--ifm-color-primary); }
+
+.popKey {
+  margin-left: auto;
+  padding-left: 1.5rem;
+  font-size: 11px;
+  color: var(--ms-text-muted);
+}
+
+/*
+  签名元素：段落样式菜单里的每一项，用文档本身的排版预览。
+  菜单不是在"描述"标题，而是在"展示"标题 —— 和画布同一套 CSS。
+*/
+.previewH1 { font-family: var(--ifm-heading-font-family); font-size: 17px; font-weight: 700; }
+.previewH2 { font-family: var(--ifm-heading-font-family); font-size: 15px; font-weight: 700; }
+.previewH3 { font-family: var(--ifm-heading-font-family); font-size: 13.5px; font-weight: 600; }
+.previewH4 { font-family: var(--ifm-heading-font-family); font-size: 12.5px; font-weight: 600; }
+.previewQuote { border-left: 2px solid var(--ifm-color-primary); padding-left: 0.5rem; opacity: 0.85; }
+.previewCode { font-family: var(--ifm-font-family-monospace); font-size: 11.5px; }
+
+/* ── 主体 ─────────────────────────────────────── */
+
+.panes {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+/* 画布：整个界面唯一按文档排版走的地方 */
+.canvasWrap {
+  flex: 1;
+  min-width: 0;
+  overflow: auto;
+  background: var(--ed-paper);
+}
+
+.canvas {
+  max-width: 100%;
+  padding: 3rem 4vw 40vh;
+  font-size: 1rem;
+}
+
+.source {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  resize: none;
+  padding: 2rem 3rem;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 12.5px;
+  line-height: 1.9;
+  background: var(--ed-paper);
+  color: inherit;
+  outline: none;
+  tab-size: 2;
+}
+
+/* ── 块 ───────────────────────────────────────── */
+
+.row { position: relative; }
+
+.blockBody { position: relative; }
+
+.blockWrap > :first-child { margin-top: 0; }
+
+.block {
+  outline: none;
+  border-radius: 4px;
+  padding: 0.1rem 0.35rem;
+  margin-left: -0.35rem;
+  transition: box-shadow 0.12s;
+}
+
+.block:focus {
+  box-shadow: 0 0 0 1px var(--ed-line), 0 0 0 3px var(--ms-surface);
+}
+
+.block:empty::before {
+  content: '写点什么，或按 / 插入';
+  color: var(--ms-text-muted);
+}
+
+/* 把手：Notion 式，悬停才出现，只留两个动作 */
+.handle {
+  position: absolute;
+  left: -3.2rem;
+  top: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.05rem;
+  opacity: 0;
+  transition: opacity 0.12s;
+}
+
+.row:hover .handle,
+.handle:focus-within,
+.handle:has([data-state='open']) { opacity: 1; }
+
+.handleBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.4rem;
+  height: 1.4rem;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: none;
+  color: var(--ms-text-muted);
+  font-size: 13px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.handleBtn:hover {
+  background: var(--ed-hover);
+  color: var(--ifm-color-primary);
+}
+
+.grip { cursor: grab; }
+
+.dropLine {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -3px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--ifm-color-primary);
+}
+
+.tail {
+  padding: 1.2rem 0.35rem;
+  color: var(--ms-text-muted);
+  cursor: text;
+  font-size: 13px;
+}
+
+.codeBlock { margin: 1rem 0; }
+
+.rawBlock {
+  border: 1px solid var(--ed-line);
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+  margin: 1rem 0;
+  background: var(--ms-surface);
+}
+
+.rawTag {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  color: var(--ms-text-muted);
+}
+
+.rawSource {
+  width: 100%;
+  margin-top: 0.5rem;
+  border: 0;
+  border-top: 1px solid var(--ed-line);
+  padding-top: 0.5rem;
+  background: none;
+  color: var(--ed-ink);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 11.5px;
+  line-height: 1.7;
+  resize: vertical;
+  min-height: 3rem;
+  outline: none;
+}
+
+/* ── 选中文字浮出的格式条 ─────────────────────── */
+
+.floating {
+  position: fixed;
+  z-index: 400;
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+  padding: 0.2rem;
+  border: 1px solid var(--ed-line);
+  border-radius: 9px;
+  background: var(--ed-surface);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.colorLabel {
+  display: inline-flex;
+  align-items: center;
+  height: 1.7rem;
+  padding: 0 0.45rem;
+  border-radius: var(--ed-radius);
+  color: var(--ed-ink);
+  cursor: pointer;
+}
+
+.colorLabel:hover { background: var(--ed-hover); }
+
+/* 图标压着一条色带，颜色即当前值 */
+.colorLabel > span {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.colorLabel input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.colorBar {
+  display: block;
+  width: 15px;
+  height: 3px;
+  border-radius: 1px;
+}
+
+.linkInput {
+  width: 17rem;
+  height: 1.7rem;
+  padding: 0 0.5rem;
+  border: 1px solid var(--ifm-color-primary);
+  border-radius: var(--ed-radius);
+  background: var(--ed-surface);
+  color: inherit;
+  font: inherit;
+  font-size: 12.5px;
+  outline: none;
+}
+
+/* ── 文档信息 / 状态栏 ────────────────────────── */
+
+.fmBar { height: 2.4rem; gap: 1.1rem; }
+
+.fmField {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 11.5px;
+  color: var(--ms-text-muted);
+}
+
+.fmField input {
+  height: 1.6rem;
+  padding: 0 0.5rem;
+  border: 1px solid var(--ed-line);
+  border-radius: var(--ed-radius);
+  background: var(--ed-surface);
+  color: var(--ifm-font-color-base);
+  font: inherit;
+  font-size: 12.5px;
+  outline: none;
+}
+
+.fmField input:focus { border-color: var(--ifm-color-primary); }
+
+.statusBar {
+  height: 1.7rem;
+  gap: 1rem;
+  border-bottom: 0;
+  border-top: 1px solid var(--ed-line);
+  font-size: 11.5px;
+  color: var(--ms-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.ok { color: #22c55e; }
+.dirty { color: var(--ifm-color-primary); }
+.msg { color: var(--ifm-color-primary); }
+
+.error {
+  color: #e5484d;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 12px;
+  white-space: pre-wrap;
+}
+
+/* ── 表格网格编辑器 ───────────────────────────── */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  width: min(1180px, 100%);
+  max-height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--ed-surface);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.4);
+}
+
+.inlineTable { position: relative; margin: 1.2rem 0; }
+
+/* 表格工具条只在表格被选中时出现，跟着表格走 */
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  flex-wrap: wrap;
+  padding: 0.3rem 0.45rem;
+  background: var(--ed-chrome);
+}
+
+/* 表格工具条里的按钮沿用外壳控件的样子 */
+.bar button:not(.swatch),
+.bar select {
+  height: 1.7rem;
+  padding: 0 0.45rem;
+  border: 0;
+  border-radius: var(--ed-radius);
+  background: none;
+  color: var(--ed-ink);
+  font: inherit;
+  font-size: 12.5px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.bar select { padding-right: 0.2rem; }
+
+.bar button:not(.swatch):hover:not(:disabled),
+.bar select:hover {
+  background: var(--ed-hover);
+  color: var(--ifm-font-color-base);
+}
+
+.bar button:disabled { opacity: 0.35; cursor: default; }
+
+.bar button[data-on='true'] {
+  background: var(--ed-active);
+  color: var(--ifm-color-primary);
+}
+
+.floatBar {
+  position: sticky;
+  top: 0;
+  z-index: 15;
+  margin-bottom: 0.5rem;
+  border: 1px solid var(--ed-line);
+  border-radius: 9px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.22);
+}
+
+.gridWrap { overflow: auto; padding: 1.1rem; }
+
+.inlineTable .gridWrap { padding: 0; }
+
+.grid {
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.grid td {
+  position: relative;
+  min-width: 5rem;
+  padding: 0;
+  border: 1px solid var(--ed-line);
+}
+
+.grid td[data-head='true'] { background: var(--ms-surface2); }
+
+.grid td[data-sel='true']::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: var(--ifm-color-primary);
+  opacity: 0.14;
+}
+
+.grid td[data-anchor='true'] {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: -2px;
+}
+
+.cell {
+  padding: 0.35rem 0.6rem;
+  min-height: 1.9rem;
+  outline: none;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.cell[contenteditable='true'] { cursor: text; }
+
+.grid th {
+  height: 1.3rem;
+  min-width: 1.3rem;
+  padding: 0;
+  border: 1px solid var(--ed-line);
+  background: var(--ms-surface);
+  color: var(--ms-text-muted);
+  font-size: 10.5px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.grid th:hover { color: var(--ifm-color-primary); }
+
+/* 取色板 */
+.swatchPop {
+  position: absolute;
+  z-index: 60;
+  top: calc(100% + 5px);
+  left: 0;
+  padding: 0.45rem;
+  border: 1px solid var(--ed-line);
+  border-radius: 9px;
+  background: var(--ed-surface);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+}
+
+.swatchRow {
+  display: grid;
+  grid-template-columns: repeat(10, 1.1rem);
+  gap: 3px;
+  margin-bottom: 3px;
+}
+
+.swatch {
+  width: 1.1rem;
+  height: 1.1rem;
+  padding: 0;
+  border: 1px solid rgba(127, 127, 127, 0.3);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.swatch:hover { transform: scale(1.15); }
+
+.popFoot {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.4rem;
+  font-size: 11.5px;
+}
+
+@media (max-width: 900px) {
+  .canvas { padding: 2rem 1.2rem 40vh; }
+}

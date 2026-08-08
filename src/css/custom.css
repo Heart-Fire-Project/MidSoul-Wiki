@@ -1,59 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap');
+@import 'katex/dist/katex.min.css';
+@import './tokens.css';
+
+/* Global cascade entry point: design tokens live in tokens.css; reusable UI owns
+   its local styles via CSS Modules; this file is for the Docusaurus shell and
+   document-wide typography only. */
 
 /* ═══════════════════════════════════════════════════
    MidSoul Wiki — Global Theme
    Primary: #7367F0 | Supports light + dark mode
    ═══════════════════════════════════════════════════ */
-
-/* ── Shared tokens (theme-agnostic) ─────────────── */
-:root {
-  --ifm-color-primary: #7367F0;
-  --ifm-color-primary-dark: #5a50d4;
-  --ifm-color-primary-darker: #4840b8;
-  --ifm-color-primary-darkest: #36309c;
-  --ifm-color-primary-light: #9d94f5;
-  --ifm-color-primary-lighter: #bdb8f9;
-  --ifm-color-primary-lightest: #dddafc;
-  --ifm-code-font-size: 94%;
-  --ifm-line-height-base: 2;
-  --ifm-font-family-base: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-  --ifm-heading-font-family: 'Noto Serif SC', serif;
-  --ifm-table-stripe-background: transparent;
-}
-
-/* ── Light mode tokens ──────────────────────────── */
-:root,
-[data-theme='light'] {
-  --ms-border: rgba(115, 103, 240, 0.2);
-  --ms-surface: rgba(115, 103, 240, 0.05);
-  --ms-surface2: rgba(115, 103, 240, 0.08);
-  --ms-text-dim: rgba(30, 20, 80, 0.55);
-  --ms-text-muted: rgba(30, 20, 80, 0.35);
-  --ms-icon: rgba(30, 20, 80, 0.5);
-  --ms-icon-hover: rgba(30, 20, 80, 0.85);
-  --ms-navbar-bg: rgba(255, 255, 255, 0.88);
-}
-
-/* ── Dark mode tokens ───────────────────────────── */
-[data-theme='dark'] {
-  --ms-border: rgba(115, 103, 240, 0.18);
-  --ms-surface: rgba(115, 103, 240, 0.08);
-  --ms-surface2: rgba(115, 103, 240, 0.12);
-  --ms-text-dim: rgba(237, 233, 255, 0.5);
-  --ms-text-muted: rgba(237, 233, 255, 0.5);
-  --ms-icon: rgba(237, 233, 255, 0.5);
-  --ms-icon-hover: rgba(237, 233, 255, 0.9);
-  --ms-navbar-bg: rgba(6, 5, 15, 0.88);
-
-  --ifm-background-color: #06050f;
-  --ifm-background-surface-color: #0c0b1e;
-  --ifm-card-background-color: #0c0b1e;
-  --ifm-navbar-background-color: var(--ms-navbar-bg);
-  --ifm-navbar-shadow: 0 1px 0 0 var(--ms-border);
-  --ifm-footer-background-color: #04030a;
-  --ifm-toc-border-color: var(--ms-border);
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.35);
-}
 
 /* ══════════════════════════════════════════════════
    NAVBAR — structure (shared)
@@ -342,8 +298,8 @@
   font-size: 2.2rem;
   letter-spacing: 0.12em;
   border-bottom: 1px solid var(--ms-border);
-  padding-bottom: 0.6em;
-  margin-bottom: 1.5rem;
+  padding-bottom: 0.4em;
+  margin-bottom: 0.9rem;
 }
 
 [data-theme='dark'] .markdown h1 {
@@ -366,9 +322,17 @@
   font-weight: 400;
   font-size: 1.5rem;
   letter-spacing: 0.1em;
-  border-bottom: 1px solid var(--ms-border);
-  padding-bottom: 0.35em;
-  margin-top: 2.5rem;
+  border-bottom: 1px solid rgba(115, 103, 240, 0.38);
+  padding-bottom: 0.28em;
+  margin-top: 1.9rem;
+  margin-bottom: 0.7rem;
+}
+
+/* 正文保持易读，但收紧飞书导入内容中连续段落与手动换行的节奏。 */
+.markdown > p {
+  line-height: 1.65;
+  margin-top: 0.35rem;
+  margin-bottom: 0.35rem;
 }
 
 /* H3 */
@@ -377,40 +341,178 @@
   font-weight: 400;
   font-size: 1.15rem;
   letter-spacing: 0.08em;
-  margin-top: 2rem;
+  margin-top: 1.4rem;
+  margin-bottom: 0.5rem;
 }
 
 /* Tables */
+/* Infima 默认 display:block（为了横向滚动），但那样表头就粘不住了。
+   border-collapse 也必须是 separate：collapse 模式下边框属于表格本身、
+   不属于单元格，贴顶的表头盖不住它们，列交界处会露出一截亮竖线。
+   separate 下边框归单元格所有，跟着表头一起粘走。 */
+.markdown .ms-table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  position: relative;
+  z-index: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.markdown .ms-table-shell { margin: 1.5rem 0; position: relative; }
+.markdown .ms-table-shell[id], .markdown .ms-table-shell tr[id], .markdown span[id] { scroll-margin-top: 4.5rem; }
+
+/* 文档内链接的短暂落点提示：使用轮廓与内阴影，而不是直接改背景色，
+   因而不会覆盖编辑器为文字或单元格设置的手动颜色。 */
+.markdown :is(h1, h2, h3, h4, h5, h6, span).ms-anchor-flash,
+.markdown .ms-table-shell.ms-anchor-flash {
+  animation: ms-anchor-outline-flash 2.2s ease-out;
+  border-radius: 4px;
+}
+
+.markdown tr.ms-anchor-flash > :is(th, td) {
+  animation: ms-anchor-row-flash 2.2s ease-out;
+}
+
+@keyframes ms-anchor-outline-flash {
+  0%, 26% { box-shadow: 0 0 0 4px color-mix(in srgb, var(--ifm-color-primary) 58%, transparent), 0 0 20px color-mix(in srgb, var(--ifm-color-primary) 30%, transparent); }
+  100% { box-shadow: 0 0 0 0 transparent, 0 0 0 transparent; }
+}
+
+@keyframes ms-anchor-row-flash {
+  0%, 26% { box-shadow: inset 0 0 0 999px color-mix(in srgb, var(--ifm-color-primary) 18%, transparent); }
+  100% { box-shadow: inset 0 0 0 999px transparent; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .markdown .ms-anchor-flash,
+  .markdown tr.ms-anchor-flash > :is(th, td) { animation-duration: 0.01ms; }
+}
+
+/* 原生 sticky 负责纵向固定，不依赖 scroll 事件计算偏移，因此快速滚动也不会
+   追赶页面。复制表头只用于显示，真实表头仍在滚动表格中保留列宽计算与语义。 */
+.markdown .ms-table-head-sticky {
+  /* 不能只让 th 自己上色：复制表头与真实表头交叠时，单元格外的 1～2px
+     空隙会露出下面正在滚动的文字。固定层本身也必须是两种主题各自的不透明
+     表头色，亮色和暗色均由 --ms-table-head 提供。 */
+  background: var(--ms-table-head);
+  height: var(--ms-table-head-height, 0px);
+  /* 宽度来自横向滚动视口，而不是外层 shell。这样不会为了预留滚动条
+     在表格右边额外铺出一条表头颜色。 */
+  width: var(--ms-table-visible-width, 100%);
+  margin-bottom: calc(var(--ms-table-head-height, 0px) * -1);
+  pointer-events: none;
+  position: sticky;
+  top: 0;
+  visibility: hidden;
+  /* 真实表头仍在下面参与 table 的列宽计算。固定层必须自成不透明的
+     stacking context，否则快速滚动时底层文字会从固定层顶边露出 1～2px。 */
+  isolation: isolate;
+  z-index: 4;
+}
+
+.markdown .ms-table-shell[data-sticky-ready='true'] .ms-table-head-sticky { visibility: visible; }
+.markdown .ms-table-head-clip {
+  background: var(--ms-table-head);
+  height: var(--ms-table-head-height, 0px);
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+.markdown .ms-table-head-sticky table { background: var(--ms-table-head); margin: 0; position: relative; transition: none; z-index: 1; }
+
+.markdown .ms-table-scroll:focus-visible {
+  border-radius: 3px;
+  outline: 2px solid color-mix(in srgb, var(--ifm-color-primary) 55%, transparent);
+  outline-offset: 2px;
+}
+
 .markdown table {
-  border-collapse: collapse;
+  display: table;
+  border-collapse: separate;
+  border-spacing: 0;
   width: 100%;
   font-size: 0.85rem;
   margin: 1.5rem 0;
-  border: 1px solid var(--ms-border);
+  /* 表格只负责上、左外框；每个单元格负责右、下边框。这样 rowSpan / colSpan
+     后每条视觉边界仍只画一次，不需要猜哪一个 DOM 子节点是最后一列。 */
+  border: 0;
+  border-left: 1px solid var(--ms-border);
+  border-top: 1px solid var(--ms-border);
 }
 
-.markdown thead tr {
-  background: var(--ms-surface2);
+/* 包装层负责外边距和横向滚动，表格本身保留 display:table，
+   因而超宽时不会撑破文档，长表格的 sticky 表头也仍然有效。 */
+.markdown .ms-table-scroll > table {
+  margin: 0;
+  min-width: 100%;
+}
+
+/* 公式过长时只滚动公式本身，不撑开正文页面。 */
+.markdown .katex-display {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: .2rem 0;
+}
+
+/* 每格只画右、下两条，靠表格自身的边框收边，这样不会画重 */
+.markdown th,
+.markdown td {
+  border: 0;
+  border-right: 1px solid var(--ms-border);
+  border-bottom: 1px solid var(--ms-border);
+}
+
+.markdown thead th {
+  background: var(--ms-table-head);
 }
 
 .markdown th {
   font-weight: 500;
   letter-spacing: 0.06em;
   font-size: 0.8rem;
-  border: 1px solid var(--ms-border);
   padding: 0.7rem 1rem;
 }
 
 .markdown td {
-  border: 1px solid var(--ms-border);
   padding: 0.6rem 1rem;
   line-height: 1.8;
 }
 
+.markdown .ms-table-cell-list {
+  margin: .28rem 0 .38rem;
+  padding-left: 1.35rem;
+}
+
+.markdown .ms-table-cell-list li {
+  margin: .12rem 0;
+  padding-left: .08rem;
+}
+
+.markdown .ms-table-cell-line + .ms-table-cell-line {
+  margin-top: .16rem;
+}
+
 /* 首列灰色 */
-.markdown tbody td:first-child,
-.markdown thead th:first-child {
+.markdown tbody td:first-child {
   background: var(--ms-surface2);
+}
+
+/* noFirstCol 只关闭自动强调；单元格的行内手动色仍会自然覆盖它。 */
+.markdown table[data-no-first-col='true'] tbody td:first-child {
+  background: transparent;
+}
+
+/* 表头首格得用不透明的同色，--ms-surface2 是半透明的，
+   贴顶时正文会从它下面透上来（这条必须写在 thead th 后面才盖得住）。 */
+.markdown thead th:first-child {
+  background: var(--ms-table-head-1st);
+}
+
+/* 关闭第一列自动底色时，左上角表头也回到普通表头颜色；手动行内色优先。 */
+.markdown table[data-no-first-col='true'] thead th:first-child {
+  background: var(--ms-table-head);
 }
 
 .markdown tbody tr:hover td {
@@ -426,6 +528,21 @@
   color: var(--ms-text-muted);
 }
 
+/* 明暗两套颜色的行内文字。编辑器给同一段文字挑两个色时写成这个类，
+   色值放在 --fg / --bg（亮）和 --fg-d / --bg-d（暗）里，切换纯靠 CSS，
+   不用等 React 重渲染。没设暗色的那一套自动回落到亮色。
+   透明度就写在色值自己的 rgba 里，不另开一个属性。
+   嵌套也成立：内层没定义的变量继承外层，所以字色和底色可以分两层写。 */
+.ms-ink {
+  color: var(--fg, inherit);
+  background-color: var(--bg, transparent);
+}
+
+[data-theme='dark'] .ms-ink {
+  color: var(--fg-d, var(--fg, inherit));
+  background-color: var(--bg-d, var(--bg, transparent));
+}
+
 /* Inline code */
 .markdown code {
   background: var(--ms-surface2);
@@ -436,14 +553,19 @@
   color: var(--ifm-color-primary);
 }
 
-/* Blockquote */
+/* Blockquote —— 细边框、无底色、字号小一档，只做旁注不抢正文 */
 .markdown blockquote {
-  border-left: 3px solid var(--ifm-color-primary);
-  background: var(--ms-surface);
-  margin: 1.5rem 0;
-  padding: 0.8rem 1.2rem;
-  border-radius: 0 3px 3px 0;
+  border-left: 2px solid var(--ifm-color-primary);
+  background: none;
+  margin: 0.7rem 0;
+  padding: 0.1rem 0 0.1rem 0.85rem;
+  border-radius: 0;
+  font-size: 0.92em;
+  line-height: 1.75;
+  color: var(--ms-text-dim);
 }
+
+.markdown blockquote > :last-child { margin-bottom: 0; }
 
 /* ══════════════════════════════════════════════════
    DOCS — BREADCRUMBS
