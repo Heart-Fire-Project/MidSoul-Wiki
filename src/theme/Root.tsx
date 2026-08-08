@@ -21,7 +21,7 @@ function HashAnchorScroller() {
       target.classList.remove('ms-anchor-flash');
       void target.offsetWidth;
       target.classList.add('ms-anchor-flash');
-      clearFlash = window.setTimeout(() => target.classList.remove('ms-anchor-flash'), 2200);
+      clearFlash = window.setTimeout(() => target.classList.remove('ms-anchor-flash'), 3100);
     };
     const scrollToAnchor = () => {
       const target = document.getElementById(targetId);

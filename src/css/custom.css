@@ -11,6 +11,19 @@
    Primary: #7367F0 | Supports light + dark mode
    ═══════════════════════════════════════════════════ */
 
+/* 锚点 / 目录 / 页内跳转统一使用平滑滚动（TOC 点击、文档内 #hash 链接、
+   Root.tsx 的 scrollIntoView 未指定 behavior 时均跟随此设置）；
+   尊重系统「减少动态效果」偏好。 */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 /* ══════════════════════════════════════════════════
    NAVBAR — structure (shared)
    ══════════════════════════════════════════════════ */
@@ -384,21 +397,21 @@
    因而不会覆盖编辑器为文字或单元格设置的手动颜色。 */
 .markdown :is(h1, h2, h3, h4, h5, h6, span).ms-anchor-flash,
 .markdown .ms-table-shell.ms-anchor-flash {
-  animation: ms-anchor-outline-flash 2.2s ease-out;
+  animation: ms-anchor-outline-flash 3s ease-out;
   border-radius: 4px;
 }
 
 .markdown tr.ms-anchor-flash > :is(th, td) {
-  animation: ms-anchor-row-flash 2.2s ease-out;
+  animation: ms-anchor-row-flash 3s ease-out;
 }
 
 @keyframes ms-anchor-outline-flash {
-  0%, 26% { box-shadow: 0 0 0 4px color-mix(in srgb, var(--ifm-color-primary) 58%, transparent), 0 0 20px color-mix(in srgb, var(--ifm-color-primary) 30%, transparent); }
+  0%, 45% { box-shadow: 0 0 0 4px color-mix(in srgb, var(--ifm-color-primary) 58%, transparent), 0 0 20px color-mix(in srgb, var(--ifm-color-primary) 30%, transparent); }
   100% { box-shadow: 0 0 0 0 transparent, 0 0 0 transparent; }
 }
 
 @keyframes ms-anchor-row-flash {
-  0%, 26% { box-shadow: inset 0 0 0 999px color-mix(in srgb, var(--ifm-color-primary) 18%, transparent); }
+  0%, 45% { box-shadow: inset 0 0 0 999px color-mix(in srgb, var(--ifm-color-primary) 18%, transparent); }
   100% { box-shadow: inset 0 0 0 999px transparent; }
 }
 
