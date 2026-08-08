@@ -282,6 +282,17 @@
         "content": [
           {
             "type": "text",
+            "marks": [
+              {
+                "type": "ink",
+                "attrs": {
+                  "fg": "#8F959E",
+                  "bg": null,
+                  "fgDark": "#757575",
+                  "bgDark": null
+                }
+              }
+            ],
             "text": "蓄能需要点亮 1 灵魂之灯，以本技能点亮的不计；"
           }
         ]
@@ -294,6 +305,17 @@
         "content": [
           {
             "type": "text",
+            "marks": [
+              {
+                "type": "ink",
+                "attrs": {
+                  "fg": "#8F959E",
+                  "bg": null,
+                  "fgDark": "#757575",
+                  "bgDark": null
+                }
+              }
+            ],
             "text": "可蓄能 2 次，初始蓄能 1 次"
           }
         ]
@@ -378,6 +400,17 @@
         "content": [
           {
             "type": "text",
+            "marks": [
+              {
+                "type": "ink",
+                "attrs": {
+                  "fg": "#8F959E",
+                  "bg": null,
+                  "fgDark": "#757575",
+                  "bgDark": null
+                }
+              }
+            ],
             "text": "发光时长随守卫者与你的距离降低而提升，距离 12 格以内时达到上限 20 秒"
           }
         ]
@@ -386,11 +419,15 @@
         "type": "table",
         "attrs": {
           "hideHeader": false,
-          "noFirstCol": false
+          "noFirstCol": false,
+          "anchorId": null
         },
         "content": [
           {
             "type": "tableRow",
+            "attrs": {
+              "anchorId": null
+            },
             "content": [
               {
                 "type": "tableHeader",
@@ -437,6 +474,9 @@
           },
           {
             "type": "tableRow",
+            "attrs": {
+              "anchorId": null
+            },
             "content": [
               {
                 "type": "tableCell",
@@ -633,6 +673,9 @@
           },
           {
             "type": "tableRow",
+            "attrs": {
+              "anchorId": null
+            },
             "content": [
               {
                 "type": "tableCell",
@@ -1156,6 +1199,17 @@
         "content": [
           {
             "type": "text",
+            "marks": [
+              {
+                "type": "ink",
+                "attrs": {
+                  "fg": "#8F959E",
+                  "bg": null,
+                  "fgDark": "#757575",
+                  "bgDark": null
+                }
+              }
+            ],
             "text": "初始冷却减半；生成的锚点仅己方可见"
           }
         ]
@@ -1396,6 +1450,17 @@
         "content": [
           {
             "type": "text",
+            "marks": [
+              {
+                "type": "ink",
+                "attrs": {
+                  "fg": null,
+                  "bg": "#F2F3F5",
+                  "fgDark": null,
+                  "bgDark": "#333333"
+                }
+              }
+            ],
             "text": "⁺ 较远的灵魂：在所有周围 28 格内存在灵魂碎片点位或灵魂之灯点位的灵魂中最远的灵魂"
           }
         ]
@@ -1408,6 +1473,17 @@
         "content": [
           {
             "type": "text",
+            "marks": [
+              {
+                "type": "ink",
+                "attrs": {
+                  "fg": null,
+                  "bg": "#F2F3F5",
+                  "fgDark": null,
+                  "bgDark": "#333333"
+                }
+              }
+            ],
             "text": "¨ 附近：距守卫者 14 格以外最近的灵魂碎片点位或灵魂之灯点位"
           }
         ]
@@ -1488,7 +1564,7 @@
               {
                 "type": "link",
                 "attrs": {
-                  "href": "https://xinhuo-pro.feishu.cn/docx/Apcdds1QVoP52wxRqJycZqOZnhd#share-LgOJdS2t6oka9kxqOdRcJrzunOd",
+                  "href": "/midsoul/wiki/午夜灵魂/能力一览#%E8%AF%85%E5%92%92",
                   "target": "_blank",
                   "rel": "noreferrer noopener",
                   "class": null,
@@ -1742,6 +1818,17 @@
         "content": [
           {
             "type": "text",
+            "marks": [
+              {
+                "type": "ink",
+                "attrs": {
+                  "fg": "#8F959E",
+                  "bg": null,
+                  "fgDark": "#757575",
+                  "bgDark": null
+                }
+              }
+            ],
             "text": "持续时间无限，收集中断时重置"
           }
         ]

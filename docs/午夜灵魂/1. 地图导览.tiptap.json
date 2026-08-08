@@ -87,11 +87,15 @@
         "type": "table",
         "attrs": {
           "hideHeader": false,
-          "noFirstCol": false
+          "noFirstCol": false,
+          "anchorId": null
         },
         "content": [
           {
             "type": "tableRow",
+            "attrs": {
+              "anchorId": null
+            },
             "content": [
               {
                 "type": "tableHeader",
@@ -301,6 +305,9 @@
           },
           {
             "type": "tableRow",
+            "attrs": {
+              "anchorId": null
+            },
             "content": [
               {
                 "type": "tableCell",
@@ -559,11 +566,15 @@
         "type": "table",
         "attrs": {
           "hideHeader": false,
-          "noFirstCol": false
+          "noFirstCol": false,
+          "anchorId": null
         },
         "content": [
           {
             "type": "tableRow",
+            "attrs": {
+              "anchorId": null
+            },
             "content": [
               {
                 "type": "tableHeader",
@@ -773,6 +784,9 @@
           },
           {
             "type": "tableRow",
+            "attrs": {
+              "anchorId": null
+            },
             "content": [
               {
                 "type": "tableCell",
@@ -999,11 +1013,15 @@
         "type": "table",
         "attrs": {
           "hideHeader": false,
-          "noFirstCol": false
+          "noFirstCol": false,
+          "anchorId": null
         },
         "content": [
           {
             "type": "tableRow",
+            "attrs": {
+              "anchorId": null
+            },
             "content": [
               {
                 "type": "tableHeader",
@@ -1193,6 +1211,9 @@
           },
           {
             "type": "tableRow",
+            "attrs": {
+              "anchorId": null
+            },
             "content": [
               {
                 "type": "tableCell",
@@ -1458,11 +1479,15 @@
         "type": "table",
         "attrs": {
           "hideHeader": false,
-          "noFirstCol": false
+          "noFirstCol": false,
+          "anchorId": null
         },
         "content": [
           {
             "type": "tableRow",
+            "attrs": {
+              "anchorId": null
+            },
             "content": [
               {
                 "type": "tableHeader",
@@ -1652,6 +1677,9 @@
           },
           {
             "type": "tableRow",
+            "attrs": {
+              "anchorId": null
+            },
             "content": [
               {
                 "type": "tableCell",
@@ -1917,11 +1945,15 @@
         "type": "table",
         "attrs": {
           "hideHeader": false,
-          "noFirstCol": false
+          "noFirstCol": false,
+          "anchorId": null
         },
         "content": [
           {
             "type": "tableRow",
+            "attrs": {
+              "anchorId": null
+            },
             "content": [
               {
                 "type": "tableHeader",
@@ -2111,6 +2143,9 @@
           },
           {
             "type": "tableRow",
+            "attrs": {
+              "anchorId": null
+            },
             "content": [
               {
                 "type": "tableCell",
@@ -2407,11 +2442,15 @@
         "type": "table",
         "attrs": {
           "hideHeader": false,
-          "noFirstCol": false
+          "noFirstCol": false,
+          "anchorId": null
         },
         "content": [
           {
             "type": "tableRow",
+            "attrs": {
+              "anchorId": null
+            },
             "content": [
               {
                 "type": "tableHeader",
@@ -2601,6 +2640,9 @@
           },
           {
             "type": "tableRow",
+            "attrs": {
+              "anchorId": null
+            },
             "content": [
               {
                 "type": "tableCell",
@@ -2894,9 +2936,9 @@
                 "type": "ink",
                 "attrs": {
                   "fg": null,
-                  "bg": "#f2f2f2",
+                  "bg": "#F2F3F5",
                   "fgDark": null,
-                  "bgDark": null
+                  "bgDark": "#333333"
                 }
               }
             ],

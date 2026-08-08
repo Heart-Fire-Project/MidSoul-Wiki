@@ -146,6 +146,17 @@
         "content": [
           {
             "type": "text",
+            "marks": [
+              {
+                "type": "ink",
+                "attrs": {
+                  "fg": "#8F959E",
+                  "bg": null,
+                  "fgDark": "#757575",
+                  "bgDark": null
+                }
+              }
+            ],
             "text": "与碎片有关的效果不会选中假碎片"
           }
         ]
@@ -356,6 +367,17 @@
         "content": [
           {
             "type": "text",
+            "marks": [
+              {
+                "type": "ink",
+                "attrs": {
+                  "fg": null,
+                  "bg": "#F2F3F5",
+                  "fgDark": null,
+                  "bgDark": "#333333"
+                }
+              }
+            ],
             "text": "⁺ 生成量等同于地图大小"
           }
         ]
@@ -393,6 +415,17 @@
         "content": [
           {
             "type": "text",
+            "marks": [
+              {
+                "type": "ink",
+                "attrs": {
+                  "fg": "#8F959E",
+                  "bg": null,
+                  "fgDark": "#757575",
+                  "bgDark": null
+                }
+              }
+            ],
             "text": "残影将在下一次判定时自毁，生成时若其周围 12 格内有灵魂则会发光"
           }
         ]
