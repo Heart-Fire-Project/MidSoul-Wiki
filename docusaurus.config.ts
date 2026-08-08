@@ -10,7 +10,7 @@ type ImageLibraryContent = { images: string[] };
 const IMAGE_FILE = /\.(?:avif|gif|jpe?g|png|svg|webp)$/i;
 // 编辑器通过本机 File System Access API 直接读写仓库文件，属于作者工具而
 // 非公开 Wiki 功能。生产构建必须不生成此路由；仅 docusaurus start 的开发
-// 环境会加载 src/pages/editor3.tsx。
+// 环境会加载 src/pages/editor.tsx。
 const isDevelopment = process.env.NODE_ENV === 'development';
 const defaultPageExcludes = [
   '**/_*.{js,jsx,ts,tsx,md,mdx}',

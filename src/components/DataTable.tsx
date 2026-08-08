@@ -17,6 +17,11 @@ const VALIGN: Record<VerticalAlignment, CSSProperties['verticalAlign']> = { t: '
 
 function CellImage({ md, src, alt }: { md: string; src: string; alt: string }) { return <img data-md={md} src={useBaseUrl(src)} alt={alt} />; }
 
+/** toMarkdown 的 escapeText 会把 <、* 等转义为反斜杠形式（如 K\<1.6、
+ * 10\*(10-灵魂数)）；inlineMd 的语法分支只识别未转义形式，落入普通
+ * 文本的转义序列需要还原，避免发布页把反斜杠显示出来。 */
+const unescapeMd = (part: string) => part.replace(/\\([\\`*_[\]<>~!])/g, '$1');
+
 export function inlineMd(text: string | undefined): ReactNode {
 	if (!text) return null;
 	return String(text).split(INLINE).map((part, index) => {
@@ -30,7 +35,7 @@ export function inlineMd(text: string | undefined): ReactNode {
 		if (part.startsWith('`')) return <code key={index}>{part.slice(1, -1)}</code>;
 		if (part.startsWith('*')) return <em key={index}>{inlineMd(part.slice(1, -1))}</em>;
 		const link = part.match(/^\[([^\]]*)\]\(([^)]*)\)$/);
-		return link ? <a key={index} href={link[2]}>{inlineMd(link[1])}</a> : part;
+		return link ? <a key={index} href={link[2]}>{inlineMd(link[1])}</a> : unescapeMd(part);
 	});
 }
 
