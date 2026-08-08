@@ -140,7 +140,7 @@ const config: Config = {
         },
         pages: {
           // 显式保留 Docusaurus 默认排除规则，再在生产环境额外排除编辑器页面。
-          exclude: isDevelopment ? defaultPageExcludes : [...defaultPageExcludes, '**/editor3.tsx'],
+          exclude: isDevelopment ? defaultPageExcludes : [...defaultPageExcludes, '**/editor*.{js,jsx,ts,tsx}'],
         },
         theme: {
           customCss: "./src/css/custom.css",
@@ -199,17 +199,17 @@ const config: Config = {
         {
           title: "百科",
           items: [
-            { label: "整体介绍（旧版）", to: "/wiki/午夜灵魂/整体介绍-旧版" },
-            { label: "机制说明（旧版）", to: "/wiki/午夜灵魂/机制说明-旧版" },
-            { label: "能力一览（旧版）", to: "/wiki/午夜灵魂/能力一览-旧版" },
+            { label: "地图导览", to: "/wiki/午夜灵魂/地图导览" },
+            { label: "全局机制", to: "/wiki/午夜灵魂/全局机制" },
+            { label: "能力一览", to: "/wiki/午夜灵魂/能力一览" },
           ],
         },
         {
           title: "更多",
           items: [
             { label: "回响记录", to: "/wiki/午夜灵魂/回响记录" },
-            { label: "进度碑刻（旧版）", to: "/wiki/午夜灵魂/进度碑刻-旧版" },
-            { label: "饰品集册（旧版）", to: "/wiki/午夜灵魂/饰品集册-旧版" },
+            { label: "进度碑刻", to: "/wiki/午夜灵魂/进度碑刻" },
+            { label: "饰品集册", to: "/wiki/午夜灵魂/饰品集册" },
           ],
         },
       ],
