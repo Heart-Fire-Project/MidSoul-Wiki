@@ -39,6 +39,13 @@
   margin-right: 0rem !important;
 }
 
+/* logo 原图 2400×741（≈3.24:1）。桌面端 img 高度被 navbar 固定为 2rem，
+   宽度若沿用配置里的 HTML 属性 120px 会被横向拉伸（120/32 ≈ 3.75:1），
+   看起来发瘪；这里与移动端一致改为按高度等比缩放。 */
+.navbar__logo img {
+  width: auto;
+}
+
 /* Nav item icons (lucide-style SVG via CSS) */
 .nav-wiki::before,
 .nav-blog::before {

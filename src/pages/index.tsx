@@ -1,6 +1,7 @@
 import type {ReactNode} from 'react';
 import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
+import { Moon, Swords } from 'lucide-react';
 import styles from './index.module.css';
 
 const WIKI_CARDS = [
@@ -29,7 +30,7 @@ export default function Home(): ReactNode {
           <div className={styles.heroContent}>
             <h1 className={styles.heroTitle}>
               <span className={styles.titleZh}>午夜灵魂</span>
-              <span className={styles.titleEn}>M I D S O U L</span>
+              <span className={styles.titleEn}>MIDSOUL</span>
             </h1>
 
             <p className={styles.heroTagline}>
@@ -50,9 +51,10 @@ export default function Home(): ReactNode {
         <section className={styles.factions}>
           <div className={styles.factionSoul}>
             <div className={styles.factionInner}>
-              <span className={styles.factionGlyph}>☽</span>
-              <h2 className={styles.factionName}>灵　魂</h2>
-              <p className={styles.factionEn}>S O U L</p>
+              {/* ⚔/☽ 等 Unicode 字形在部分系统上按 emoji 渲染、度量不一致，改用 lucide 图标 */}
+              <span className={styles.factionGlyph}><Moon size={44} strokeWidth={1.5} /></span>
+              <h2 className={styles.factionName}>灵魂</h2>
+              <p className={styles.factionEn}>SOUL</p>
               <p className={styles.factionDesc}>
                 弱小却不孤单。收集飘散的灵气碎片，
                 为传送门注能，借助队友的灵魂之灯，
@@ -74,9 +76,9 @@ export default function Home(): ReactNode {
 
           <div className={styles.factionGuard}>
             <div className={styles.factionInner}>
-              <span className={styles.factionGlyph}>⚔</span>
+              <span className={styles.factionGlyph}><Swords size={44} strokeWidth={1.5} /></span>
               <h2 className={styles.factionName}>守卫者</h2>
-              <p className={styles.factionEn}>G U A R D I A N</p>
+              <p className={styles.factionEn}>GUARDIAN</p>
               <p className={styles.factionDesc}>
                 速度与力量的化身。追踪每一个灵魂的气息，
                 阻止传送门开启，在收集与充能的间隙

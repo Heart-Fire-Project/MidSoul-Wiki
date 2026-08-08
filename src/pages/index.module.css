@@ -297,6 +297,7 @@
 .factionGuard .factionInner { align-items: flex-end; }
 
 .factionGlyph {
+  display: flex;
   font-size: 2.8rem;
   line-height: 1;
 }
@@ -313,6 +314,10 @@
 }
 .factionSoul  .factionName { color: var(--soul);  text-shadow: 0 0 40px rgba(126,207,255,0.35); }
 .factionGuard .factionName { color: var(--guard); text-shadow: 0 0 40px rgba(255,107,107,0.35); }
+/* letter-spacing 会在末字后也加间距，右对齐时把标题右缘撑离字形；
+   用负 margin 抵消，让「者」字右缘与剑图标右缘对齐 */
+.factionGuard .factionName { margin-right: -0.45em; }
+.factionGuard .factionEn { margin-right: -0.55em; }
 
 .factionEn {
   font-size: 0.62rem;
