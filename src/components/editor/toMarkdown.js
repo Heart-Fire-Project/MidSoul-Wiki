@@ -10,6 +10,23 @@ const escapeText = (value) => normalizeNumericRanges(value).replace(/([\\*`<])/g
 const escapeAttribute = (value) => String(value ?? '').replace(/&/g, '&amp;').replace(/"/g, '&quot;');
 const quoteCss = (value) => `'${String(value).replace(/\\/g, '\\\\').replace(/'/g, "\\'")}'`;
 
+const ASCII_PUNCTUATION = /[!"#$%&'()*+,\-./:;<=>?@\[\\\]^_`{|}~]/;
+const isPunctuation = (character) => ASCII_PUNCTUATION.test(character) || /\p{P}/u.test(character);
+
+/**
+ * CommonMark 要求 ** 闭合标记前面不能紧跟标点、后面也不能紧跟非标点文字，
+ * 否则整个强调无法解析、星号按字面显示——中文文档里「**标题：**正文」的
+ * 写法恰好命中这条规则。此时改用行内 HTML <strong> 包裹，保留冒号加粗。
+ * 表格单元格由 DataTable.inlineMd 自绘渲染（支持 ** 而不支持 <strong>），
+ * 那里必须保持星号语法，由 mode='table' 关闭此改写。
+ */
+function boldNeedsHtmlStrong(node, next) {
+  if (!/[\p{P}]$/u.test(node.text ?? '')) return false;
+  if (!next || next.type !== 'text') return false;
+  const head = String(next.text ?? '').charAt(0);
+  return Boolean(head) && !/\s/.test(head) && !isPunctuation(head);
+}
+
 function codeSpan(value) {
   const text = String(value ?? '');
   const longest = Math.max(0, ...(text.match(/`+/g) ?? []).map((part) => part.length));
@@ -18,12 +35,17 @@ function codeSpan(value) {
   return `${fence}${padding}${text}${padding}${fence}`;
 }
 
-function markedText(node) {
+function markedText(node, next, mode) {
   const marks = Array.isArray(node.marks) ? node.marks : [];
   const byType = (type) => marks.find((mark) => mark.type === type);
   let output = byType('code') ? codeSpan(node.text) : escapeText(node.text).replace(/\n/g, '<br />');
 
-  if (byType('bold')) output = `**${output}**`;
+  if (byType('bold')) {
+    // 加粗文本若会被 JSX 包裹（ink/label/anchor 的 span 或标签、Callout 等
+    // JSX 文本容器），其中的 ** 永远按字面显示，必须输出 <strong>。
+    const jsxWrapped = mode === 'jsx' || byType('ink') || byType('label') || byType('anchor');
+    output = mode === 'table' || (!jsxWrapped && !boldNeedsHtmlStrong(node, next)) ? `**${output}**` : `<strong>${output}</strong>`;
+  }
   if (byType('italic')) output = `*${output}*`;
   if (byType('strike')) output = `~~${output}~~`;
 
@@ -54,13 +76,14 @@ function markedText(node) {
   return output;
 }
 
-export function tiptapInlineToMarkdown(content) {
-  return (content ?? []).map((node) => {
-    if (node.type === 'text') return markedText(node);
+export function tiptapInlineToMarkdown(content, mode = 'mdx') {
+  const nodes = content ?? [];
+  return nodes.map((node, index) => {
+    if (node.type === 'text') return markedText(node, nodes[index + 1], mode);
     if (node.type === 'hardBreak') return '<br />';
     if (node.type === 'image') return `![${escapeText(attrs(node).alt ?? '')}](${attrs(node).src ?? ''})`;
     if (node.type === 'inlineMath') return `$${attrs(node).latex ?? ''}$`;
-    return tiptapInlineToMarkdown(children(node));
+    return tiptapInlineToMarkdown(children(node), mode);
   }).join('');
 }
 
@@ -74,7 +97,7 @@ function preserveParagraphBoundary(markdown) {
   return /^<(?:span|Label)\b/.test(markdown) ? `<p>${markdown}</p>` : markdown;
 }
 
-function listToMarkdown(node, depth = 0) {
+function listToMarkdown(node, depth = 0, mode = 'mdx') {
   const ordered = node.type === 'orderedList';
   const task = node.type === 'taskList';
   const start = Number(attrs(node).start ?? 1);
@@ -84,21 +107,21 @@ function listToMarkdown(node, depth = 0) {
     const marker = task ? `- [${attrs(item).checked ? 'x' : ' '}]` : ordered ? `${start + index}.` : '-';
     const pad = '  '.repeat(depth);
     const lead = first?.type === 'paragraph'
-      ? withAlignment(first, tiptapInlineToMarkdown(children(first)))
-      : first ? blockToMarkdown(first, depth + 1) : '';
+      ? withAlignment(first, tiptapInlineToMarkdown(children(first), mode))
+      : first ? blockToMarkdown(first, depth + 1, mode) : '';
     const rest = itemChildren.slice(1).map((child) => {
-      if (child.type === 'bulletList' || child.type === 'orderedList' || child.type === 'taskList') return listToMarkdown(child, depth + 1);
-      return blockToMarkdown(child, depth + 1).split('\n').map((line) => `${'  '.repeat(depth + 1)}${line}`).join('\n');
+      if (child.type === 'bulletList' || child.type === 'orderedList' || child.type === 'taskList') return listToMarkdown(child, depth + 1, mode);
+      return blockToMarkdown(child, depth + 1, mode).split('\n').map((line) => `${'  '.repeat(depth + 1)}${line}`).join('\n');
     }).filter(Boolean);
     return `${pad}${marker} ${lead}${rest.length ? `\n${rest.join('\n')}` : ''}`;
   }).join('\n');
 }
 
-function cellMarkdown(cell) {
+function cellMarkdown(cell, mode) {
   return children(cell).map((block) => {
-    if (block.type === 'paragraph' || block.type === 'heading') return tiptapInlineToMarkdown(children(block));
+    if (block.type === 'paragraph' || block.type === 'heading') return tiptapInlineToMarkdown(children(block), mode);
     if (block.type === 'codeBlock') return codeSpan(children(block).map((node) => node.text ?? '').join(''));
-    return blockToMarkdown(block).replace(/\n/g, '<br />');
+    return blockToMarkdown(block, 0, mode).replace(/\n/g, '<br />');
   }).filter(Boolean).join('<br />');
 }
 
@@ -124,7 +147,7 @@ function tableToMarkdown(node) {
       const alignment = attrs(paragraph).textAlign;
       const opacity = Number(cellAttrs.backgroundOpacity ?? 1);
       dense[rowIndex][column] = {
-        t: cellMarkdown(cell),
+        t: cellMarkdown(cell, 'table'),
         ...(colspan > 1 && { cs: colspan }),
         ...(rowspan > 1 && { rs: rowspan }),
         ...(cellAttrs.backgroundColor && { bg: cellAttrs.backgroundColor }),
@@ -166,21 +189,21 @@ function tableToMarkdown(node) {
   });
 }
 
-function blockToMarkdown(node, depth = 0) {
+function blockToMarkdown(node, depth = 0, mode = 'mdx') {
   switch (node.type) {
     case 'paragraph':
-      return preserveParagraphBoundary(withAlignment(node, tiptapInlineToMarkdown(children(node))));
+      return preserveParagraphBoundary(withAlignment(node, tiptapInlineToMarkdown(children(node), mode)));
     case 'heading':
-      return `${'#'.repeat(Math.max(1, Math.min(6, Number(attrs(node).level ?? 1))))} ${withAlignment(node, tiptapInlineToMarkdown(children(node)))}`;
+      return `${'#'.repeat(Math.max(1, Math.min(6, Number(attrs(node).level ?? 1))))} ${withAlignment(node, tiptapInlineToMarkdown(children(node), mode))}`;
     case 'bulletList':
     case 'orderedList':
     case 'taskList':
-      return listToMarkdown(node, depth);
+      return listToMarkdown(node, depth, mode);
     case 'listItem':
     case 'taskItem':
-      return children(node).map((child) => blockToMarkdown(child, depth)).join('\n');
+      return children(node).map((child) => blockToMarkdown(child, depth, mode)).join('\n');
     case 'blockquote': {
-      const quote = blocksToMarkdown(children(node));
+      const quote = blocksToMarkdown(children(node), mode);
       return quote.split('\n').map((line) => line ? `> ${line}` : '>').join('\n');
     }
     case 'codeBlock': {
@@ -203,12 +226,13 @@ function blockToMarkdown(node, depth = 0) {
     case 'callout': {
       const callout = attrs(node);
       const emoji = callout.emoji ? ` emoji="${escapeAttribute(callout.emoji)}"` : '';
-      return `<Callout color="${escapeAttribute(callout.color ?? 'green')}"${emoji}>${tiptapInlineToMarkdown(children(node))}</Callout>`;
+      // Callout 内容是 JSX 文本，不经过 Markdown 内联解析，加粗用 <strong> 表达。
+      return `<Callout color="${escapeAttribute(callout.color ?? 'green')}"${emoji}>${tiptapInlineToMarkdown(children(node), 'jsx')}</Callout>`;
     }
     case 'admonition': {
       const admonition = attrs(node);
       const title = admonition.title ? ` ${String(admonition.title).replace(/\n/g, ' ')}` : '';
-      return `:::${admonition.kind ?? 'note'}${title}\n${blocksToMarkdown(children(node))}\n:::`;
+      return `:::${admonition.kind ?? 'note'}${title}\n${blocksToMarkdown(children(node), mode)}\n:::`;
     }
     case 'rawMdx':
       return String(attrs(node).source ?? '').trimEnd();
@@ -221,8 +245,8 @@ function blockToMarkdown(node, depth = 0) {
   }
 }
 
-export function blocksToMarkdown(content) {
-  return (content ?? []).map((node) => blockToMarkdown(node)).filter((markdown, index) => {
+export function blocksToMarkdown(content, mode = 'mdx') {
+  return (content ?? []).map((node) => blockToMarkdown(node, 0, mode)).filter((markdown, index) => {
     if (markdown.trim()) return true;
     return content[index]?.type !== 'paragraph';
   }).join('\n\n');

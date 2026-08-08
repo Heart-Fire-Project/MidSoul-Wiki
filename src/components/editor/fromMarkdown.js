@@ -48,6 +48,14 @@ export function markdownInlineToTiptap(markdown, marks = []) {
       continue;
     }
 
+    // toMarkdown 对「加粗文本以标点结尾且后接非标点文字」（如 **标题：**正文）
+    // 输出行内 HTML <strong> 以规避 CommonMark 强调闭合规则，导入时还原为 bold。
+    if (part.startsWith('<strong')) {
+      const open = openTagOf(part);
+      output.push(...withMark(markdownInlineToTiptap(part.slice(open.length, -'</strong>'.length), marks), { type: 'bold' }));
+      continue;
+    }
+
     if (part.startsWith('![')) {
       const image = part.match(/^!\[([^\]]*)\]\(([^)]*)\)$/);
       output.push(...textNode(image?.[1] || image?.[2] || part, marks));

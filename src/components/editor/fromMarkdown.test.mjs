@@ -67,4 +67,9 @@ assert.ok(output.includes('rowIds={[null,"精确表格行"]}'), '表格行跳转
 const importedTable = parsed.content.content.find((node) => node.type === 'table');
 assert.equal(importedTable?.content[1]?.attrs?.anchorId, '精确表格行', '表格行锚点没有写回 Tiptap 文档');
 
+const strongRoundTrip = `- <strong>即时表现分：</strong>实时在聊天栏发送自身行为所获得的表现分\n- <strong>回响提示：</strong>周期性在聊天栏内发送回响效果\n`;
+const strongParsed = markdownToTiptap(strongRoundTrip);
+assert.equal(strongParsed.content.content[0].content[0].content[0].content[0].marks?.[0]?.type, 'bold', '<strong> 导入后未还原为 bold mark');
+assert.equal(tiptapDocToMarkdown(strongParsed.content), strongRoundTrip, '<strong> 往返不稳定');
+
 console.log(`markdownToTiptap: ${files.length} 篇真实文档 + 构造用例全部通过`);

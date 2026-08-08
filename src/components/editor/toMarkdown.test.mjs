@@ -70,6 +70,99 @@ assert.deepEqual(table.grid.rowIds, ['左格定位', null]);
 assert.equal(table.grid.cells[1][0].op, 0.45);
 assert.equal(table.grid.cells[1][1].al, 'r');
 
+const boldWithTrailingColon = tiptapDocToMarkdown({
+  type: 'doc',
+  content: [{
+    type: 'paragraph',
+    content: [
+      { type: 'text', text: '即时表现分：', marks: [{ type: 'bold' }] },
+      { type: 'text', text: '实时在聊天栏发送' },
+    ],
+  }],
+});
+assert.equal(boldWithTrailingColon.trim(), '<strong>即时表现分：</strong>实时在聊天栏发送', '加粗以标点结尾且后接非标点文字时，CommonMark 无法闭合 **，应输出 <strong> 保留冒号加粗');
+
+const boldTrailingColonAtEnd = tiptapDocToMarkdown({
+  type: 'doc',
+  content: [{
+    type: 'paragraph',
+    content: [{ type: 'text', text: '回响提示：', marks: [{ type: 'bold' }] }],
+  }],
+});
+assert.equal(boldTrailingColonAtEnd.trim(), '**回响提示：**', '加粗以标点结尾但无后继文字时，** 可正常闭合，保持星号语法');
+
+const boldTrailingColonInTable = tiptapDocToMarkdown({
+  type: 'doc',
+  content: [{
+    type: 'table',
+    attrs: {},
+    content: [{
+      type: 'tableRow',
+      content: [{
+        type: 'tableCell',
+        attrs: { colspan: 1, rowspan: 1, layoutMode: 'equal' },
+        content: [{ type: 'paragraph', content: [
+          { type: 'text', text: '即时表现分：', marks: [{ type: 'bold' }] },
+          { type: 'text', text: '实时在聊天栏发送' },
+        ] }],
+      }],
+    }],
+  }],
+});
+assert.ok(boldTrailingColonInTable.includes('**即时表现分：**实时在聊天栏发送'), '表格单元格由 DataTable.inlineMd 渲染，只识别 **，不能改写为 <strong>');
+
+const boldTrailingColonInTableList = tiptapDocToMarkdown({
+  type: 'doc',
+  content: [{
+    type: 'table',
+    attrs: {},
+    content: [{
+      type: 'tableRow',
+      content: [{
+        type: 'tableCell',
+        attrs: { colspan: 1, rowspan: 1, layoutMode: 'equal' },
+        content: [{
+          type: 'bulletList',
+          content: [{
+            type: 'listItem',
+            content: [{ type: 'paragraph', content: [
+              { type: 'text', text: '即时表现分：', marks: [{ type: 'bold' }] },
+              { type: 'text', text: '实时在聊天栏发送' },
+            ] }],
+          }],
+        }],
+      }],
+    }],
+  }],
+});
+assert.ok(boldTrailingColonInTableList.includes('- **即时表现分：**实时在聊天栏发送'), '单元格内嵌列表仍由 DataTable.inlineMd 渲染，mode 必须贯穿到嵌套块');
+
+const inkBoldNoColon = tiptapDocToMarkdown({
+  type: 'doc',
+  content: [{ type: 'paragraph', content: [
+    { type: 'text', text: '灵魂', marks: [{ type: 'bold' }, { type: 'ink', attrs: { fg: '#245bdb' } }] },
+    { type: 'text', text: '碎片' },
+  ] }],
+});
+assert.ok(inkBoldNoColon.includes("<strong>灵魂</strong></span>碎片"), 'ink 的 span 是 JSX，内部 ** 不解析，上色+加粗必须输出 <strong>');
+
+const inkBoldAtLineEnd = tiptapDocToMarkdown({
+  type: 'doc',
+  content: [{ type: 'paragraph', content: [
+    { type: 'text', text: '回响提示：', marks: [{ type: 'bold' }, { type: 'ink', attrs: { fg: '#245bdb' } }] },
+  ] }],
+});
+assert.ok(inkBoldAtLineEnd.includes("<strong>回响提示：</strong></span>"), '上色+加粗即使无后继文字，span 内也必须用 <strong>');
+
+const boldInsideCallout = tiptapDocToMarkdown({
+  type: 'doc',
+  content: [{ type: 'callout', attrs: { color: 'green', emoji: '🗺️' }, content: [
+    { type: 'text', text: '灵魂', marks: [{ type: 'bold' }] },
+    { type: 'text', text: '碎片' },
+  ] }],
+});
+assert.ok(boldInsideCallout.includes('<Callout color="green" emoji="🗺️"><strong>灵魂</strong>碎片</Callout>'), 'Callout 内容是 JSX 文本，内部加粗必须用 <strong>');
+
 const mdxSafeText = tiptapDocToMarkdown({
   type: 'doc',
   content: [{ type: 'paragraph', content: [{ type: 'text', text: '剩余灵魂 <3 人' }] }],
