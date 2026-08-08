@@ -370,6 +370,11 @@
   position: relative;
   z-index: 0;
   -webkit-overflow-scrolling: touch;
+  /* 与上方 sticky 复制表头重叠（对应 head-sticky 不再用负 margin——
+     sticky 的包含块约束基于 margin box，负 margin 会把约束盒压成
+     0 高，导致表头固定到表格底边滚到视口顶才解除；把负 margin 放
+     这里，sticky 层恢复真实高度，表头底边碰表格底边即解除） */
+  margin-top: calc(var(--ms-table-head-height, 0px) * -1);
 }
 
 .markdown .ms-table-shell { margin: 1.5rem 0; position: relative; }
@@ -413,7 +418,6 @@
   /* 宽度来自横向滚动视口，而不是外层 shell。这样不会为了预留滚动条
      在表格右边额外铺出一条表头颜色。 */
   width: var(--ms-table-visible-width, 100%);
-  margin-bottom: calc(var(--ms-table-head-height, 0px) * -1);
   pointer-events: none;
   position: sticky;
   top: 0;
