@@ -46,6 +46,12 @@
   width: auto;
 }
 
+/* 文档页左侧 sidebar 顶部的 logo 有同样问题（高度被固定 2rem、宽度沿用
+   HTML 属性 120px）。sidebarLogo 是 CSS Modules 哈希类，用属性选择器匹配 */
+[class*='sidebarLogo'] img {
+  width: auto;
+}
+
 /* Nav item icons (lucide-style SVG via CSS) */
 .nav-wiki::before,
 .nav-blog::before {

@@ -197,19 +197,27 @@ const config: Config = {
       style: "dark",
       links: [
         {
-          title: "百科",
+          title: "核心玩法",
           items: [
-            { label: "地图导览", to: "/wiki/午夜灵魂/地图导览" },
-            { label: "全局机制", to: "/wiki/午夜灵魂/全局机制" },
+            { label: "模式介绍", to: "/wiki/午夜灵魂/模式介绍" },
             { label: "能力一览", to: "/wiki/午夜灵魂/能力一览" },
+            { label: "全局机制", to: "/wiki/午夜灵魂/全局机制" },
           ],
         },
         {
-          title: "更多",
+          title: "系统资料",
           items: [
+            { label: "地图导览", to: "/wiki/午夜灵魂/地图导览" },
             { label: "回响记录", to: "/wiki/午夜灵魂/回响记录" },
             { label: "进度碑刻", to: "/wiki/午夜灵魂/进度碑刻" },
+          ],
+        },
+        {
+          title: "收藏与动态",
+          items: [
             { label: "饰品集册", to: "/wiki/午夜灵魂/饰品集册" },
+            { label: "文本套组详览", to: "/wiki/午夜灵魂/饰品集册-文本套组详览" },
+            { label: "更新日志", to: "/blog" },
           ],
         },
       ],
