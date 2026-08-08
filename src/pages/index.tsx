@@ -5,12 +5,12 @@ import { Moon, Swords, Map, Dices, Trophy, Gamepad2, Zap, Settings, Gem, FileTex
 import styles from './index.module.css';
 
 const WIKI_CARDS: Array<{ icon: LucideIcon; label: string; sub: string; href: string }> = [
+  { icon: Settings, label: '全局机制', sub: '游戏内外全部机制', href: '/wiki/午夜灵魂/全局机制' },
+  { icon: Gamepad2, label: '模式介绍', sub: '标准竞技 · 娱乐快节奏', href: '/wiki/午夜灵魂/模式介绍' },
   { icon: Map, label: '地图导览', sub: '内置地图 · 参数 · 机制', href: '/wiki/午夜灵魂/地图导览' },
+  { icon: Zap, label: '能力一览', sub: '天赋 · 技能 · 宝物', href: '/wiki/午夜灵魂/能力一览' },
   { icon: Dices, label: '回响记录', sub: '全局概率随机效果', href: '/wiki/午夜灵魂/回响记录' },
   { icon: Trophy, label: '进度碑刻', sub: '成就进度 · 装饰解锁', href: '/wiki/午夜灵魂/进度碑刻' },
-  { icon: Gamepad2, label: '模式介绍', sub: '标准竞技 · 娱乐快节奏', href: '/wiki/午夜灵魂/模式介绍' },
-  { icon: Zap, label: '能力一览', sub: '天赋 · 技能 · 宝物', href: '/wiki/午夜灵魂/能力一览' },
-  { icon: Settings, label: '全局机制', sub: '游戏内外全部机制', href: '/wiki/午夜灵魂/全局机制' },
   { icon: Gem, label: '饰品集册', sub: '粒子 · 特效 · 文本套组', href: '/wiki/午夜灵魂/饰品集册' },
   { icon: FileText, label: '更新日志', sub: '版本更新记录', href: '/blog' },
 ];
