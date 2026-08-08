@@ -12,7 +12,7 @@ import { errorMessage } from '../components/editor/documentTypes';
 import { markdownToTiptap } from '../components/editor/fromMarkdown';
 import TiptapEditor, { INITIAL_DOCUMENT, type EditorLinkTarget } from '../components/editor/TiptapEditor';
 import { findPairedPreset } from '../components/editor/ColorPalette';
-import { addBaseToTiptapImages, stripBaseFromTiptapImages } from '../components/editor/imagePaths';
+import { addBaseToTiptapImages, normalizeTiptapImagePaths, stripBaseFromTiptapImages } from '../components/editor/imagePaths';
 import { tiptapDocToMarkdown } from '../components/editor/toMarkdown.js';
 import s from '../components/editor/EditorWorkspace.module.css';
 
@@ -81,14 +81,14 @@ const readSession = (): EditorSession | null => {
   } catch { return null; }
 };
 
-const rememberSession = (path: string, frontmatter: string, content: JSONContent, baseUrl: string, saved: boolean) => {
+const rememberSession = (path: string, frontmatter: string, content: JSONContent, baseUrl: string, images: string[], saved: boolean) => {
   if (!path) return;
   try {
     const session: EditorSession = {
       version: 1,
       path,
       saved,
-      document: { format: 'tiptap-v1', frontmatter, content: stripBaseFromTiptapImages(content, baseUrl) },
+      document: { format: 'tiptap-v1', frontmatter, content: normalizeTiptapImagePaths(stripBaseFromTiptapImages(content, baseUrl), images) },
     };
     sessionStorage.setItem(SESSION_KEY, JSON.stringify(session));
     localStorage.setItem(LAST_FILE_KEY, path);
@@ -111,7 +111,7 @@ async function writeFile(handle: FileSystemFileHandle, content: string) {
 function Workspace({ baseUrl, images, documentRoutes }: { baseUrl: string; images: string[]; documentRoutes: Record<string, string> }) {
   const [recovery] = useState<EditorSession | null>(() => readSession());
   const [initialContent] = useState<JSONContent>(() => recovery
-    ? addBaseToTiptapImages(restorePairedInkColors(recovery.document.content), baseUrl)
+    ? addBaseToTiptapImages(normalizeTiptapImagePaths(restorePairedInkColors(recovery.document.content), images), baseUrl)
     : INITIAL_DOCUMENT);
   const [initialPath] = useState<string | undefined>(() => recovery?.path || localStorage.getItem(LAST_FILE_KEY) || undefined);
   const [file, setFile] = useState<EditorFile | null>(null);
@@ -152,7 +152,7 @@ function Workspace({ baseUrl, images, documentRoutes }: { baseUrl: string; image
         }
       }
 
-      const displayContent = addBaseToTiptapImages(restorePairedInkColors(migrated.content), baseUrl);
+      const displayContent = addBaseToTiptapImages(normalizeTiptapImagePaths(restorePairedInkColors(migrated.content), images), baseUrl);
       recoveryRef.current = null;
       frontmatter.current = migrated.frontmatter;
       currentDocument.current = displayContent;
@@ -161,7 +161,7 @@ function Workspace({ baseUrl, images, documentRoutes }: { baseUrl: string; image
       setEditorKey((key) => key + 1);
       setFile({ ...node, id: node.id ?? node.path, base });
       setSaved(!restoredDraft);
-      rememberSession(node.path, migrated.frontmatter, displayContent, baseUrl, !restoredDraft);
+      rememberSession(node.path, migrated.frontmatter, displayContent, baseUrl, images, !restoredDraft);
       setMessage(`已打开 ${node.name} · 源：${source}`);
     } catch (caught: unknown) {
       setMessage(`打开失败：${errorMessage(caught)}`);
@@ -174,7 +174,7 @@ function Workspace({ baseUrl, images, documentRoutes }: { baseUrl: string; image
     savingRef.current = true;
     setSaving(true);
     try {
-      const content = stripBaseFromTiptapImages(currentDocument.current, baseUrl);
+      const content = normalizeTiptapImagePaths(stripBaseFromTiptapImages(currentDocument.current, baseUrl), images);
       const document: TiptapStoredDocument = {
         format: 'tiptap-v1',
         frontmatter: frontmatter.current,
@@ -184,19 +184,19 @@ function Workspace({ baseUrl, images, documentRoutes }: { baseUrl: string; image
       const jsonHandle = await file.dir.getFileHandle(`${file.base}.tiptap.json`, { create: true });
       // JSON 是无损编辑源，先写它；Markdown 导出失败时可以安全重试，不会丢编辑内容。
       await writeFile(jsonHandle, JSON.stringify(document, null, 2));
-      rememberSession(file.path, frontmatter.current, currentDocument.current, baseUrl, true);
+      rememberSession(file.path, frontmatter.current, currentDocument.current, baseUrl, images, true);
       await writeFile(file.handle, markdown);
       setSaved(true);
       setMessage(`已保存 ${file.base}.tiptap.json · 已自动导出 ${file.name}`);
     } catch (caught: unknown) {
-      if (file) rememberSession(file.path, frontmatter.current, currentDocument.current, baseUrl, false);
+      if (file) rememberSession(file.path, frontmatter.current, currentDocument.current, baseUrl, images, false);
       setSaved(false);
       setMessage(`保存失败：${errorMessage(caught)}`);
     } finally {
       savingRef.current = false;
       setSaving(false);
     }
-  }, [baseUrl, file]);
+  }, [baseUrl, file, images]);
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
@@ -248,7 +248,7 @@ function Workspace({ baseUrl, images, documentRoutes }: { baseUrl: string; image
         <TiptapEditor key={editorKey} content={content} baseUrl={baseUrl} images={images} currentPath={file?.path} linkTargets={linkTargets} onChange={(document) => {
           currentDocument.current = document;
           setSaved((wasSaved) => wasSaved ? false : wasSaved);
-          rememberSession(currentPath.current, frontmatter.current, document, baseUrl, false);
+          rememberSession(currentPath.current, frontmatter.current, document, baseUrl, images, false);
         }} />
       </div>
 

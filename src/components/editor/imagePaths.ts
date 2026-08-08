@@ -44,3 +44,23 @@ export const stripBaseFromTiptapImages = (document: JSONContent, baseUrl: string
     return base && source.startsWith(`${base}/`) ? source.slice(base.length) : source;
   });
 };
+
+/**
+ * Match persisted image paths to the spelling in static/img.
+ *
+ * macOS normally treats .PNG and .png as the same file, while the Linux
+ * filesystem used by Cloudflare Pages does not. Keeping the image library as
+ * the source of truth makes old documents self-heal on their next save.
+ */
+export const normalizeTiptapImagePaths = (document: JSONContent, images: string[]): JSONContent => {
+  const available = new Map(
+    images.map((path) => {
+      const canonical = canonicalImageSource(path);
+      return [canonical.toLowerCase(), canonical];
+    }),
+  );
+  return mapImageSources(document, (raw) => {
+    const canonical = canonicalImageSource(raw);
+    return available.get(canonical.toLowerCase()) ?? canonical;
+  });
+};
