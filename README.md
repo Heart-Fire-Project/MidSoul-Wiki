@@ -1,24 +1,26 @@
 # MidSoul-Wiki
 
-![Logo](./static/img/MidSoul-Logo.png)
+<p align="center">
+  <img src="./static/img/MidSoul-Wiki-Logo.png" width="360" />
+</p>
 
-MidSoul-Wiki 是 [Heart Fire Project](https://github.com/Heart-Fire-Project) 旗下项目**《午夜灵魂》**的官方文档与维基站点。
+MidSoul-Wiki 是 [Heart Fire Project](https://github.com/Heart-Fire-Project) 旗下项目 **午夜灵魂** 的官方文档与维基站点。
 
-本项目使用 [Docusaurus 3](https://docusaurus.io/) 构建，旨在为玩家提供关于《午夜灵魂》内各个系统与物件的详细信息。
+本项目使用 [Docusaurus 3](https://docusaurus.io/) 构建，旨在为玩家提供关于《午夜灵魂》内各系统、机制及物件的详细信息。
 
 ## 📖 核心板块
 
-- **全局机制**: 游戏内外全部机制详解
-- **模式介绍**: 标准竞技与娱乐快节奏
-- **地图导览**: 内置地图、参数与机制
-- **能力一览**: 天赋、技能与宝物
-- **回响记录**: 全局概率随机效果
-- **进度碑刻**: 成就进度与装饰解锁
-- **饰品集册**: 粒子、特效与文本套组
+- **全局机制**: 本游戏的基础系统与机制
+- **模式介绍**: 各模式的流程、玩法及其中的机制
+- **地图导览**: 各地图的数据与机制
+- **能力一览**: 游戏内的所有天赋、技能与灵魂宝物
+- **回响记录**: 所有回响的详细信息
+- **进度碑刻**: 所有进度的详细信息、触发条件与奖励
+- **饰品集册**: 所有装饰品的详细信息与获取方法
 
 ## 🛠️ 本地开发
 
-确保你已安装 [Node.js](https://nodejs.org/)（建议 v20 或更高版本）。
+请确保你已安装 [Node.js](https://nodejs.org/)（建议 v20 或更高版本）。
 
 1. **克隆仓库**
    ```bash
@@ -47,7 +49,7 @@ MidSoul-Wiki 是 [Heart Fire Project](https://github.com/Heart-Fire-Project) 旗
 
 ### 使用方式
 
-1. 启动开发服务器后访问 **http://localhost:3000/editor**（该页面仅在开发环境可用）
+1. 启动开发服务器后访问 **http://localhost:3000/midsoul/editor** （该页面仅在开发环境可用）
 2. 点击左侧文件树打开要编辑的文档
 3. 编辑完成后按 **`Cmd/Ctrl + S`** 保存
 
@@ -60,7 +62,8 @@ MidSoul-Wiki 是 [Heart Fire Project](https://github.com/Heart-Fire-Project) 旗
 | `xxx.tiptap.json` | **编辑源**：编辑器读取/写入的无损格式，包含全部排版细节 |
 | `xxx.md` | **渲染源**：Docusaurus 构建使用的 Markdown，由编辑器保存时自动导出 |
 
-> 保存时编辑器会**先写 `.tiptap.json`、再导出 `.md`**，两者始终同步。请只通过编辑器修改内容，不要手工改动这两个文件，否则会导致格式丢失或双轨不一致。
+> 保存时编辑器会**先写 `.tiptap.json`、再导出 `.md`**，两者始终同步。  
+> 请只通过编辑器修改内容，不要手工改动这两个文件，否则会导致格式丢失或双轨不一致。
 
 编辑器支持会话恢复：意外关闭页面后重新打开，会提示恢复未保存的草稿（浏览器 `sessionStorage`）。
 
@@ -72,7 +75,8 @@ MidSoul-Wiki 是 [Heart Fire Project](https://github.com/Heart-Fire-Project) 旗
 - 乘法符号：直接输入 `10*(10-灵魂数)%`
 - 数学公式：编辑器支持 `$...$` 行内公式（如 `$E=mc^2$`），由 KaTeX 渲染
 
-> ⚠️ 手写 `.md` 时不要手动加反斜杠转义（如 `\<`、`\*`）——表格单元格的自定义渲染器不会还原这些转义，发布页会直接显示反斜杠。
+> **再次提醒**，手写 `.md` 时**不要**手动加反斜杠转义（如 `\<`、`\*`）  
+> —— 表格单元格的自定义渲染器不会还原这些转义，发布页会直接显示反斜杠。
 
 ### 排版与格式
 
@@ -82,7 +86,7 @@ MidSoul-Wiki 是 [Heart Fire Project](https://github.com/Heart-Fire-Project) 旗
 
 ## 🚀 部署
 
-本项目由 GitHub Pages 自动托管，推送到 `main` 分支后自动构建部署。
+本项目由 Cloudflare Pages 自动托管，推送到 `main` 分支后自动构建部署。
 
 ## 📄 许可证
 
