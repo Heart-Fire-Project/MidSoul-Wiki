@@ -366,16 +366,20 @@ function currentColumnWidth(editor: Editor): number | null {
   const tableDom = editor.view.nodeDOM(rect.tableStart - 1) as HTMLElement | null;
   const domWidth = tableDom?.querySelectorAll('col')[col]?.getBoundingClientRect().width;
   if (domWidth && Number.isFinite(domWidth) && domWidth > 0) return Math.round(domWidth);
-  let column = 0;
+  // 回退：遍历所有行，取覆盖该列的第一个有效 colwidth
   let width: number | null = null;
-  rect.table.firstChild?.forEach((cell) => {
-    const colspan = Math.max(1, Number(cell.attrs.colspan ?? 1));
-    for (let offset = 0; offset < colspan; offset += 1, column += 1) {
-      if (column === col) {
-        const value = Number(cell.attrs.colwidth?.[offset]);
-        if (Number.isFinite(value) && value > 0) width = value;
+  rect.table.forEach((row) => {
+    if (width !== null) return;
+    let column = 0;
+    row.forEach((cell) => {
+      const colspan = Math.max(1, Number(cell.attrs.colspan ?? 1));
+      for (let offset = 0; offset < colspan; offset += 1, column += 1) {
+        if (column === col) {
+          const value = Number(cell.attrs.colwidth?.[offset]);
+          if (Number.isFinite(value) && value > 0) width = value;
+        }
       }
-    }
+    });
   });
   return width;
 }
@@ -413,10 +417,12 @@ function copyColumnWidthFromAbove(editor: Editor) {
   const currentMap = TableMap.get(currentTable);
   const doc = editor.state.doc;
 
-  // 向上找最近一张同列数、且每列都有明确宽度的表格
+  // 向上找最近一张同列数、且每列都有明确宽度的表格：
+  // nodesBetween 按文档顺序遍历，后匹配的表格覆盖前者，最后留下的即
+  // 最靠近当前表格上方的那一张。
   let source: { widths: number[] } | null = null;
   doc.nodesBetween(0, currentTablePos, (node, pos) => {
-    if (source || node.type.name !== 'table' || pos >= currentTablePos) return;
+    if (node.type.name !== 'table' || pos >= currentTablePos) return;
     const map = TableMap.get(node);
     if (map.width !== currentMap.width) return;
     // colwidth 未设置的列用表格实际渲染宽度兜底，保证整行宽度可读
@@ -720,6 +726,7 @@ export default function TiptapEditor({ content = INITIAL_DOCUMENT, baseUrl = '/'
   const [imageQuery, setImageQuery] = useState('');
   const [tablePanel, setTablePanel] = useState<TablePanel>(null);
   const [columnWidthDraft, setColumnWidthDraft] = useState('');
+  const lastColumnIndexRef = useRef<number | null>(null);
   const [linkPickerOpen, setLinkPickerOpen] = useState(false);
   const [anchorDialog, setAnchorDialog] = useState<{ kind: 'text' | 'table' | 'row'; initialId?: string | null; suggestedId: string } | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -819,6 +826,7 @@ export default function TiptapEditor({ content = INITIAL_DOCUMENT, baseUrl = '/'
     selector: ({ editor: current }) => current ? ({
       tableMove: tableMoveState(current),
       columnWidth: current.isActive('table') ? currentColumnWidth(current) : null,
+      columnIndex: current.isActive('table') ? selectedRect(current.state).left : null,
       cellVerticalAlign: (() => {
         const attrs = current.isActive('tableHeader') ? current.getAttributes('tableHeader') : current.getAttributes('tableCell');
         const value = attrs.verticalAlign as 'top' | 'middle' | 'bottom' | null | undefined;
@@ -846,6 +854,15 @@ export default function TiptapEditor({ content = INITIAL_DOCUMENT, baseUrl = '/'
       admonitionTitle: current.getAttributes('admonition').title as string | undefined,
     }) : null,
   });
+
+  // 切换选中列时清空列宽输入框，避免上一列的残留数值被误应用到新列
+  useEffect(() => {
+    const index = toolbarState?.columnIndex ?? null;
+    if (index !== null && lastColumnIndexRef.current !== null && index !== lastColumnIndexRef.current) {
+      setColumnWidthDraft('');
+    }
+    lastColumnIndexRef.current = index;
+  }, [toolbarState?.columnIndex]);
 
   if (!editor) return <div className={s.editor}><div className={s.loading}>正在加载编辑器…</div></div>;
   const setCellBackground = (color: string | null, nextOpacity = opacity) => editor.chain().focus()
