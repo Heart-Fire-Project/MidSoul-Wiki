@@ -15,6 +15,7 @@ import {
   Heading1, Heading2, Heading3, Heading4, Heading5, Heading6, Link2, List, ListChecks,
   ListOrdered, MessageSquareQuote, Minus, MoreHorizontal, Palette, Pilcrow, Plus, Paintbrush,
   Redo2, Rows3, ScanLine, Search, Sigma, SmilePlus, Sparkles, SquareCode, Strikethrough, Table2, Trash2, Underline, Undo2, Variable, X,
+  PanelTop,
 } from 'lucide-react';
 import { tiptapExtensions, type MathSelectionKind, type TableLayoutMode } from './extensions';
 import { ColorMenu, ColorPalette, type ColorSelection } from './ColorPalette';
@@ -336,6 +337,82 @@ function setTableLayout(editor: Editor, layoutMode: TableLayoutMode) {
   return true;
 }
 
+/** 将指定像素宽度应用到当前选中列（参照 prosemirror-tables 的 updateColumnWidth）。 */
+function applyColumnWidth(editor: Editor, width: number) {
+  if (!editor.isActive('table') || !Number.isFinite(width) || width < 64) return false;
+  const rect = selectedRect(editor.state);
+  const { table, tableStart, map } = rect;
+  const col = rect.left;
+  const transaction = editor.state.tr;
+  for (let row = 0; row < map.height; row += 1) {
+    const mapIndex = row * map.width + col;
+    if (row && map.map[mapIndex] === map.map[mapIndex - map.width]) continue;
+    const pos = map.map[mapIndex];
+    const attrs = table.nodeAt(pos)!.attrs;
+    const index = attrs.colspan === 1 ? 0 : col - map.colCount(pos);
+    const colwidth = attrs.colwidth ? attrs.colwidth.slice() : Array(Math.max(1, Number(attrs.colspan ?? 1))).fill(0);
+    colwidth[index] = width;
+    transaction.setNodeMarkup(tableStart + pos, null, { ...attrs, colwidth });
+  }
+  if (transaction.docChanged) editor.view.dispatch(transaction);
+  editor.commands.focus();
+  return true;
+}
+
+/** 从文档中当前表格上方的最近一张同列数表格复制列宽方案。 */
+function copyColumnWidthFromAbove(editor: Editor) {
+  const { $from } = editor.state.selection;
+  let tableDepth = $from.depth;
+  while (tableDepth > 0 && $from.node(tableDepth).type.name !== 'table') tableDepth -= 1;
+  if (tableDepth === 0) return false;
+  const currentTable = $from.node(tableDepth);
+  const currentTablePos = $from.before(tableDepth);
+  const currentMap = TableMap.get(currentTable);
+  const doc = editor.state.doc;
+
+  // 向上找最近一张同列数、且每列都有明确宽度的表格
+  let source: { widths: number[] } | null = null;
+  doc.nodesBetween(0, currentTablePos, (node, pos) => {
+    if (source || node.type.name !== 'table' || pos >= currentTablePos) return;
+    const map = TableMap.get(node);
+    if (map.width !== currentMap.width) return;
+    // colwidth 未设置的列用表格实际渲染宽度兜底，保证整行宽度可读
+    const tableDom = editor.view.nodeDOM(pos) as HTMLElement | null;
+    const domColWidths = tableDom
+      ? [...tableDom.querySelectorAll('col')].map((col) => col.getBoundingClientRect().width)
+      : [];
+    const widths: number[] = [];
+    let column = 0;
+    node.firstChild?.forEach((cell) => {
+      const colspan = Math.max(1, Number(cell.attrs.colspan ?? 1));
+      for (let offset = 0; offset < colspan; offset += 1, column += 1) {
+        const width = Number(cell.attrs.colwidth?.[offset]);
+        widths[column] = Number.isFinite(width) && width > 0 ? width : Math.round(domColWidths[column] ?? 0);
+      }
+    });
+    if (widths.every((width) => width > 0)) source = { widths };
+  });
+  if (!source) return false;
+
+  const transaction = editor.state.tr;
+  const tableStart = currentTablePos + 1;
+  for (let row = 0; row < currentMap.height; row += 1) {
+    for (let col = 0; col < currentMap.width; col += 1) {
+      const mapIndex = row * currentMap.width + col;
+      if (row && currentMap.map[mapIndex] === currentMap.map[mapIndex - currentMap.width]) continue;
+      const pos = currentMap.map[mapIndex];
+      const attrs = currentTable.nodeAt(pos)!.attrs;
+      const colspan = Math.max(1, Number(attrs.colspan ?? 1));
+      // 按绝对列索引取宽度（colwidth 数组以 cell 起点为 0，需用当前列补 offset）
+      const colwidth = Array.from({ length: colspan }, (_, offset) => source!.widths[col + offset]);
+      transaction.setNodeMarkup(tableStart + pos, null, { ...attrs, colwidth });
+    }
+  }
+  if (transaction.docChanged) editor.view.dispatch(transaction);
+  editor.commands.focus();
+  return true;
+}
+
 function tableMoveState(editor: Editor) {
   if (!editor.isActive('table')) return null;
   const rect = selectedRect(editor.state);
@@ -599,6 +676,7 @@ export default function TiptapEditor({ content = INITIAL_DOCUMENT, baseUrl = '/'
   const [imageSource, setImageSource] = useState('/img/');
   const [imageQuery, setImageQuery] = useState('');
   const [tablePanel, setTablePanel] = useState<TablePanel>(null);
+  const [columnWidthDraft, setColumnWidthDraft] = useState('');
   const [linkPickerOpen, setLinkPickerOpen] = useState(false);
   const [anchorDialog, setAnchorDialog] = useState<{ kind: 'text' | 'table' | 'row'; initialId?: string | null; suggestedId: string } | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -971,6 +1049,14 @@ export default function TiptapEditor({ content = INITIAL_DOCUMENT, baseUrl = '/'
           <TableMenuAction icon={Equal} label="平均分列" active={toolbarState?.tableMove?.layoutMode === 'equal'} command={() => setTableLayout(editor, 'equal')} />
           <TableMenuAction icon={ScanLine} label="适应内容" active={toolbarState?.tableMove?.layoutMode === 'content'} command={() => setTableLayout(editor, 'content')} />
         </span>
+        <span className={s.panelRow}>
+          <input className={s.panelInput} aria-label="当前列宽（像素）" type="number" min={64} step={1}
+            placeholder="列宽 px" value={columnWidthDraft}
+            onChange={(event) => setColumnWidthDraft(event.target.value)}
+            onKeyDown={(event) => { if (event.key === 'Enter' && applyColumnWidth(editor, Number(columnWidthDraft))) setColumnWidthDraft(''); }} />
+          <TableMenuAction icon={Check} label="应用列宽" command={() => { if (applyColumnWidth(editor, Number(columnWidthDraft))) setColumnWidthDraft(''); }} />
+        </span>
+        <TableMenuAction icon={PanelTop} label="参考上方表格列宽" command={() => copyColumnWidthFromAbove(editor)} />
         <span className={s.panelLabel}>表格显示</span>
         <span className={s.panelStack}>
           <TableMenuAction icon={EyeOff} label="隐藏表头" active={toolbarState?.tableMove?.hideHeader} disabled={!toolbarState?.tableMove?.hasHeader}
