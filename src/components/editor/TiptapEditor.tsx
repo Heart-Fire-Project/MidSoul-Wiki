@@ -337,6 +337,28 @@ function setTableLayout(editor: Editor, layoutMode: TableLayoutMode) {
   return true;
 }
 
+/** 读取当前选中列的实际渲染宽度（优先 DOM colgroup，回退 cell colwidth）。 */
+function currentColumnWidth(editor: Editor): number | null {
+  if (!editor.isActive('table')) return null;
+  const rect = selectedRect(editor.state);
+  const col = rect.left;
+  const tableDom = editor.view.nodeDOM(rect.tableStart - 1) as HTMLElement | null;
+  const domWidth = tableDom?.querySelectorAll('col')[col]?.getBoundingClientRect().width;
+  if (domWidth && Number.isFinite(domWidth) && domWidth > 0) return Math.round(domWidth);
+  let column = 0;
+  let width: number | null = null;
+  rect.table.firstChild?.forEach((cell) => {
+    const colspan = Math.max(1, Number(cell.attrs.colspan ?? 1));
+    for (let offset = 0; offset < colspan; offset += 1, column += 1) {
+      if (column === col) {
+        const value = Number(cell.attrs.colwidth?.[offset]);
+        if (Number.isFinite(value) && value > 0) width = value;
+      }
+    }
+  });
+  return width;
+}
+
 /** 将指定像素宽度应用到当前选中列（参照 prosemirror-tables 的 updateColumnWidth）。 */
 function applyColumnWidth(editor: Editor, width: number) {
   if (!editor.isActive('table') || !Number.isFinite(width) || width < 64) return false;
@@ -774,6 +796,8 @@ export default function TiptapEditor({ content = INITIAL_DOCUMENT, baseUrl = '/'
   const toolbarState = useEditorState({
     editor,
     selector: ({ editor: current }) => current ? ({
+      tableMove: tableMoveState(current),
+      columnWidth: current.isActive('table') ? currentColumnWidth(current) : null,
       block: current.isActive('heading', { level: 1 }) ? 'h1' : current.isActive('heading', { level: 2 }) ? 'h2'
         : current.isActive('heading', { level: 3 }) ? 'h3' : current.isActive('heading', { level: 4 }) ? 'h4'
           : current.isActive('heading', { level: 5 }) ? 'h5' : current.isActive('heading', { level: 6 }) ? 'h6'
@@ -790,7 +814,6 @@ export default function TiptapEditor({ content = INITIAL_DOCUMENT, baseUrl = '/'
       textAlign: (current.isActive({ textAlign: 'center' }) ? 'center'
         : current.isActive({ textAlign: 'right' }) ? 'right' : 'left') as TextAlignment,
       canUndo: current.can().undo(), canRedo: current.can().redo(),
-      tableMove: tableMoveState(current),
       calloutColor: current.getAttributes('callout').color as CalloutColor | undefined,
       calloutEmoji: current.getAttributes('callout').emoji as string | undefined,
       admonitionKind: current.getAttributes('admonition').kind as AdmonitionKind | undefined,
@@ -1051,10 +1074,13 @@ export default function TiptapEditor({ content = INITIAL_DOCUMENT, baseUrl = '/'
         </span>
         <span className={s.panelRow}>
           <input className={s.panelInput} aria-label="当前列宽（像素）" type="number" min={64} step={1}
-            placeholder="列宽 px" value={columnWidthDraft}
+            placeholder={toolbarState?.columnWidth ? `当前 ${toolbarState.columnWidth}px` : '列宽 px'} value={columnWidthDraft}
             onChange={(event) => setColumnWidthDraft(event.target.value)}
             onKeyDown={(event) => { if (event.key === 'Enter' && applyColumnWidth(editor, Number(columnWidthDraft))) setColumnWidthDraft(''); }} />
-          <TableMenuAction icon={Check} label="应用列宽" command={() => { if (applyColumnWidth(editor, Number(columnWidthDraft))) setColumnWidthDraft(''); }} />
+          <button type="button" className={s.panelApply} aria-label="应用列宽" title="应用列宽"
+            onMouseDown={(event) => { event.preventDefault(); if (applyColumnWidth(editor, Number(columnWidthDraft))) setColumnWidthDraft(''); }}>
+            <Check size={13} strokeWidth={2} />
+          </button>
         </span>
         <TableMenuAction icon={PanelTop} label="参考上方表格列宽" command={() => copyColumnWidthFromAbove(editor)} />
         <span className={s.panelLabel}>表格显示</span>

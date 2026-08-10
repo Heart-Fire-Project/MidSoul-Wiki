@@ -209,8 +209,11 @@
 .panelLabel { color: var(--ms-text-muted); display: block; font-size: 9px; font-weight: 650; letter-spacing: .075em; padding: .38rem .38rem .12rem; text-transform: uppercase; }
 .panelGrid { display: grid; gap: .2rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .panelRow { display: flex; gap: .3rem; align-items: center; padding: .2rem .38rem; }
-.panelInput { flex: 1; min-width: 0; font-size: 11px; padding: .25rem .4rem; border: 1px solid var(--ms-border); border-radius: 4px; background: var(--ms-surface); color: inherit; }
+.panelInput { flex: 1; min-width: 4.5rem; font-size: 11px; padding: .25rem .4rem; border: 1px solid var(--ms-border); border-radius: 4px; background: var(--ms-surface); color: inherit; }
 .panelInput:focus { outline: 1px solid var(--ms-icon); }
+.panelApply { align-items: center; background: transparent; border: 0; border-radius: 6px; color: inherit; cursor: pointer; display: flex; flex: none; height: 1.9rem; justify-content: center; padding: 0 .55rem; }
+.panelApply:hover { background: var(--ed-active, var(--ms-surface2)); color: var(--ifm-color-primary); }
+.panelApply:focus-visible { outline: 2px solid var(--ifm-color-primary); outline-offset: -2px; }
 .panelStack { display: grid; gap: .2rem; }
 .tableMenuAction { align-items: center; background: transparent; border: 0; border-radius: 6px; color: var(--ed-ink, var(--ifm-font-color-base)); cursor: pointer; display: flex; font: inherit; font-size: 10.5px; gap: .45rem; min-height: 1.9rem; padding: .34rem .46rem; text-align: left; width: 100%; }
 .tableMenuAction:hover:not(:disabled), .tableMenuAction.active { background: var(--ed-active, var(--ms-surface2)); color: var(--ifm-color-primary); }
