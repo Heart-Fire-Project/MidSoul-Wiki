@@ -23,6 +23,7 @@ export type CellColors = {
   backgroundColor: string | null;
   backgroundOpacity: number;
   textColor: string | null;
+  verticalAlign: 'top' | 'middle' | 'bottom' | null;
   layoutMode: TableLayoutMode;
   tableHideHeader: boolean;
   tableNoFirstCol: boolean;
@@ -55,6 +56,16 @@ const colorAttributes = () => ({
     parseHTML: (element: HTMLElement) => element.dataset.textColor ?? null,
     renderHTML: (attributes: CellColors) => attributes.textColor
       ? { 'data-text-color': attributes.textColor, style: `--ms-cell-fg:${attributes.textColor}` }
+      : {},
+  },
+  verticalAlign: {
+    default: null,
+    parseHTML: (element: HTMLElement): 'top' | 'middle' | 'bottom' | null => {
+      const value = element.style.verticalAlign;
+      return value === 'top' || value === 'middle' || value === 'bottom' ? value : null;
+    },
+    renderHTML: (attributes: CellColors) => attributes.verticalAlign
+      ? { style: `vertical-align:${attributes.verticalAlign}` }
       : {},
   },
   layoutMode: {

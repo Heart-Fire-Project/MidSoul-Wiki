@@ -9,7 +9,7 @@ import { TableMap, moveTableColumn, moveTableRow, selectedRect } from '@tiptap/p
 import { TextSelection } from '@tiptap/pm/state';
 import type { LucideIcon } from 'lucide-react';
 import {
-  AlignCenter, AlignLeft, AlignRight, ArrowDown, ArrowLeft, ArrowRight, ArrowUp,
+  AlignCenter, AlignLeft, AlignRight, AlignVerticalJustifyCenter, AlignVerticalJustifyEnd, AlignVerticalJustifyStart, ArrowDown, ArrowLeft, ArrowRight, ArrowUp,
   BetweenHorizontalStart, BetweenVerticalStart, Bold, Braces, Check, ChevronDown, Code2,
   Bookmark, Columns3, Combine, Equal, EyeOff, FileImage, FileText, Highlighter, ImagePlus, Italic,
   Heading1, Heading2, Heading3, Heading4, Heading5, Heading6, Link2, List, ListChecks,
@@ -333,6 +333,27 @@ function setTableLayout(editor: Editor, layoutMode: TableLayoutMode) {
     }
   });
   editor.view.dispatch(transaction);
+  editor.commands.focus();
+  return true;
+}
+
+/** 设置当前选中单元格（或选中区域）的垂直对齐。 */
+function setCellVerticalAlign(editor: Editor, value: 'top' | 'middle' | 'bottom') {
+  if (!editor.isActive('table')) return false;
+  const rect = selectedRect(editor.state);
+  const { table, tableStart, map } = rect;
+  const transaction = editor.state.tr;
+  for (let row = rect.top; row < rect.bottom; row += 1) {
+    for (let col = rect.left; col < rect.right; col += 1) {
+      const mapIndex = row * map.width + col;
+      if (row > rect.top && map.map[mapIndex] === map.map[mapIndex - map.width]) continue;
+      if (col > rect.left && map.map[mapIndex] === map.map[mapIndex - 1]) continue;
+      const pos = map.map[mapIndex];
+      const attrs = table.nodeAt(pos)!.attrs;
+      transaction.setNodeMarkup(tableStart + pos, null, { ...attrs, verticalAlign: value });
+    }
+  }
+  if (transaction.docChanged) editor.view.dispatch(transaction);
   editor.commands.focus();
   return true;
 }
@@ -798,6 +819,11 @@ export default function TiptapEditor({ content = INITIAL_DOCUMENT, baseUrl = '/'
     selector: ({ editor: current }) => current ? ({
       tableMove: tableMoveState(current),
       columnWidth: current.isActive('table') ? currentColumnWidth(current) : null,
+      cellVerticalAlign: (() => {
+        const attrs = current.isActive('tableHeader') ? current.getAttributes('tableHeader') : current.getAttributes('tableCell');
+        const value = attrs.verticalAlign as 'top' | 'middle' | 'bottom' | null | undefined;
+        return current.isActive('table') && (value === 'top' || value === 'middle' || value === 'bottom') ? value : null;
+      })(),
       block: current.isActive('heading', { level: 1 }) ? 'h1' : current.isActive('heading', { level: 2 }) ? 'h2'
         : current.isActive('heading', { level: 3 }) ? 'h3' : current.isActive('heading', { level: 4 }) ? 'h4'
           : current.isActive('heading', { level: 5 }) ? 'h5' : current.isActive('heading', { level: 6 }) ? 'h6'
@@ -1083,6 +1109,12 @@ export default function TiptapEditor({ content = INITIAL_DOCUMENT, baseUrl = '/'
           </button>
         </span>
         <TableMenuAction icon={PanelTop} label="参考上方表格列宽" command={() => copyColumnWidthFromAbove(editor)} />
+        <span className={s.panelLabel}>单元格对齐</span>
+        <span className={s.panelGrid}>
+          <TableMenuAction icon={AlignVerticalJustifyStart} label="居上" active={toolbarState?.cellVerticalAlign === 'top'} command={() => setCellVerticalAlign(editor, 'top')} />
+          <TableMenuAction icon={AlignVerticalJustifyCenter} label="垂直居中" active={toolbarState?.cellVerticalAlign === 'middle'} command={() => setCellVerticalAlign(editor, 'middle')} />
+          <TableMenuAction icon={AlignVerticalJustifyEnd} label="居下" active={toolbarState?.cellVerticalAlign === 'bottom'} command={() => setCellVerticalAlign(editor, 'bottom')} />
+        </span>
         <span className={s.panelLabel}>表格显示</span>
         <span className={s.panelStack}>
           <TableMenuAction icon={EyeOff} label="隐藏表头" active={toolbarState?.tableMove?.hideHeader} disabled={!toolbarState?.tableMove?.hasHeader}

@@ -218,12 +218,13 @@ function tableNode(source) {
             : [];
           column += colspan;
           const textAlign = cell.al === 'c' ? 'center' : cell.al === 'r' ? 'right' : null;
+          const verticalAlign = cell.va === 't' ? 'top' : cell.va === 'b' ? 'bottom' : null;
           return {
             type: rowIndex < grid.head ? 'tableHeader' : 'tableCell',
             attrs: {
               colspan, rowspan: Math.max(1, Number(cell.rs ?? 1)), colwidth: widths.length === colspan ? widths : null,
               backgroundColor: cell.bg ?? null, backgroundOpacity: Number.isFinite(cell.op) ? Math.max(0, Number(cell.op)) : 1,
-              textColor: cell.fg ?? null, layoutMode,
+              textColor: cell.fg ?? null, layoutMode, verticalAlign,
               tableHideHeader: Boolean(grid.hideHeader), tableNoFirstCol: Boolean(grid.noFirstCol),
             },
             content: [{ type: 'paragraph', ...(textAlign && { attrs: { textAlign } }), ...(cell.t && { content: markdownInlineToTiptap(cell.t) }) }],

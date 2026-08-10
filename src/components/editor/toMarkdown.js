@@ -153,6 +153,8 @@ function tableToMarkdown(node) {
         ...(cellAttrs.backgroundColor && { bg: cellAttrs.backgroundColor }),
         ...(cellAttrs.backgroundColor && Number.isFinite(opacity) && opacity < 1 && { op: Math.max(0, opacity) }),
         ...(cellAttrs.textColor && { fg: cellAttrs.textColor }),
+        ...(cellAttrs.verticalAlign === 'top' && { va: 't' }),
+        ...(cellAttrs.verticalAlign === 'bottom' && { va: 'b' }),
         ...(alignment === 'center' && { al: 'c' }),
         ...(alignment === 'right' && { al: 'r' }),
       };
