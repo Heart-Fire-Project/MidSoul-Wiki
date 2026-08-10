@@ -5,13 +5,13 @@ import { Moon, Swords, Map, Dices, Trophy, Gamepad2, Zap, Settings, Gem, FileTex
 import styles from './index.module.css';
 
 const WIKI_CARDS: Array<{ icon: LucideIcon; label: string; sub: string; href: string }> = [
-  { icon: Settings, label: '全局机制', sub: '游戏内外全部机制', href: '/wiki/午夜灵魂/全局机制' },
-  { icon: Gamepad2, label: '模式介绍', sub: '标准竞技 · 娱乐快节奏', href: '/wiki/午夜灵魂/模式介绍' },
-  { icon: Map, label: '地图导览', sub: '内置地图 · 参数 · 机制', href: '/wiki/午夜灵魂/地图导览' },
-  { icon: Zap, label: '能力一览', sub: '天赋 · 技能 · 宝物', href: '/wiki/午夜灵魂/能力一览' },
-  { icon: Dices, label: '回响记录', sub: '全局概率随机效果', href: '/wiki/午夜灵魂/回响记录' },
-  { icon: Trophy, label: '进度碑刻', sub: '成就进度 · 装饰解锁', href: '/wiki/午夜灵魂/进度碑刻' },
-  { icon: Gem, label: '饰品集册', sub: '粒子 · 特效 · 文本套组', href: '/wiki/午夜灵魂/饰品集册' },
+  { icon: Settings, label: '全局机制', sub: '本游戏的基础系统与机制', href: '/wiki/午夜灵魂/全局机制' },
+  { icon: Gamepad2, label: '模式介绍', sub: '各模式的流程、玩法及其中的机制', href: '/wiki/午夜灵魂/模式介绍' },
+  { icon: Map, label: '地图导览', sub: '各地图的数据与机制', href: '/wiki/午夜灵魂/地图导览' },
+  { icon: Zap, label: '能力一览', sub: '游戏内的所有天赋、技能与灵魂宝物', href: '/wiki/午夜灵魂/能力一览' },
+  { icon: Dices, label: '回响记录', sub: '所有回响的详细信息', href: '/wiki/午夜灵魂/回响记录' },
+  { icon: Trophy, label: '进度碑刻', sub: '所有进度的详细信息、触发条件与奖励', href: '/wiki/午夜灵魂/进度碑刻' },
+  { icon: Gem, label: '饰品集册', sub: '所有装饰品的详细信息与获取方法', href: '/wiki/午夜灵魂/饰品集册' },
   { icon: FileText, label: '更新日志', sub: '版本更新记录', href: '/blog' },
 ];
 
@@ -32,17 +32,17 @@ export default function Home(): ReactNode {
           <div className={styles.heroContent}>
             <h1 className={styles.heroTitle}>
               <span className={styles.titleZh}>午夜灵魂</span>
-              <span className={styles.titleEn}>MIDSOUL</span>
+              <span className={styles.titleEn}>Midnight Soul</span>
             </h1>
 
             <p className={styles.heroTagline}>
-              灵魂，在弥漫的灵气中谋求逃脱。<br />
-              守卫者，在黑暗深处伺机猎杀。
+              在灵气充盈的午夜<br />
+              来一场灵魂与守卫间的追逃之旅
             </p>
 
             <div className={styles.heroActions}>
               <Link className={styles.ctaPrimary} to="/wiki">进入百科</Link>
-              <Link className={styles.ctaSecondary} to="/wiki/午夜灵魂/地图导览">查看地图导览 →</Link>
+              <Link className={styles.ctaSecondary} to="/wiki/午夜灵魂/能力一览">能力一览 →</Link>
             </div>
           </div>
 
@@ -58,14 +58,12 @@ export default function Home(): ReactNode {
               <h2 className={styles.factionName}>灵魂</h2>
               <p className={styles.factionEn}>SOUL</p>
               <p className={styles.factionDesc}>
-                弱小却不孤单。收集飘散的灵气碎片，
-                为传送门注能，借助队友的灵魂之灯，
-                在追逐与绝境中完成复活。
+                齐心协力，收集地图上的灵魂碎片以打开传送门，最终在奔逃与躲避中回到现世，取得复活。
               </p>
               <ul className={styles.factionTraits}>
-                <li><span>◦</span>碎片收集 · 传送门充能</li>
-                <li><span>◦</span>灵魂宝物 · 同伴救助</li>
-                <li><span>◦</span>垂死挣扎 · 最终复活</li>
+                <li><span>◦</span>收集 · 汲取灵气，召唤传送门</li>
+                <li><span>◦</span>点灯 · 救助队友，一同奔向目标</li>
+                <li><span>◦</span>充能 · 一同合作，打开往复活之门</li>
               </ul>
             </div>
           </div>
@@ -79,17 +77,15 @@ export default function Home(): ReactNode {
           <div className={styles.factionGuard}>
             <div className={styles.factionInner}>
               <span className={styles.factionGlyph}><Swords size={44} strokeWidth={1.5} /></span>
-              <h2 className={styles.factionName}>守卫者</h2>
-              <p className={styles.factionEn}>GUARDIAN</p>
+              <h2 className={styles.factionName}>灵魂守卫者</h2>
+              <p className={styles.factionEn}>SOUL GUARDIAN</p>
               <p className={styles.factionDesc}>
-                速度与力量的化身。追踪每一个灵魂的气息，
-                阻止传送门开启，在收集与充能的间隙
-                将灵魂逐一消亡。
+                利用速度优势，在追逐中阻遏灵魂的复活，抑或拦住去路静待灵气消散，让灵魂尽数消亡以维持世间平衡。
               </p>
               <ul className={styles.factionTraits}>
-                <li><span>◦</span>速度优势 · 气息探测</li>
-                <li><span>◦</span>攻击击倒 · 垂死守候</li>
-                <li><span>◦</span>宝盒打开 · 阵营胜利</li>
+                <li><span>◦</span>骁勇出击，令灵魂垂死 · 击倒</li>
+                <li><span>◦</span>抢占先机，夺取含宝之盒 · 破坏</li>
+                <li><span>◦</span>布下埋伏，静待灵魂入网来 · 静候</li>
               </ul>
             </div>
           </div>
@@ -105,19 +101,17 @@ export default function Home(): ReactNode {
                 <span className={styles.modeIcon}>◈</span>
                 <div>
                   <h3 className={styles.modeName}>灵气碎片</h3>
-                  <p className={styles.modeTag}>标准竞技模式</p>
+                  <p className={styles.modeTag}>标准游戏模式</p>
                 </div>
               </div>
               <p className={styles.modeDesc}>
-                灵魂收集场上的灵气碎片，达成目标后为传送门充能，
-                最终经由传送门复活。守卫者则需追踪阻止。
-                三阶段递进，策略与对抗并重。
+                灵魂需要在守卫者的不断追捕下收集碎片以生成传送门，再对传送门充能后经由其复活；守卫者则需尽力阻遏灵魂并令其消亡。
               </p>
               <div className={styles.modeTags}>
-                <span>5 ~ 10 人</span>
-                <span>随机阵营</span>
-                <span>计入统计</span>
-                <span>灵能反噬保底</span>
+                <span>5 ~ 10 玩家</span>
+                <span>6 ~ 12 分钟</span>
+                <span>基础游戏</span>
+                <span>计入数据</span>
               </div>
             </div>
 
@@ -126,19 +120,17 @@ export default function Home(): ReactNode {
                 <span className={styles.modeIcon}>⚡</span>
                 <div>
                   <h3 className={styles.modeName}>针锋奔逃</h3>
-                  <p className={styles.modeTag}>娱乐快节奏模式</p>
+                  <p className={styles.modeTag}>娱乐游戏模式</p>
                 </div>
               </div>
               <p className={styles.modeDesc}>
-                跳过收集阶段，传送门直接出现，更多守卫者严阵以待。
-                节奏更快、对抗更直接。
-                不计经验值与统计数据。
+                跳过收集阶段，传送门将直接出现，但同时有更多守卫者严阵以待；在更直接的对抗下尝试搭配不同的能力来取得胜利吧！
               </p>
               <div className={styles.modeTags}>
-                <span>2 ~ 10 人</span>
-                <span>无保底</span>
-                <span>不计统计</span>
-                <span>适合娱乐局</span>
+                <span>2 ~ 10 玩家</span>
+                <span>2 ~ 5 分钟</span>
+                <span>快节奏游戏</span>
+                <span>不计入数据</span>
               </div>
             </div>
 
