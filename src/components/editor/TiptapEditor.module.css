@@ -242,7 +242,7 @@
 .titleInput:focus { border-color: var(--ifm-color-primary); }
 
 .content :global(.tiptap .tableWrapper) { margin: 1.2rem 0; max-width: 100%; overflow-x: auto; overscroll-behavior-inline: contain; scrollbar-gutter: stable; }
-.content :global(.tiptap table) { border-collapse: separate !important; border-spacing: 0; display: table !important; margin: 0; min-width: 100% !important; }
+.content :global(.tiptap table) { border-collapse: separate !important; border-spacing: 0; display: table !important; margin: 0; }
 /* Tiptap 会把拖拽后的像素宽度写到 col 上并同步 table 的行内宽度。
    这里不能再用 !important 把它们覆盖成 auto，否则拖动手势成功了，画面却完全不变。 */
 .content :global(.tiptap table:not(:has([data-table-layout-mode='content']))) { table-layout: fixed; }

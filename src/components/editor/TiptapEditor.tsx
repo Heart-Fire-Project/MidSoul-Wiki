@@ -5,7 +5,7 @@ import { EditorContent, useEditor, useEditorState } from '@tiptap/react';
 import { BubbleMenu } from '@tiptap/react/menus';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import type { Editor, JSONContent } from '@tiptap/core';
-import { moveTableColumn, moveTableRow, selectedRect } from '@tiptap/pm/tables';
+import { TableMap, moveTableColumn, moveTableRow, selectedRect } from '@tiptap/pm/tables';
 import { TextSelection } from '@tiptap/pm/state';
 import type { LucideIcon } from 'lucide-react';
 import {
@@ -315,10 +315,20 @@ function setTableLayout(editor: Editor, layoutMode: TableLayoutMode) {
   if (tableDepth === 0) return false;
   const table = $from.node(tableDepth);
   const tablePosition = $from.before(tableDepth);
+  // equal：按表格当前可视宽度给每列写入相同 colwidth，编辑器内立即等宽；
+  // content：清空所有 colwidth，交给内容自适应（发布端 DataTable 也如此）。
+  let equalWidth: number | null = null;
+  if (layoutMode === 'equal') {
+    const dom = editor.view.nodeDOM(tablePosition) as HTMLElement | null;
+    const map = TableMap.get(table);
+    if (dom && map.width > 0) equalWidth = Math.max(64, Math.floor(dom.getBoundingClientRect().width / map.width));
+  }
   const transaction = editor.state.tr;
   table.descendants((node, position) => {
     if (node.type.name === 'tableCell' || node.type.name === 'tableHeader') {
-      transaction.setNodeMarkup(tablePosition + position + 1, undefined, { ...node.attrs, colwidth: null, layoutMode });
+      const colspan = Math.max(1, Number(node.attrs.colspan ?? 1));
+      const colwidth = equalWidth ? Array.from({ length: colspan }, () => equalWidth) : null;
+      transaction.setNodeMarkup(tablePosition + position + 1, undefined, { ...node.attrs, colwidth, layoutMode });
     }
   });
   editor.view.dispatch(transaction);
