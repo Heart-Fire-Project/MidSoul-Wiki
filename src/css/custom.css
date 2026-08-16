@@ -524,6 +524,20 @@ html {
   margin-top: .16rem;
 }
 
+/* DataTable 的手动单元格色：组件把明暗两套值写成 --ms-cell-*-l / -d，
+   行内样式只写 background-color: var(--ms-cell-bg)，由这里按主题接线。
+   变量没有特异性之争，行内样式又照旧压得住下面的首列底色与悬停底色，
+   于是主题切换归 CSS、优先级归行内，服务端渲染不再与主题绑定。 */
+.markdown :is(th, td) {
+  --ms-cell-bg: var(--ms-cell-bg-l);
+  --ms-cell-fg: var(--ms-cell-fg-l);
+}
+
+[data-theme='dark'] .markdown :is(th, td) {
+  --ms-cell-bg: var(--ms-cell-bg-d);
+  --ms-cell-fg: var(--ms-cell-fg-d);
+}
+
 /* 首列灰色 */
 .markdown tbody td:first-child {
   background: var(--ms-surface2);

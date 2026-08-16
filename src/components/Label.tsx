@@ -1,5 +1,4 @@
 import React, { type CSSProperties, type ReactNode } from 'react';
-import { useColorMode } from '@docusaurus/theme-common';
 import { darkBg } from './colorUtils';
 import styles from './Label.module.css';
 
@@ -17,29 +16,21 @@ export const PRESETS: Record<LabelColor, { bg: string; text: string; textDark: s
 
 type CSSVariables = CSSProperties & Record<`--${string}`, string>;
 
-function labelVariables({ color, bg, text, border }: Omit<LabelProps, 'children'>, isDark: boolean): CSSVariables {
+/** 明暗两套色值一起发出去，由 Label.module.css 挑，服务端渲染因此与主题无关。
+ * 用 useColorMode 在 JS 里二选一时，SSR 只能按 defaultMode 烤死一种，
+ * 另一种主题的读者会看到首屏闪烁——与 .ms-ink 的取舍同理。 */
+function labelVariables({ color, bg, text, border }: Omit<LabelProps, 'children'>): CSSVariables {
 	const preset = PRESETS[color as LabelColor];
 	const background = bg ?? preset?.bg;
 	return {
 		'--label-border': border ?? preset?.border ?? 'rgba(107,114,128,0.3)',
-		'--label-background': background ? (isDark ? darkBg(background) : background) : 'transparent',
-		'--label-text': text ?? (isDark ? (preset?.textDark ?? 'inherit') : (preset?.text ?? 'inherit')),
-	};
-}
-
-// The legacy editor renders Label as a raw HTML string, so it still needs a
-// self-contained style object. The React/MDX component uses Label.module.css.
-export function labelStyle(props: Omit<LabelProps, 'children'>, isDark: boolean): CSSProperties {
-	const variables = labelVariables(props, isDark);
-	return {
-		display: 'inline-block', padding: '0.1em 0.55em', fontSize: '0.78em', fontWeight: 500,
-		lineHeight: 1.6, borderRadius: '3px', border: `1px solid ${variables['--label-border']}`,
-		backgroundColor: variables['--label-background'], color: variables['--label-text'],
-		whiteSpace: 'nowrap', verticalAlign: 'middle',
+		'--label-bg-l': background ?? 'transparent',
+		'--label-bg-d': background ? darkBg(background) : 'transparent',
+		'--label-fg-l': text ?? preset?.text ?? 'inherit',
+		'--label-fg-d': text ?? preset?.textDark ?? 'inherit',
 	};
 }
 
 export default function Label({ children, ...props }: LabelProps) {
-	const { colorMode } = useColorMode();
-	return <span className={styles.label} style={labelVariables(props, colorMode === 'dark')}>{children}</span>;
+	return <span className={styles.label} style={labelVariables(props)}>{children}</span>;
 }

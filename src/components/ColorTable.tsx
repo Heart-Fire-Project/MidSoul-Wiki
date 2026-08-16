@@ -1,5 +1,4 @@
 import React, { useId, type ReactNode } from 'react';
-import { useColorMode } from '@docusaurus/theme-common';
 import { darkBg } from './colorUtils';
 import { INK } from './theme';
 
@@ -15,15 +14,21 @@ function parse(value: ColorValue): { bg?: string; text?: string } | null {
 }
 
 export default function ColorTable({ header, cols, rows, cells, hideHeader, noFirstCol, children }: ColorTableProps) {
-	const { colorMode } = useColorMode();
-	const isDark = colorMode === 'dark';
 	const id = useId().replace(/:/g, '');
 	const selector = `#t${id}`;
 	const rules: string[] = [];
+	// 明暗两套规则一起写进 <style>，由 [data-theme] 挑。在 JS 里二选一时
+	// SSR 只能按 defaultMode 烤死一种，另一种主题的读者首屏会闪一下。
 	const applyColor = (target: string, color: { bg?: string; text?: string }) => {
-		const background = color.bg ? (isDark ? darkBg(color.bg) : color.bg) : null;
-		if (background) rules.push(`${target} { background-color: ${background} !important; }`);
-		if (color.bg || color.text) rules.push(`${target} { color: ${color.text ?? (isDark ? INK.dark : INK.light)} !important; }`);
+		const dark = `[data-theme='dark'] ${target}`;
+		if (color.bg) {
+			rules.push(`${target} { background-color: ${color.bg} !important; }`);
+			rules.push(`${dark} { background-color: ${darkBg(color.bg)} !important; }`);
+		}
+		if (color.bg || color.text) {
+			rules.push(`${target} { color: ${color.text ?? INK.light} !important; }`);
+			rules.push(`${dark} { color: ${color.text ?? INK.dark} !important; }`);
+		}
 	};
 	header?.forEach((value, index) => { const color = parse(value); if (color) applyColor(`${selector} thead th:nth-child(${index + 1})`, color); });
 	cols?.forEach((value, index) => { const color = parse(value); if (color) applyColor(`${selector} tbody td:nth-child(${index + 1})`, color); });
