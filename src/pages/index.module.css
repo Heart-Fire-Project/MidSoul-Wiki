@@ -20,7 +20,7 @@
   --text:      #ede9ff;
   --dim:       rgba(237, 233, 255, 0.45);
   --font-disp: 'Noto Serif SC', serif;
-  --font-body: 'Noto Sans SC', sans-serif;
+  --font-body: var(--ifm-font-family-base);
 
   background: var(--bg);
   color: var(--text);

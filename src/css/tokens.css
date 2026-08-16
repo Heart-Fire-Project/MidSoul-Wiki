@@ -11,7 +11,10 @@
   /* 中文正文常规区间是 1.7~1.8；原先的 2 让长表格和正文都偏散，
      一屏能放的信息少约 15%，对表格密集的页面尤其吃亏。 */
   --ifm-line-height-base: 1.75;
-  --ifm-font-family-base: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  /* 正文用系统字体栈：中文正文字量大，网络字体要么拖慢首屏、要么（走
+     Google Fonts 时）对国内读者根本加载不出来。标题衬线体是设计主特征，
+     仍自托管子集，见 custom.css 的 @font-face。 */
+  --ifm-font-family-base: 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif;
   --ifm-heading-font-family: 'Noto Serif SC', serif;
   --ifm-table-stripe-background: transparent;
 }

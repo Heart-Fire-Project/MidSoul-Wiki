@@ -84,6 +84,18 @@ MidSoul-Wiki 是 [Heart Fire Project](https://github.com/Heart-Fire-Project) 旗
 - **表格**：支持表头上色、单元格染色、合并单元格、行内换行与列表；长表格发布后自动获得 sticky 表头
 - **行内标签/上色/锚点**：编辑器工具栏提供对应按钮，生成的格式全部为发布页所支持
 
+## 🔤 字体
+
+标题使用自托管的 **Noto Serif SC 子集**（`src/css/fonts/`），正文使用系统字体栈。不走 Google Fonts —— 那个域名对国内读者基本不可达，且 `@import` 会阻塞渲染。
+
+子集按**全站出现过的汉字**裁剪（当前约 1176 字，两个字重合计约 470KB）。**新增文档若用到了子集之外的字，标题里那几个字会回落系统宋体**，需要重新生成：
+
+```bash
+pnpm fonts
+```
+
+需要 [uv](https://docs.astral.sh/uv/)（用来跑 fonttools）。源字体会自动下载并缓存到 `.cache-fonts/`（已 gitignore）。CI 会在仓库用字超出 `scripts/font-charset.txt` 时报错提醒。
+
 ## 🚀 部署
 
 本项目由 Cloudflare Pages 自动托管，推送到 `main` 分支后自动构建部署。
