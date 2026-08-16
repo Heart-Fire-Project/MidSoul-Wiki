@@ -76,7 +76,7 @@
       {
         "type": "image",
         "attrs": {
-          "src": "/img/maps/聚光圣殿.PNG",
+          "src": "/img/maps/聚光圣殿.webp",
           "alt": "",
           "title": null,
           "width": null,
@@ -523,7 +523,7 @@
       {
         "type": "image",
         "attrs": {
-          "src": "/img/maps/镇灵塔楼.PNG",
+          "src": "/img/maps/镇灵塔楼.webp",
           "alt": "",
           "title": null,
           "width": null,
@@ -1002,7 +1002,7 @@
       {
         "type": "image",
         "attrs": {
-          "src": "/img/maps/山间湖谷.png",
+          "src": "/img/maps/山间湖谷.webp",
           "alt": null,
           "title": null,
           "width": null,
@@ -1429,7 +1429,7 @@
       {
         "type": "image",
         "attrs": {
-          "src": "/img/maps/心火特区.png",
+          "src": "/img/maps/心火特区.webp",
           "alt": null,
           "title": null,
           "width": null,
@@ -1895,7 +1895,7 @@
       {
         "type": "image",
         "attrs": {
-          "src": "/img/maps/昔居浮屿.PNG",
+          "src": "/img/maps/昔居浮屿.webp",
           "alt": null,
           "title": null,
           "width": null,
@@ -2361,7 +2361,7 @@
       {
         "type": "image",
         "attrs": {
-          "src": "/img/maps/苏园夜游.PNG",
+          "src": "/img/maps/苏园夜游.webp",
           "alt": null,
           "title": null,
           "width": null,

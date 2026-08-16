@@ -1,7 +1,7 @@
 # MidSoul-Wiki
 
 <p align="center">
-  <img src="./static/img/MidSoul-Wiki-Logo.png" width="360" />
+  <img src="./static/img/MidSoul-Wiki-Logo.webp" width="360" />
 </p>
 
 MidSoul-Wiki 是 [Heart Fire Project](https://github.com/Heart-Fire-Project) 旗下项目 **午夜灵魂** 的官方文档与维基站点。

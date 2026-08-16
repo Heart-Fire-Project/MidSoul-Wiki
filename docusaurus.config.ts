@@ -154,7 +154,8 @@ const config: Config = {
       minHeadingLevel: 2,
       maxHeadingLevel: 4,
     },
-    image: "img/MidSoul-Logo.png",
+    // 分享卡片按 1.91:1 裁切，直接用 3.24:1 的 logo 会被裁掉两头。
+    image: "img/og-cover.jpg",
     colorMode: {
       defaultMode: "dark",
       respectPrefersColorScheme: true,
@@ -164,11 +165,13 @@ const config: Config = {
       hideOnScroll: true,
       logo: {
         alt: "MidSoul Wiki",
-        src: "img/MidSoul-Logo-Dark.png",
-        srcDark: "img/MidSoul-Logo.png",
+        src: "img/MidSoul-Logo-Dark.webp",
+        srcDark: "img/MidSoul-Logo.webp",
         href: "/",
-        width: 120,
-        height: 36,
+        // 原图 2400×741（3.24:1），导航栏按 2rem 高显示；写成 120×36（3.33:1）
+        // 会让浏览器按错误比例预留占位。这里按真实比例给 104×32。
+        width: 104,
+        height: 32,
       },
       items: [
         {
