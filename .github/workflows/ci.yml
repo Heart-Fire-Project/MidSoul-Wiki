@@ -1,0 +1,41 @@
+name: CI
+
+# 部署由 Cloudflare Pages 自己盯着 main 分支做，这里只负责验证。
+# 关键一项是 pnpm build：docusaurus.config.ts 设了 onBrokenLinks: "throw"，
+# 但那只在有人真的跑构建时才生效——没有 CI 的话，带坏链的改动会一路合进
+# main，直到部署失败或有人本地构建才被发现。
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      # 先跑最便宜的：图片体积与字体子集覆盖
+      - name: 资源护栏
+        run: pnpm check:assets
+
+      - name: 类型检查
+        run: pnpm typecheck
+
+      - name: 编辑器往返测试
+        run: pnpm test
+
+      # 顺带校验站内链接（onBrokenLinks: throw）
+      - name: 构建
+        run: pnpm build
