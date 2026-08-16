@@ -99,6 +99,34 @@ export function cellStyle(cell: Exclude<TableCell, string>): CSSProperties {
 	return style;
 }
 
+/** 宽表格靠横向滚动查看，但滚动条以外没有任何线索说明右边还有列，读者
+ * 容易以为数据到此为止。能滚且没滚到头时给右缘加一道渐隐当提示。
+ *
+ * 传入已有的 scrollRef 而不是自己建一个：DataTable 的滚动容器归
+ * useStickyTableHeader 所有，普通 Markdown 表格则自带一个。 */
+export function useScrollAffordance(scrollRef: React.RefObject<HTMLDivElement | null>) {
+	useEffect(() => {
+		const scroll = scrollRef.current;
+		if (!scroll) return undefined;
+		const update = () => {
+			// 亚像素宽度差会让本来放得下的表格也亮起提示，留 1px 容差。
+			const overflow = scroll.scrollWidth - scroll.clientWidth;
+			scroll.dataset.scrollable = overflow > 1 ? 'true' : 'false';
+			scroll.dataset.scrollEnd = scroll.scrollLeft >= overflow - 1 ? 'true' : 'false';
+		};
+		const observer = new ResizeObserver(update);
+		observer.observe(scroll);
+		// 容器宽度不变、表格自身变宽时也要重算。
+		if (scroll.firstElementChild) observer.observe(scroll.firstElementChild);
+		scroll.addEventListener('scroll', update, { passive: true });
+		update();
+		return () => {
+			observer.disconnect();
+			scroll.removeEventListener('scroll', update);
+		};
+	}, [scrollRef]);
+}
+
 /** 横向滚动容器会成为 CSS sticky 的最近滚动祖先，导致 Wiki 页面纵向滚动时
  * 表头不再跟随。这里仅在纵向滚动时移动真实 thead；它仍留在原表格内部，
  * 所以横向滚动、列宽、合并单元格都会天然保持一致。 */
@@ -154,6 +182,8 @@ function useStickyTableHeader(enabled: boolean) {
 export default function DataTable({ id, rowIds, data = [], head = 1, widths, layout, hideHeader = false, noFirstCol = false }: DataTableProps) {
 	const showHeader = head > 0 && !hideHeader;
 	const sticky = useStickyTableHeader(showHeader);
+	// 横滚提示与吸顶表头无关，隐藏表头的表格同样需要。
+	useScrollAffordance(sticky.scrollRef);
 	useEffect(() => {
 		if ((!id && !rowIds?.length) || typeof window === 'undefined') return undefined;
 		let frame = 0;

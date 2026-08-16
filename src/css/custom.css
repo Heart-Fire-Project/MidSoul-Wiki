@@ -433,13 +433,18 @@ html {
   width: var(--ms-table-visible-width, 100%);
   pointer-events: none;
   position: sticky;
-  top: 0;
+  /* 导航栏是 position:sticky + z-index:200，贴在 top:0 的表头会被它盖住。
+     让开导航栏的高度；navbar 开了 hideOnScroll，收起时再贴回 0，
+     免得表头上方留一条空带。navbarHidden 是 CSS Modules 哈希类。 */
+  top: var(--ifm-navbar-height);
   visibility: hidden;
   /* 真实表头仍在下面参与 table 的列宽计算。固定层必须自成不透明的
      stacking context，否则快速滚动时底层文字会从固定层顶边露出 1～2px。 */
   isolation: isolate;
   z-index: 4;
 }
+
+body:has(.navbar[class*='navbarHidden']) .markdown .ms-table-head-sticky { top: 0; }
 
 .markdown .ms-table-shell[data-sticky-ready='true'] .ms-table-head-sticky { visibility: visible; }
 .markdown .ms-table-head-clip {
@@ -450,6 +455,19 @@ html {
   z-index: 1;
 }
 .markdown .ms-table-head-sticky table { background: var(--ms-table-head); margin: 0; position: relative; transition: none; z-index: 1; }
+
+/* 横滚提示：能滚、且还没滚到最右时，右缘渐隐一段。属性由
+   useScrollAffordance 维护。mask 作用在元素自身的坐标系里，不随内容
+   一起滚走，因此不需要额外的定位包装层。 */
+.markdown .ms-table-scroll[data-scrollable='true'][data-scroll-end='false'] {
+  mask-image: linear-gradient(to right, #000 calc(100% - 2.5rem), transparent);
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .markdown .ms-table-scroll[data-scrollable='true'][data-scroll-end='false'] {
+    mask-image: none;
+  }
+}
 
 .markdown .ms-table-scroll:focus-visible {
   border-radius: 3px;
@@ -927,5 +945,44 @@ html {
   /* 侧边栏中关闭下划线动画 */
   .navbar-sidebar .navbar__link::after {
     display: none !important;
+  }
+}
+
+/* ══════════════════════════════════════════════════
+   MOBILE ARTICLE  (≤ 768px)
+   本站以数据表格为主，手机上 5～6 列必然横滚。收紧单元格内边距和字号
+   能在同样宽度里多露出一列，减少来回横滚的次数。
+   ══════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .markdown th {
+    padding: 0.45rem 0.55rem;
+    font-size: 0.76rem;
+  }
+
+  .markdown td {
+    padding: 0.4rem 0.55rem;
+    font-size: 0.78rem;
+    line-height: 1.65;
+  }
+
+  /* 桌面端靠字距撑气质，手机上会先撑爆行宽 */
+  .markdown h1 {
+    font-size: 1.7rem;
+    letter-spacing: 0.06em;
+  }
+
+  .markdown h2 {
+    font-size: 1.3rem;
+    letter-spacing: 0.05em;
+  }
+
+  .markdown h3 {
+    font-size: 1.06rem;
+    letter-spacing: 0.04em;
+  }
+
+  /* 渐隐提示按比例收窄，免得在窄屏上盖掉半列 */
+  .markdown .ms-table-scroll[data-scrollable='true'][data-scroll-end='false'] {
+    mask-image: linear-gradient(to right, #000 calc(100% - 1.5rem), transparent);
   }
 }

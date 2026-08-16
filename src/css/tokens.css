@@ -8,7 +8,9 @@
   --ifm-color-primary-lighter: #bdb8f9;
   --ifm-color-primary-lightest: #dddafc;
   --ifm-code-font-size: 94%;
-  --ifm-line-height-base: 2;
+  /* 中文正文常规区间是 1.7~1.8；原先的 2 让长表格和正文都偏散，
+     一屏能放的信息少约 15%，对表格密集的页面尤其吃亏。 */
+  --ifm-line-height-base: 1.75;
   --ifm-font-family-base: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
   --ifm-heading-font-family: 'Noto Serif SC', serif;
   --ifm-table-stripe-background: transparent;
