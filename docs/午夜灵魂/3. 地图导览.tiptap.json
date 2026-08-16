@@ -1,6 +1,6 @@
 {
   "format": "tiptap-v1",
-  "frontmatter": "---\nsidebar_position: 1\n---\n",
+  "frontmatter": "---\nsidebar_position: 1\ndescription: 午夜灵魂 6 张内置地图——聚光圣殿、镇灵塔楼、山间湖谷、心火特区、昔居浮屿、苏园夜游——的俯视图、数据与机制，附虚空惩罚与自定义地图说明。\n---\n",
   "content": {
     "type": "doc",
     "content": [

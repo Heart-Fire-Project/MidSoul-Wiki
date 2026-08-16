@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 slug: /
+description: 午夜灵魂（MidSoul）是一张基于 Minecraft Java 版的不对称竞技地图，由心火计划制作。本 Wiki 收录游戏的全部机制、模式、地图、能力、回响、进度与饰品资料。
 ---
 
 # MidSoul Wiki

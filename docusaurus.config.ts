@@ -105,7 +105,6 @@ const config: Config = {
         language: ["zh"],
         indexBlog: false,
         docsRouteBasePath: "/wiki",
-        searchBarShortcutHint: false,
       },
     ],
   ],
