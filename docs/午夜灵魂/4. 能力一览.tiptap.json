@@ -1,6 +1,6 @@
 {
   "format": "tiptap-v1",
-  "frontmatter": "---\nsidebar_position: 1\n---\n",
+  "frontmatter": "---\ndescription: 午夜灵魂全部 10 个技能、14 个天赋与 7 件灵魂宝物的冷却时间、持续时间与效果数据，按灵魂方与灵魂守卫者方分列。\n---\n",
   "content": {
     "type": "doc",
     "content": [

@@ -1,5 +1,4 @@
 import React, { type CSSProperties, type ReactNode, useEffect, useRef } from 'react';
-import { useColorMode } from '@docusaurus/theme-common';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import { darkBg, withAlpha } from './colorUtils';
 import { INK } from './theme';
@@ -10,6 +9,8 @@ type Alignment = 'l' | 'c' | 'r';
 type VerticalAlignment = 't' | 'm' | 'b';
 export type TableCell = string | { t?: string; cs?: number; rs?: number; bg?: string; op?: number; fg?: string; b?: boolean | number; i?: boolean | number; u?: boolean | number; s?: boolean | number; size?: number; font?: string; al?: Alignment; va?: VerticalAlignment };
 export type DataTableProps = { id?: string; rowIds?: Array<string | null | undefined>; data?: TableCell[][]; head?: number; widths?: Array<string | null | undefined>; layout?: 'equal' | 'content'; hideHeader?: boolean; noFirstCol?: boolean };
+
+type CSSVariables = CSSProperties & Record<`--${string}`, string>;
 
 const FONTS: Record<string, string> = { sans: 'var(--ifm-font-family-base)', serif: 'var(--ifm-heading-font-family)', mono: 'var(--ifm-font-family-monospace)' };
 const ALIGN: Record<Alignment, CSSProperties['textAlign']> = { l: 'left', c: 'center', r: 'right' };
@@ -64,15 +65,30 @@ export function cellMd(text: string | undefined): ReactNode {
 	return blocks;
 }
 
-export function cellStyle(cell: Exclude<TableCell, string>, isDark: boolean): CSSProperties {
-	const style: CSSProperties = {};
+/** 明暗两套色值一起发出，由 custom.css 里的 --ms-cell-bg / --ms-cell-fg 挑。
+ *
+ * 仍然把 backgroundColor / color 写成行内样式（值指向变量），是因为手动
+ * 单元格色必须压过 `tbody td:first-child` 的首列底色和 `tr:hover td` 的
+ * 悬停底色——搬进样式表就得跟这些选择器比特异性。变量本身没有特异性之争，
+ * 于是主题切换归 CSS，优先级归行内，两边都不让步。
+ *
+ * 用 useColorMode 在 JS 里二选一时，SSR 只能按 defaultMode 烤死一种，
+ * 另一种主题的读者首屏会看到错误底色，等 main.js 水合完才翻回来。 */
+export function cellStyle(cell: Exclude<TableCell, string>): CSSProperties {
+	const style: CSSVariables = {};
 	if (cell.bg) {
-		const background = isDark ? darkBg(cell.bg) : cell.bg;
 		const opacity = cell.op == null ? 1 : Math.max(0, Math.min(1, cell.op));
-		style.backgroundColor = withAlpha(background, opacity) ?? undefined;
+		style['--ms-cell-bg-l'] = withAlpha(cell.bg, opacity) ?? cell.bg;
+		style['--ms-cell-bg-d'] = withAlpha(darkBg(cell.bg), opacity) ?? cell.bg;
+		style.backgroundColor = 'var(--ms-cell-bg)';
 	}
 	if (cell.fg) style.color = cell.fg;
-	else if (cell.bg && !isDark) style.color = INK.light;
+	else if (cell.bg) {
+		// 浅色下自动配深色墨；深色下沿用继承色（INK.dark 即 inherit）。
+		style['--ms-cell-fg-l'] = INK.light;
+		style['--ms-cell-fg-d'] = INK.dark;
+		style.color = 'var(--ms-cell-fg)';
+	}
 	if (cell.b) style.fontWeight = 700;
 	if (cell.i) style.fontStyle = 'italic';
 	if (cell.u || cell.s) style.textDecoration = [cell.u && 'underline', cell.s && 'line-through'].filter(Boolean).join(' ');
@@ -81,6 +97,34 @@ export function cellStyle(cell: Exclude<TableCell, string>, isDark: boolean): CS
 	if (cell.al) style.textAlign = ALIGN[cell.al];
 	if (cell.va) style.verticalAlign = VALIGN[cell.va];
 	return style;
+}
+
+/** 宽表格靠横向滚动查看，但滚动条以外没有任何线索说明右边还有列，读者
+ * 容易以为数据到此为止。能滚且没滚到头时给右缘加一道渐隐当提示。
+ *
+ * 传入已有的 scrollRef 而不是自己建一个：DataTable 的滚动容器归
+ * useStickyTableHeader 所有，普通 Markdown 表格则自带一个。 */
+export function useScrollAffordance(scrollRef: React.RefObject<HTMLDivElement | null>) {
+	useEffect(() => {
+		const scroll = scrollRef.current;
+		if (!scroll) return undefined;
+		const update = () => {
+			// 亚像素宽度差会让本来放得下的表格也亮起提示，留 1px 容差。
+			const overflow = scroll.scrollWidth - scroll.clientWidth;
+			scroll.dataset.scrollable = overflow > 1 ? 'true' : 'false';
+			scroll.dataset.scrollEnd = scroll.scrollLeft >= overflow - 1 ? 'true' : 'false';
+		};
+		const observer = new ResizeObserver(update);
+		observer.observe(scroll);
+		// 容器宽度不变、表格自身变宽时也要重算。
+		if (scroll.firstElementChild) observer.observe(scroll.firstElementChild);
+		scroll.addEventListener('scroll', update, { passive: true });
+		update();
+		return () => {
+			observer.disconnect();
+			scroll.removeEventListener('scroll', update);
+		};
+	}, [scrollRef]);
 }
 
 /** 横向滚动容器会成为 CSS sticky 的最近滚动祖先，导致 Wiki 页面纵向滚动时
@@ -136,10 +180,10 @@ function useStickyTableHeader(enabled: boolean) {
 }
 
 export default function DataTable({ id, rowIds, data = [], head = 1, widths, layout, hideHeader = false, noFirstCol = false }: DataTableProps) {
-	const { colorMode } = useColorMode();
-	const isDark = colorMode === 'dark';
 	const showHeader = head > 0 && !hideHeader;
 	const sticky = useStickyTableHeader(showHeader);
+	// 横滚提示与吸顶表头无关，隐藏表头的表格同样需要。
+	useScrollAffordance(sticky.scrollRef);
 	useEffect(() => {
 		if ((!id && !rowIds?.length) || typeof window === 'undefined') return undefined;
 		let frame = 0;
@@ -154,7 +198,7 @@ export default function DataTable({ id, rowIds, data = [], head = 1, widths, lay
 	}, [id, rowIds]);
 	const renderRow = (row: TableCell[], rowIndex: number, Tag: 'th' | 'td', rowId?: string | null) => <tr key={rowIndex} id={rowId ?? undefined}>{row.map((raw, index) => {
 		const cell = typeof raw === 'string' ? { t: raw } : (raw ?? {});
-		const style = cellStyle(cell, isDark);
+		const style = cellStyle(cell);
 		const colSpan = cell.cs && cell.cs > 1 ? cell.cs : undefined;
 		const rowSpan = cell.rs && cell.rs > 1 ? cell.rs : undefined;
 		return <Tag key={index} colSpan={colSpan} rowSpan={rowSpan} style={style}>{cellMd(cell.t)}</Tag>;

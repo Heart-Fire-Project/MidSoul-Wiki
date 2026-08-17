@@ -25,3 +25,6 @@ yarn-error.log*
 .reasonix/
 .pnpm-store/
 
+
+# 字体子集源（pnpm fonts 自动下载，约 22MB）
+.cache-fonts/

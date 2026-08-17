@@ -3,11 +3,17 @@
   padding: 0.1em 0.55em;
   border: 1px solid var(--label-border, rgba(107, 114, 128, 0.3));
   border-radius: 3px;
-  background-color: var(--label-background, transparent);
-  color: var(--label-text, inherit);
+  background-color: var(--label-bg-l, transparent);
+  color: var(--label-fg-l, inherit);
   font-size: 0.78em;
   font-weight: 500;
   line-height: 1.6;
   vertical-align: middle;
   white-space: nowrap;
+}
+
+/* 暗色值随组件一起发出，切换主题纯靠 CSS，不等 React 重渲染。 */
+:global([data-theme='dark']) .label {
+  background-color: var(--label-bg-d, transparent);
+  color: var(--label-fg-d, inherit);
 }

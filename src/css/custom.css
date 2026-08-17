@@ -1,6 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap');
 @import 'katex/dist/katex.min.css';
 @import './tokens.css';
+
+/* 标题衬线体自托管。原先从 fonts.googleapis.com 加载，那个域名对国内读者
+   基本不可达，而且 @import 写在首行是阻塞渲染的；正文已回落系统字体栈，
+   只有标题这一处保留 Noto Serif SC，按全站用字裁成子集（见
+   scripts/build-font-subset.mjs，`pnpm fonts` 重新生成）。
+   相对 url() 交给打包器处理，自动带上 baseUrl 与内容哈希。 */
+@font-face {
+  font-family: 'Noto Serif SC';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./fonts/NotoSerifSC-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Noto Serif SC';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./fonts/NotoSerifSC-700.woff2') format('woff2');
+}
 
 /* Global cascade entry point: design tokens live in tokens.css; reusable UI owns
    its local styles via CSS Modules; this file is for the Docusaurus shell and
@@ -144,32 +164,41 @@ html {
   padding-right: 0 !important;
 }
 
-/* Heart Fire Project link */
+/* Heart Fire Project link
+   元素实际带 `navbar__item navbar__link navbar-github-link` 三个类。逐属性
+   核对过 Infima：height / justify-content / font-size / letter-spacing /
+   border-radius / background 它根本没有规则；display 与 padding 来自
+   .navbar__item、color 来自 .navbar__link，都是同特异性，而 customCss 整段
+   排在 Infima 之后，本来就赢。所以这一簇不需要 !important。 */
 .navbar-github-link {
-  height: 34px !important;
-  min-width: 7rem !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  font-size: 0.7rem !important;
-  letter-spacing: 0.1em !important;
-  padding: 0 1.2em !important;
-  border: 1px solid var(--ms-border) !important;
-  border-radius: 2px !important;
-  background: var(--ms-surface) !important;
-  color: var(--ms-text-dim) !important;
+  height: 34px;
+  min-width: 7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  padding: 0 1.2em;
+  border: 1px solid var(--ms-border);
+  border-radius: 2px;
+  background: var(--ms-surface);
+  color: var(--ms-text-dim);
+  /* 这一条的 !important 是承重的：移动端侧边栏里同一个链接会命中
+     .navbar-sidebar__items .navbar__link（特异性更高，transition 只含
+     background 与 padding-left），去掉之后 hover 变色会从渐变变成瞬变。 */
   transition: all 0.2s ease !important;
   white-space: nowrap;
 }
 
+/* 关掉 .navbar__link::after 的下划线滑入 */
 .navbar-github-link::after {
-  display: none !important;
+  display: none;
 }
 
 .navbar-github-link:hover {
-  color: var(--ifm-color-primary) !important;
-  border-color: rgba(115, 103, 240, 0.45) !important;
-  background: var(--ms-surface2) !important;
+  color: var(--ifm-color-primary);
+  border-color: rgba(115, 103, 240, 0.45);
+  background: var(--ms-surface2);
 }
 
 /* Color mode toggle */
@@ -328,18 +357,31 @@ html {
   margin-bottom: 0.9rem;
 }
 
+/* 渐变标题必须有实色打底：text-fill-color:transparent 一旦生效而
+   background-clip:text 不被支持，标题就是全透明的——不是退回普通颜色，
+   是整个看不见。先上实色，再在 @supports 里换成渐变。 */
 [data-theme='dark'] .markdown h1 {
-  background: linear-gradient(120deg, #ffffff, #c8c2ff 60%, #9d94f5);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #dcd8ff;
 }
 
 [data-theme='light'] .markdown h1 {
-  background: linear-gradient(120deg, #1a1040, #5a50d4 60%, #7367F0);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #2a1f6b;
+}
+
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  [data-theme='dark'] .markdown h1 {
+    background: linear-gradient(120deg, #ffffff, #c8c2ff 60%, #9d94f5);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  [data-theme='light'] .markdown h1 {
+    background: linear-gradient(120deg, #1a1040, #5a50d4 60%, #7367F0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
 
 /* H2 */
@@ -433,13 +475,18 @@ html {
   width: var(--ms-table-visible-width, 100%);
   pointer-events: none;
   position: sticky;
-  top: 0;
+  /* 导航栏是 position:sticky + z-index:200，贴在 top:0 的表头会被它盖住。
+     让开导航栏的高度；navbar 开了 hideOnScroll，收起时再贴回 0，
+     免得表头上方留一条空带。navbarHidden 是 CSS Modules 哈希类。 */
+  top: var(--ifm-navbar-height);
   visibility: hidden;
   /* 真实表头仍在下面参与 table 的列宽计算。固定层必须自成不透明的
      stacking context，否则快速滚动时底层文字会从固定层顶边露出 1～2px。 */
   isolation: isolate;
   z-index: 4;
 }
+
+body:has(.navbar[class*='navbarHidden']) .markdown .ms-table-head-sticky { top: 0; }
 
 .markdown .ms-table-shell[data-sticky-ready='true'] .ms-table-head-sticky { visibility: visible; }
 .markdown .ms-table-head-clip {
@@ -450,6 +497,19 @@ html {
   z-index: 1;
 }
 .markdown .ms-table-head-sticky table { background: var(--ms-table-head); margin: 0; position: relative; transition: none; z-index: 1; }
+
+/* 横滚提示：能滚、且还没滚到最右时，右缘渐隐一段。属性由
+   useScrollAffordance 维护。mask 作用在元素自身的坐标系里，不随内容
+   一起滚走，因此不需要额外的定位包装层。 */
+.markdown .ms-table-scroll[data-scrollable='true'][data-scroll-end='false'] {
+  mask-image: linear-gradient(to right, #000 calc(100% - 2.5rem), transparent);
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .markdown .ms-table-scroll[data-scrollable='true'][data-scroll-end='false'] {
+    mask-image: none;
+  }
+}
 
 .markdown .ms-table-scroll:focus-visible {
   border-radius: 3px;
@@ -522,6 +582,20 @@ html {
 
 .markdown .ms-table-cell-line + .ms-table-cell-line {
   margin-top: .16rem;
+}
+
+/* DataTable 的手动单元格色：组件把明暗两套值写成 --ms-cell-*-l / -d，
+   行内样式只写 background-color: var(--ms-cell-bg)，由这里按主题接线。
+   变量没有特异性之争，行内样式又照旧压得住下面的首列底色与悬停底色，
+   于是主题切换归 CSS、优先级归行内，服务端渲染不再与主题绑定。 */
+.markdown :is(th, td) {
+  --ms-cell-bg: var(--ms-cell-bg-l);
+  --ms-cell-fg: var(--ms-cell-fg-l);
+}
+
+[data-theme='dark'] .markdown :is(th, td) {
+  --ms-cell-bg: var(--ms-cell-bg-d);
+  --ms-cell-fg: var(--ms-cell-fg-d);
 }
 
 /* 首列灰色 */
@@ -777,9 +851,10 @@ html {
     min-width: 0;
   }
 
-  /* 心火计划按钮：从顶栏隐藏（移至侧边栏） */
+  /* 心火计划按钮：从顶栏隐藏（移至侧边栏）。
+     比桌面那条 .navbar-github-link 多一个类，特异性已经够。 */
   .navbar__items--right .navbar-github-link {
-    display: none !important;
+    display: none;
   }
 
   /* 搜索框：移动端保留在顶栏，插件在 <576px 时自动缩为 2rem 小图标 */
@@ -875,7 +950,10 @@ html {
     padding-left: calc(0.9rem - 2px) !important;
   }
 
-  /* 侧边栏中的心火计划链接：去掉桌面按钮样式 */
+  /* 侧边栏中的心火计划链接：去掉桌面按钮样式。
+     这里的 !important 保留：上面 .navbar-sidebar__items .navbar__link 是同
+     特异性（0,2,0）且带 !important 的自有规则，去掉之后由它接管 transition，
+     hover 时颜色会从渐变变成瞬变。 */
   .navbar-sidebar__items .navbar-github-link,
   .navbar-sidebar .navbar-github-link {
     height: auto !important;
@@ -913,5 +991,44 @@ html {
   /* 侧边栏中关闭下划线动画 */
   .navbar-sidebar .navbar__link::after {
     display: none !important;
+  }
+}
+
+/* ══════════════════════════════════════════════════
+   MOBILE ARTICLE  (≤ 768px)
+   本站以数据表格为主，手机上 5～6 列必然横滚。收紧单元格内边距和字号
+   能在同样宽度里多露出一列，减少来回横滚的次数。
+   ══════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .markdown th {
+    padding: 0.45rem 0.55rem;
+    font-size: 0.76rem;
+  }
+
+  .markdown td {
+    padding: 0.4rem 0.55rem;
+    font-size: 0.78rem;
+    line-height: 1.65;
+  }
+
+  /* 桌面端靠字距撑气质，手机上会先撑爆行宽 */
+  .markdown h1 {
+    font-size: 1.7rem;
+    letter-spacing: 0.06em;
+  }
+
+  .markdown h2 {
+    font-size: 1.3rem;
+    letter-spacing: 0.05em;
+  }
+
+  .markdown h3 {
+    font-size: 1.06rem;
+    letter-spacing: 0.04em;
+  }
+
+  /* 渐隐提示按比例收窄，免得在窄屏上盖掉半列 */
+  .markdown .ms-table-scroll[data-scrollable='true'][data-scroll-end='false'] {
+    mask-image: linear-gradient(to right, #000 calc(100% - 1.5rem), transparent);
   }
 }

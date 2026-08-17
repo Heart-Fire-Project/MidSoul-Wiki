@@ -1,6 +1,6 @@
 {
   "format": "tiptap-v1",
-  "frontmatter": "---\nsidebar_position: 1\n---\n",
+  "frontmatter": "---\ndescription: 午夜灵魂全部进度成就的解锁条件、描述与进度点奖励，涵盖教程、装饰品解锁，以及沉浸、得胜、高光、捡拾、处决五类历程进度。\n---\n",
   "content": {
     "type": "doc",
     "content": [
@@ -862,7 +862,7 @@
                             "type": "bold"
                           }
                         ],
-                        "text": "s百年孤独"
+                        "text": "百年孤独"
                       }
                     ]
                   }

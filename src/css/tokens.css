@@ -8,8 +8,13 @@
   --ifm-color-primary-lighter: #bdb8f9;
   --ifm-color-primary-lightest: #dddafc;
   --ifm-code-font-size: 94%;
-  --ifm-line-height-base: 2;
-  --ifm-font-family-base: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  /* 中文正文常规区间是 1.7~1.8；原先的 2 让长表格和正文都偏散，
+     一屏能放的信息少约 15%，对表格密集的页面尤其吃亏。 */
+  --ifm-line-height-base: 1.75;
+  /* 正文用系统字体栈：中文正文字量大，网络字体要么拖慢首屏、要么（走
+     Google Fonts 时）对国内读者根本加载不出来。标题衬线体是设计主特征，
+     仍自托管子集，见 custom.css 的 @font-face。 */
+  --ifm-font-family-base: 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif;
   --ifm-heading-font-family: 'Noto Serif SC', serif;
   --ifm-table-stripe-background: transparent;
 }
@@ -19,8 +24,11 @@
   --ms-border: rgba(115, 103, 240, 0.2);
   --ms-surface: rgba(115, 103, 240, 0.05);
   --ms-surface2: rgba(115, 103, 240, 0.08);
-  --ms-text-dim: rgba(30, 20, 80, 0.55);
-  --ms-text-muted: rgba(30, 20, 80, 0.35);
+  /* 白底上的对比度：dim 5.51:1、muted 4.52:1，都过 WCAG AA 的 4.5:1。
+     原值 0.55 / 0.35 只有 3.86:1 与 2.19:1——dim 用在引用块正文和目录，
+     muted 用在注释文字，两处都是正文级别，浅色模式下明显偏淡。 */
+  --ms-text-dim: rgba(30, 20, 80, 0.66);
+  --ms-text-muted: rgba(30, 20, 80, 0.6);
   --ms-icon: rgba(30, 20, 80, 0.5);
   --ms-icon-hover: rgba(30, 20, 80, 0.85);
   --ms-navbar-bg: rgba(255, 255, 255, 0.88);
@@ -32,7 +40,9 @@
   --ms-border: rgba(115, 103, 240, 0.18);
   --ms-surface: rgba(115, 103, 240, 0.08);
   --ms-surface2: rgba(115, 103, 240, 0.12);
-  --ms-text-dim: rgba(237, 233, 255, 0.5);
+  /* 原本两者是同一个值，深色模式下 dim / muted 的层级差别整个丢了。
+     拉开一档：5.61:1 与 4.64:1，仍都在 AA 之上。 */
+  --ms-text-dim: rgba(237, 233, 255, 0.56);
   --ms-text-muted: rgba(237, 233, 255, 0.5);
   --ms-icon: rgba(237, 233, 255, 0.5);
   --ms-icon-hover: rgba(237, 233, 255, 0.9);

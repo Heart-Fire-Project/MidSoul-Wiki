@@ -20,7 +20,7 @@
   --text:      #ede9ff;
   --dim:       rgba(237, 233, 255, 0.45);
   --font-disp: 'Noto Serif SC', serif;
-  --font-body: 'Noto Sans SC', sans-serif;
+  --font-body: var(--ifm-font-family-base);
 
   background: var(--bg);
   color: var(--text);
@@ -142,39 +142,52 @@
   animation: riseIn 1s 0.25s cubic-bezier(0.16,1,0.3,1) both;
 }
 
+/* 实色打底。text-fill-color:transparent 一旦生效而 background-clip:text
+   不被支持，整个站名就是全透明的——不是退回普通颜色，是彻底看不见。
+   渐变放进 @supports，两个条件同时成立才切换。 */
 .titleZh {
   font-family: var(--font-disp);
   font-size: clamp(4.5rem, 13vw, 9.5rem);
   font-weight: 400;
   line-height: 1;
   letter-spacing: 0.18em;
-  /* dark: white → lavender → primary → soul-blue */
-  background: linear-gradient(
-    140deg,
-    #ffffff   0%,
-    #c8c2ff  30%,
-    var(--primary) 60%,
-    var(--soul)   100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #d8d3ff;
   filter: drop-shadow(0 0 50px rgba(115,103,240,0.55));
 }
 
-/* light: dark indigo → primary → soul */
 :global([data-theme='light']) .titleZh {
-  background: linear-gradient(
-    140deg,
-    #1a1040  0%,
-    #4840b8 35%,
-    var(--primary) 65%,
-    #2e8abf 100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #241a5e;
   filter: drop-shadow(0 0 40px rgba(115,103,240,0.25));
+}
+
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  /* dark: white → lavender → primary → soul-blue */
+  .titleZh {
+    background: linear-gradient(
+      140deg,
+      #ffffff   0%,
+      #c8c2ff  30%,
+      var(--primary) 60%,
+      var(--soul)   100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* light: dark indigo → primary → soul */
+  :global([data-theme='light']) .titleZh {
+    background: linear-gradient(
+      140deg,
+      #1a1040  0%,
+      #4840b8 35%,
+      var(--primary) 65%,
+      #2e8abf 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
 
 .titleEn {
@@ -648,4 +661,26 @@
   .modes, .wikiNav { padding-left: 1.5rem; padding-right: 1.5rem; }
   .wikiGrid { grid-template-columns: 1fr; }
   .modeCard { padding: 1.8rem 1.5rem; }
+}
+
+/* ══════════════════════════════════════════════════
+   REDUCED MOTION
+   首屏有 3 个 blur(90px) 的光球在跑 18s 无限循环，大面积模糊动画在手机
+   GPU 上很吃电，对前庭敏感的读者也不友好。custom.css 里已经为滚动和锚点
+   闪烁做了这层保护，这个文件之前一处都没有。
+   riseIn 是入场动画，用 `both` 保留终态，直接关掉不会让内容停在透明。
+   ══════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  .root,
+  .root * {
+    /* 不逐个点名类：首页有 8 处 animation，漏一个就等于没做，以后新增的
+       也会自动落进来。压到 0.01ms 而不是 none，是为了让入场动画（riseIn
+       用了 fill-mode: both）仍然停在终态，内容不会卡在透明。
+       !important 是为了压过各自更靠前的 animation 简写声明。 */
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
