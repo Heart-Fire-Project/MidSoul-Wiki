@@ -164,32 +164,41 @@ html {
   padding-right: 0 !important;
 }
 
-/* Heart Fire Project link */
+/* Heart Fire Project link
+   元素实际带 `navbar__item navbar__link navbar-github-link` 三个类。逐属性
+   核对过 Infima：height / justify-content / font-size / letter-spacing /
+   border-radius / background 它根本没有规则；display 与 padding 来自
+   .navbar__item、color 来自 .navbar__link，都是同特异性，而 customCss 整段
+   排在 Infima 之后，本来就赢。所以这一簇不需要 !important。 */
 .navbar-github-link {
-  height: 34px !important;
-  min-width: 7rem !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  font-size: 0.7rem !important;
-  letter-spacing: 0.1em !important;
-  padding: 0 1.2em !important;
-  border: 1px solid var(--ms-border) !important;
-  border-radius: 2px !important;
-  background: var(--ms-surface) !important;
-  color: var(--ms-text-dim) !important;
+  height: 34px;
+  min-width: 7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  padding: 0 1.2em;
+  border: 1px solid var(--ms-border);
+  border-radius: 2px;
+  background: var(--ms-surface);
+  color: var(--ms-text-dim);
+  /* 这一条的 !important 是承重的：移动端侧边栏里同一个链接会命中
+     .navbar-sidebar__items .navbar__link（特异性更高，transition 只含
+     background 与 padding-left），去掉之后 hover 变色会从渐变变成瞬变。 */
   transition: all 0.2s ease !important;
   white-space: nowrap;
 }
 
+/* 关掉 .navbar__link::after 的下划线滑入 */
 .navbar-github-link::after {
-  display: none !important;
+  display: none;
 }
 
 .navbar-github-link:hover {
-  color: var(--ifm-color-primary) !important;
-  border-color: rgba(115, 103, 240, 0.45) !important;
-  background: var(--ms-surface2) !important;
+  color: var(--ifm-color-primary);
+  border-color: rgba(115, 103, 240, 0.45);
+  background: var(--ms-surface2);
 }
 
 /* Color mode toggle */
@@ -842,9 +851,10 @@ body:has(.navbar[class*='navbarHidden']) .markdown .ms-table-head-sticky { top: 
     min-width: 0;
   }
 
-  /* 心火计划按钮：从顶栏隐藏（移至侧边栏） */
+  /* 心火计划按钮：从顶栏隐藏（移至侧边栏）。
+     比桌面那条 .navbar-github-link 多一个类，特异性已经够。 */
   .navbar__items--right .navbar-github-link {
-    display: none !important;
+    display: none;
   }
 
   /* 搜索框：移动端保留在顶栏，插件在 <576px 时自动缩为 2rem 小图标 */
@@ -940,7 +950,10 @@ body:has(.navbar[class*='navbarHidden']) .markdown .ms-table-head-sticky { top: 
     padding-left: calc(0.9rem - 2px) !important;
   }
 
-  /* 侧边栏中的心火计划链接：去掉桌面按钮样式 */
+  /* 侧边栏中的心火计划链接：去掉桌面按钮样式。
+     这里的 !important 保留：上面 .navbar-sidebar__items .navbar__link 是同
+     特异性（0,2,0）且带 !important 的自有规则，去掉之后由它接管 transition，
+     hover 时颜色会从渐变变成瞬变。 */
   .navbar-sidebar__items .navbar-github-link,
   .navbar-sidebar .navbar-github-link {
     height: auto !important;
