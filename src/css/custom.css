@@ -348,18 +348,31 @@ html {
   margin-bottom: 0.9rem;
 }
 
+/* 渐变标题必须有实色打底：text-fill-color:transparent 一旦生效而
+   background-clip:text 不被支持，标题就是全透明的——不是退回普通颜色，
+   是整个看不见。先上实色，再在 @supports 里换成渐变。 */
 [data-theme='dark'] .markdown h1 {
-  background: linear-gradient(120deg, #ffffff, #c8c2ff 60%, #9d94f5);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #dcd8ff;
 }
 
 [data-theme='light'] .markdown h1 {
-  background: linear-gradient(120deg, #1a1040, #5a50d4 60%, #7367F0);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #2a1f6b;
+}
+
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  [data-theme='dark'] .markdown h1 {
+    background: linear-gradient(120deg, #ffffff, #c8c2ff 60%, #9d94f5);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  [data-theme='light'] .markdown h1 {
+    background: linear-gradient(120deg, #1a1040, #5a50d4 60%, #7367F0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
 
 /* H2 */
