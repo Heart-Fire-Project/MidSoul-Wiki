@@ -91,9 +91,6 @@
         ]
       },
       {
-        "type": "horizontalRule"
-      },
-      {
         "type": "heading",
         "attrs": {
           "textAlign": null,
@@ -388,7 +385,26 @@
         "content": [
           {
             "type": "text",
-            "text": "使所有守卫者获得一定时长⁺发光，自身在其中最大时长内移速 +40%；距离 24 格以内的守卫者额外在 5 秒内移速 -30%"
+            "text": "使所有守卫者获得一定时长"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "ink",
+                "attrs": {
+                  "fg": "#8F959E",
+                  "bg": null,
+                  "fgDark": "#757575",
+                  "bgDark": null
+                }
+              }
+            ],
+            "text": "⁺"
+          },
+          {
+            "type": "text",
+            "text": "发光，自身在其中最大时长内移速 +40%；距离 24 格以内的守卫者额外在 5 秒内移速 -30%"
           }
         ]
       },
@@ -435,17 +451,18 @@
                   "colspan": 6,
                   "rowspan": 1,
                   "colwidth": [
-                    133,
-                    95,
-                    95,
-                    95,
-                    95,
-                    95
+                    128,
+                    128,
+                    128,
+                    128,
+                    128,
+                    128
                   ],
                   "align": "left",
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": "top",
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -454,9 +471,28 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
+                      {
+                        "type": "text",
+                        "text": "⁺"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#8F959E",
+                              "bg": null,
+                              "fgDark": "#757575",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": " "
+                      },
                       {
                         "type": "text",
                         "marks": [
@@ -484,12 +520,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    133
+                    128
                   ],
                   "align": "left",
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -498,7 +535,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -520,12 +557,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    95
+                    128
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -534,7 +572,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -551,12 +589,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    95
+                    128
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -565,7 +604,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -582,12 +621,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    95
+                    128
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -596,7 +636,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -613,12 +653,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    95
+                    128
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -627,7 +668,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -644,12 +685,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    95
+                    128
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -658,7 +700,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -683,12 +725,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    133
+                    128
                   ],
                   "align": "left",
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -697,7 +740,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -719,12 +762,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    95
+                    128
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -733,7 +777,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -750,12 +794,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    95
+                    128
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -764,7 +809,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -781,12 +826,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    95
+                    128
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -795,7 +841,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -812,12 +858,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    95
+                    128
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -826,7 +873,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -843,12 +890,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    95
+                    128
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -857,7 +905,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -1061,6 +1109,17 @@
                   },
                   {
                     "type": "text",
+                    "marks": [
+                      {
+                        "type": "ink",
+                        "attrs": {
+                          "fg": "#8F959E",
+                          "bg": null,
+                          "fgDark": "#757575",
+                          "bgDark": null
+                        }
+                      }
+                    ],
                     "text": "⁺"
                   },
                   {
@@ -1213,6 +1272,9 @@
             "text": "初始冷却减半；生成的锚点仅己方可见"
           }
         ]
+      },
+      {
+        "type": "horizontalRule"
       },
       {
         "type": "heading",
@@ -1438,7 +1500,45 @@
         "content": [
           {
             "type": "text",
-            "text": "移速 +20%；标记较远的灵魂⁺传送至其附近¨并令其发光 5 秒，技能期间内被标记的灵魂会持续留下尾迹"
+            "text": "移速 +20%；标记较远的灵魂"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "ink",
+                "attrs": {
+                  "fg": "#8F959E",
+                  "bg": null,
+                  "fgDark": "#757575",
+                  "bgDark": null
+                }
+              }
+            ],
+            "text": "⁺"
+          },
+          {
+            "type": "text",
+            "text": "传送至其附近"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "ink",
+                "attrs": {
+                  "fg": "#8F959E",
+                  "bg": null,
+                  "fgDark": "#757575",
+                  "bgDark": null
+                }
+              }
+            ],
+            "text": "¨"
+          },
+          {
+            "type": "text",
+            "text": "并令其发光 5 秒，技能期间内被标记的灵魂会持续留下尾迹"
           }
         ]
       },
@@ -1697,9 +1797,6 @@
             "text": "技能期间内最多可以再释放 2 次剑气，次数用尽后技能立即结束"
           }
         ]
-      },
-      {
-        "type": "horizontalRule"
       },
       {
         "type": "heading",
@@ -2202,6 +2299,9 @@
         ]
       },
       {
+        "type": "horizontalRule"
+      },
+      {
         "type": "heading",
         "attrs": {
           "textAlign": null,
@@ -2640,9 +2740,6 @@
         ]
       },
       {
-        "type": "horizontalRule"
-      },
-      {
         "type": "heading",
         "attrs": {
           "textAlign": null,
@@ -2928,7 +3025,26 @@
         "content": [
           {
             "type": "text",
-            "text": "于当前位置与方向部署一个高效制冷模块，守卫者经过其面前⁺时移速 -45%"
+            "text": "于当前位置与方向部署一个高效制冷模块，守卫者经过其面前"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "ink",
+                "attrs": {
+                  "fg": "#8F959E",
+                  "bg": null,
+                  "fgDark": "#757575",
+                  "bgDark": null
+                }
+              }
+            ],
+            "text": "⁺"
+          },
+          {
+            "type": "text",
+            "text": "时移速 -45%"
           }
         ]
       },
@@ -3158,9 +3274,6 @@
         ]
       },
       {
-        "type": "horizontalRule"
-      },
-      {
         "type": "heading",
         "attrs": {
           "textAlign": null,
@@ -3194,7 +3307,26 @@
         "content": [
           {
             "type": "text",
-            "text": "有灵魂经过⁺时使其发光且移速 -15%，开启后使其发光 3 秒，并在 7 秒内移速 -30%；有守卫者经过⁺时使最近的灵魂发光，开启后使全体灵魂发光 3 秒并在 15 秒内速度 +40%"
+            "text": "有灵魂经过⁺时使其发光且移速 -15%，开启后使其发光 3 秒，并在 7 秒内移速 -30%；有守卫者经过"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "ink",
+                "attrs": {
+                  "fg": "#8F959E",
+                  "bg": null,
+                  "fgDark": "#757575",
+                  "bgDark": null
+                }
+              }
+            ],
+            "text": "⁺"
+          },
+          {
+            "type": "text",
+            "text": "时使最近的灵魂发光，开启后使全体灵魂发光 3 秒并在 15 秒内速度 +40%"
           }
         ]
       },

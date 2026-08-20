@@ -74,12 +74,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    77
+                    90
                   ],
                   "align": "left",
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -88,7 +89,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -110,12 +111,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    282
+                    240
                   ],
                   "align": "left",
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -124,7 +126,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -146,12 +148,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    257
+                    240
                   ],
                   "align": "left",
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -160,7 +163,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -182,12 +185,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    204
+                    203
                   ],
                   "align": "left",
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -196,7 +200,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -226,12 +230,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    77
+                    90
                   ],
                   "align": "left",
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -240,7 +245,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -262,12 +267,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    282
+                    240
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -293,12 +299,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    257
+                    240
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -324,12 +331,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    204
+                    203
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -363,12 +371,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    77
+                    90
                   ],
                   "align": "left",
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -377,7 +386,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -399,12 +408,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    282
+                    240
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -430,12 +440,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    257
+                    240
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -461,12 +472,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    204
+                    203
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -500,12 +512,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    77
+                    90
                   ],
                   "align": "left",
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -514,7 +527,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -536,12 +549,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    282
+                    240
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -567,12 +581,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    257
+                    240
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -598,12 +613,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    204
+                    203
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -637,12 +653,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    77
+                    90
                   ],
                   "align": "left",
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -651,7 +668,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -673,12 +690,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    282
+                    240
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -704,12 +722,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    257
+                    240
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -735,12 +754,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    204
+                    203
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -774,12 +794,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    77
+                    90
                   ],
                   "align": "left",
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -788,7 +809,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -810,12 +831,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    282
+                    240
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -841,12 +863,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    257
+                    240
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -872,12 +895,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    204
+                    203
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -911,12 +935,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    77
+                    90
                   ],
                   "align": "left",
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -925,7 +950,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -947,12 +972,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    282
+                    240
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -978,12 +1004,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    257
+                    240
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -1009,12 +1036,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    204
+                    203
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -1028,7 +1056,22 @@
                     "content": [
                       {
                         "type": "text",
-                        "text": "dust{color:[1,1,1],scale:1}"
+                        "text": "dust"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#8F959E",
+                              "bg": null,
+                              "fgDark": "#757575",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "{color:[1,1,1],scale:1}"
                       }
                     ]
                   }
@@ -1048,12 +1091,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    77
+                    90
                   ],
                   "align": "left",
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -1062,7 +1106,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -1084,12 +1128,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    282
+                    240
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -1115,12 +1160,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    257
+                    240
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -1146,12 +1192,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    204
+                    203
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -1185,12 +1232,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    77
+                    90
                   ],
                   "align": "left",
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -1199,7 +1247,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -1221,12 +1269,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    282
+                    240
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -1252,12 +1301,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    257
+                    240
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -1283,12 +1333,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    204
+                    203
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -1322,12 +1373,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    77
+                    90
                   ],
                   "align": "left",
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -1336,7 +1388,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -1358,12 +1410,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    282
+                    240
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -1389,12 +1442,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    257
+                    240
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -1420,12 +1474,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    204
+                    203
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -1448,9 +1503,6 @@
             ]
           }
         ]
-      },
-      {
-        "type": "horizontalRule"
       },
       {
         "type": "heading",
@@ -1497,12 +1549,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    77
+                    90
                   ],
                   "align": "left",
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -1511,7 +1564,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -1533,12 +1586,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    282
+                    240
                   ],
                   "align": "left",
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -1547,7 +1601,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -1569,12 +1623,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    257
+                    240
                   ],
                   "align": "left",
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -1583,7 +1638,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -1605,12 +1660,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    204
+                    203
                   ],
                   "align": "left",
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -1619,7 +1675,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -1649,12 +1705,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    77
+                    90
                   ],
                   "align": "left",
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -1663,7 +1720,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -1685,12 +1742,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    282
+                    240
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -1711,6 +1769,15 @@
                         "marks": [
                           {
                             "type": "italic"
+                          },
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#8F959E",
+                              "bg": null,
+                              "fgDark": "#757575",
+                              "bgDark": null
+                            }
                           }
                         ],
                         "text": "（初始解锁）"
@@ -1725,12 +1792,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    257
+                    240
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -1756,12 +1824,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    204
+                    203
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -1795,12 +1864,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    77
+                    90
                   ],
                   "align": "left",
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -1809,7 +1879,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -1831,12 +1901,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    282
+                    240
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -1862,12 +1933,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    257
+                    240
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -1893,12 +1965,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    204
+                    203
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -1932,12 +2005,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    77
+                    90
                   ],
                   "align": "left",
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -1946,7 +2020,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -1968,12 +2042,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    282
+                    240
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -1999,12 +2074,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    257
+                    240
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -2030,12 +2106,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    204
+                    203
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -2069,12 +2146,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    77
+                    90
                   ],
                   "align": "left",
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -2083,7 +2161,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -2105,12 +2183,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    282
+                    240
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -2156,12 +2235,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    257
+                    240
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -2187,12 +2267,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    204
+                    203
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -2226,12 +2307,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    77
+                    90
                   ],
                   "align": "left",
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -2240,7 +2322,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -2262,12 +2344,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    282
+                    240
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -2313,12 +2396,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    257
+                    240
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -2344,12 +2428,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    204
+                    203
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -2372,9 +2457,6 @@
             ]
           }
         ]
-      },
-      {
-        "type": "horizontalRule"
       },
       {
         "type": "heading",
@@ -2421,12 +2503,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    77
+                    90
                   ],
                   "align": "left",
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -2435,7 +2518,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -2457,12 +2540,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    282
+                    240
                   ],
                   "align": "left",
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -2471,7 +2555,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -2493,12 +2577,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    257
+                    240
                   ],
                   "align": "left",
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -2507,7 +2592,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -2529,12 +2614,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    204
+                    203
                   ],
                   "align": "left",
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -2543,7 +2629,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -2573,12 +2659,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    77
+                    90
                   ],
                   "align": "left",
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -2587,7 +2674,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -2609,12 +2696,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    282
+                    240
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -2640,12 +2728,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    257
+                    240
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -2671,12 +2760,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    204
+                    203
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -2710,12 +2800,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    77
+                    90
                   ],
                   "align": "left",
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -2724,7 +2815,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -2746,12 +2837,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    282
+                    240
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -2777,12 +2869,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    257
+                    240
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -2808,12 +2901,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    204
+                    203
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -2847,12 +2941,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    77
+                    90
                   ],
                   "align": "left",
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -2861,7 +2956,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -2883,12 +2978,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    282
+                    240
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -2914,12 +3010,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    257
+                    240
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -2945,12 +3042,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    204
+                    203
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -2984,12 +3082,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    77
+                    90
                   ],
                   "align": "left",
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -2998,7 +3097,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -3020,12 +3119,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    282
+                    240
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -3071,12 +3171,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    257
+                    240
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -3102,12 +3203,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    204
+                    203
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -3141,12 +3243,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    77
+                    90
                   ],
                   "align": "left",
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -3155,7 +3258,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -3177,12 +3280,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    282
+                    240
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -3228,12 +3332,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    257
+                    240
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -3259,12 +3364,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    204
+                    203
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -3287,9 +3393,6 @@
             ]
           }
         ]
-      },
-      {
-        "type": "horizontalRule"
       },
       {
         "type": "heading",
@@ -3368,12 +3471,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    77
+                    90
                   ],
                   "align": "left",
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -3382,7 +3486,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -3404,12 +3508,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    282
+                    240
                   ],
                   "align": "left",
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -3418,7 +3523,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -3440,12 +3545,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    461
+                    443
                   ],
                   "align": "left",
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -3454,7 +3560,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -3484,12 +3590,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    77
+                    90
                   ],
                   "align": "left",
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -3498,7 +3605,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -3520,12 +3627,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    282
+                    240
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -3546,6 +3654,15 @@
                         "marks": [
                           {
                             "type": "italic"
+                          },
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#8F959E",
+                              "bg": null,
+                              "fgDark": "#757575",
+                              "bgDark": null
+                            }
                           }
                         ],
                         "text": "（初始解锁）"
@@ -3560,12 +3677,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    461
+                    443
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -3599,12 +3717,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    77
+                    90
                   ],
                   "align": "left",
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -3613,7 +3732,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -3635,12 +3754,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    282
+                    240
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -3666,12 +3786,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    461
+                    443
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -3705,12 +3826,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    77
+                    90
                   ],
                   "align": "left",
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -3719,7 +3841,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -3741,12 +3863,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    282
+                    240
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -3772,12 +3895,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    461
+                    443
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -3811,12 +3935,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    77
+                    90
                   ],
                   "align": "left",
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -3825,7 +3950,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
@@ -3847,12 +3972,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    282
+                    240
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
@@ -3898,12 +4024,13 @@
                   "colspan": 1,
                   "rowspan": 1,
                   "colwidth": [
-                    461
+                    443
                   ],
                   "align": null,
                   "backgroundColor": null,
                   "backgroundOpacity": 0,
                   "textColor": null,
+                  "verticalAlign": null,
                   "layoutMode": "equal",
                   "tableHideHeader": false,
                   "tableNoFirstCol": false
