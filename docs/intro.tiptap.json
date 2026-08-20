@@ -18,14 +18,22 @@
         ]
       },
       {
-        "type": "paragraph",
+        "type": "callout",
         "attrs": {
-          "textAlign": null
+          "color": "red",
+          "emoji": "❤️‍🔥"
         },
         "content": [
           {
             "type": "text",
-            "text": "午夜灵魂（MidSoul）是一张基于 Minecraft Java 版的不对称竞技地图，由心火计划制作。本 Wiki 收录了游戏的全部机制、能力、饰品等资料。"
+            "text": "当前文档内的部分内容已在 2.1 版本基础上作出修改，但尚不是 2.2 版本的完整内容"
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "具体内容可能随时变更，由此造成的不便我们深感歉意……"
           }
         ]
       },
@@ -38,7 +46,156 @@
         "content": [
           {
             "type": "text",
-            "text": "内容目录"
+            "text": "感谢您游玩午夜灵魂！"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "《午夜灵魂》是一张基于 Minecraft Java 1.21.11 打造的"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              },
+              {
+                "type": "ink",
+                "attrs": {
+                  "fg": "#6525D0",
+                  "bg": null,
+                  "fgDark": "#A472FC",
+                  "bgDark": null
+                }
+              }
+            ],
+            "text": "非对称竞技地图"
+          },
+          {
+            "type": "text",
+            "text": "，你将作为"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "ink",
+                "attrs": {
+                  "fg": "#245BDB",
+                  "bg": null,
+                  "fgDark": "#71A0FF",
+                  "bgDark": null
+                }
+              }
+            ],
+            "text": "灵魂"
+          },
+          {
+            "type": "text",
+            "text": "或"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "ink",
+                "attrs": {
+                  "fg": "#D83931",
+                  "bg": null,
+                  "fgDark": "#FA7974",
+                  "bgDark": null
+                }
+              }
+            ],
+            "text": "灵魂守卫者"
+          },
+          {
+            "type": "text",
+            "text": "，在躲避或追逐中取得最终的胜利。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "具体的玩法可以在游戏内通过进度中的“教程”标签页查阅，在第一次遇到相关机制时也会在聊天栏中进行相应的简短说明；同时，你也可以在"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "link",
+                "attrs": {
+                  "href": "/midsoul/wiki/午夜灵魂/模式介绍",
+                  "target": "_blank",
+                  "rel": "noreferrer noopener",
+                  "class": null,
+                  "title": null
+                }
+              }
+            ],
+            "text": "模式介绍"
+          },
+          {
+            "type": "text",
+            "text": "与"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "link",
+                "attrs": {
+                  "href": "/midsoul/wiki/午夜灵魂/全局机制",
+                  "target": "_blank",
+                  "rel": "noreferrer noopener",
+                  "class": null,
+                  "title": null
+                }
+              }
+            ],
+            "text": "全局机制"
+          },
+          {
+            "type": "text",
+            "text": "中查看更详细的信息！"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "文档目录"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "你可以通过跳转到各个文档来查看对应内容的详情："
           }
         ]
       },
@@ -60,40 +217,7 @@
                       {
                         "type": "link",
                         "attrs": {
-                          "href": "/wiki/午夜灵魂/地图导览",
-                          "target": "_blank",
-                          "rel": "noreferrer noopener",
-                          "class": null,
-                          "title": null
-                        }
-                      }
-                    ],
-                    "text": "地图导览"
-                  },
-                  {
-                    "type": "text",
-                    "text": " — 内置地图、参数与机制"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "type": "listItem",
-            "content": [
-              {
-                "type": "paragraph",
-                "attrs": {
-                  "textAlign": null
-                },
-                "content": [
-                  {
-                    "type": "text",
-                    "marks": [
-                      {
-                        "type": "link",
-                        "attrs": {
-                          "href": "/wiki/午夜灵魂/全局机制",
+                          "href": "/midsoul/wiki/午夜灵魂/全局机制",
                           "target": "_blank",
                           "rel": "noreferrer noopener",
                           "class": null,
@@ -105,7 +229,7 @@
                   },
                   {
                     "type": "text",
-                    "text": " — 游戏内外全部机制详解"
+                    "text": "：本游戏的基础系统与机制"
                   }
                 ]
               }
@@ -126,7 +250,73 @@
                       {
                         "type": "link",
                         "attrs": {
-                          "href": "/wiki/午夜灵魂/能力一览",
+                          "href": "/midsoul/wiki/午夜灵魂/模式介绍",
+                          "target": "_blank",
+                          "rel": "noreferrer noopener",
+                          "class": null,
+                          "title": null
+                        }
+                      }
+                    ],
+                    "text": "模式介绍"
+                  },
+                  {
+                    "type": "text",
+                    "text": "：各模式的流程、玩法及其中的机制"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "link",
+                        "attrs": {
+                          "href": "/midsoul/wiki/午夜灵魂/地图导览",
+                          "target": "_blank",
+                          "rel": "noreferrer noopener",
+                          "class": null,
+                          "title": null
+                        }
+                      }
+                    ],
+                    "text": "地图导览"
+                  },
+                  {
+                    "type": "text",
+                    "text": "：各地图的数据与机制"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "link",
+                        "attrs": {
+                          "href": "/midsoul/wiki/午夜灵魂/能力一览",
                           "target": "_blank",
                           "rel": "noreferrer noopener",
                           "class": null,
@@ -138,7 +328,7 @@
                   },
                   {
                     "type": "text",
-                    "text": " — 天赋、技能与宝物"
+                    "text": "：游戏内的所有天赋、技能与灵魂宝物"
                   }
                 ]
               }
@@ -159,7 +349,7 @@
                       {
                         "type": "link",
                         "attrs": {
-                          "href": "/wiki/午夜灵魂/回响记录",
+                          "href": "/midsoul/wiki/午夜灵魂/回响记录",
                           "target": "_blank",
                           "rel": "noreferrer noopener",
                           "class": null,
@@ -171,7 +361,7 @@
                   },
                   {
                     "type": "text",
-                    "text": " — 全局概率随机效果"
+                    "text": "：所有回响的详细信息"
                   }
                 ]
               }
@@ -192,7 +382,7 @@
                       {
                         "type": "link",
                         "attrs": {
-                          "href": "/wiki/午夜灵魂/进度碑刻",
+                          "href": "/midsoul/wiki/午夜灵魂/进度碑刻",
                           "target": "_blank",
                           "rel": "noreferrer noopener",
                           "class": null,
@@ -204,7 +394,7 @@
                   },
                   {
                     "type": "text",
-                    "text": " — 成就进度与装饰品解锁"
+                    "text": "：所有进度的详细信息、触发条件与奖励"
                   }
                 ]
               }
@@ -225,7 +415,7 @@
                       {
                         "type": "link",
                         "attrs": {
-                          "href": "/wiki/午夜灵魂/饰品集册",
+                          "href": "/midsoul/wiki/午夜灵魂/饰品集册",
                           "target": "_blank",
                           "rel": "noreferrer noopener",
                           "class": null,
@@ -237,40 +427,7 @@
                   },
                   {
                     "type": "text",
-                    "text": " — 粒子、击杀、复活效果"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "type": "listItem",
-            "content": [
-              {
-                "type": "paragraph",
-                "attrs": {
-                  "textAlign": null
-                },
-                "content": [
-                  {
-                    "type": "text",
-                    "marks": [
-                      {
-                        "type": "link",
-                        "attrs": {
-                          "href": "/wiki/午夜灵魂/饰品集册-文本套组详览",
-                          "target": "_blank",
-                          "rel": "noreferrer noopener",
-                          "class": null,
-                          "title": null
-                        }
-                      }
-                    ],
-                    "text": "文本套组详览"
-                  },
-                  {
-                    "type": "text",
-                    "text": " — 文字套组内容"
+                    "text": "：所有装饰品的详细信息与获取方法"
                   }
                 ]
               }
