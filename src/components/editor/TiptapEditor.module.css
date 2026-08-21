@@ -254,6 +254,7 @@
 .content :global(.tiptap table:not(:has([data-table-layout-mode='content']))) { table-layout: fixed; }
 .content :global(.tiptap table:not(:has([data-table-layout-mode='content'])) td), .content :global(.tiptap table:not(:has([data-table-layout-mode='content'])) th) { min-width: 4rem; }
 .content :global(.tiptap table:has([data-table-layout-mode='content'])) { table-layout: auto; }
+.content :global(.tiptap table:has([data-table-layout-mode='content']) th) { white-space: nowrap; }
 .content :global(.tiptap table:has([data-table-hide-header='true']) tr:first-child) { display: none; }
 .content :global(.tiptap td), .content :global(.tiptap th) { background: color-mix(in srgb, var(--ms-cell-bg, transparent) calc(var(--ms-cell-bg-opacity, 1) * 100%), transparent); border: 0; border-bottom: 1px solid var(--ms-border); border-right: 1px solid var(--ms-border); color: var(--ms-cell-fg, inherit); min-width: 4rem; padding: .64rem .72rem; position: relative; vertical-align: top; }
 .content :global(.tiptap td:first-child:not([data-background-color])) { background: var(--ms-surface2); }

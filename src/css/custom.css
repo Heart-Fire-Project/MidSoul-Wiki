@@ -479,6 +479,8 @@ html {
      让开导航栏的高度；navbar 开了 hideOnScroll，收起时再贴回 0，
      免得表头上方留一条空带。navbarHidden 是 CSS Modules 哈希类。 */
   top: var(--ifm-navbar-height);
+  /* navbar 显示/隐藏会切换 top，避免表头"忽然掉下来" */
+  transition: top 0.2s ease;
   visibility: hidden;
   /* 真实表头仍在下面参与 table 的列宽计算。固定层必须自成不透明的
      stacking context，否则快速滚动时底层文字会从固定层顶边露出 1～2px。 */

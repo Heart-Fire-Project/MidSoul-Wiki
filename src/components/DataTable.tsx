@@ -201,6 +201,9 @@ export default function DataTable({ id, rowIds, data = [], head = 1, widths, lay
 		const style = cellStyle(cell);
 		const colSpan = cell.cs && cell.cs > 1 ? cell.cs : undefined;
 		const rowSpan = cell.rs && cell.rs > 1 ? cell.rs : undefined;
+		// 适应内容布局下表头不换行：列宽至少按标题宽度走，而不是被
+		// 内容（如单字符「-」）压到标题折行
+		if (Tag === 'th' && layout === 'content') style.whiteSpace = 'nowrap';
 		return <Tag key={index} colSpan={colSpan} rowSpan={rowSpan} style={style}>{cellMd(cell.t)}</Tag>;
 	})}</tr>;
 	const tableStyle = layout ? { tableLayout: layout === 'equal' ? 'fixed' : 'auto', width: '100%' } as CSSProperties : undefined;
