@@ -6759,7 +6759,7 @@
                   {
                     "type": "paragraph",
                     "attrs": {
-                      "textAlign": null
+                      "textAlign": "center"
                     },
                     "content": [
                       {
