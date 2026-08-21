@@ -4,6 +4,7 @@ import { darkBg, withAlpha } from './colorUtils';
 import { INK } from './theme';
 import Label from './Label';
 import { INLINE, attrsOf, parseStyle } from './inlineSyntax';
+import { columnCellGroups } from './columnCellGroups.js';
 
 type Alignment = 'l' | 'c' | 'r';
 type VerticalAlignment = 't' | 'm' | 'b';
@@ -167,27 +168,32 @@ function useStickyTableHeader(enabled: boolean, adjustHeaderColumns: boolean) {
 			if (adjustHeaderColumns) {
 				const cols = Array.from(table.querySelectorAll<HTMLTableColElement>('colgroup col'));
 				const cloneCols = Array.from(clone.querySelectorAll<HTMLTableColElement>('colgroup col'));
-				// colspan 表格的 nth-child 无法与列一一对应，跳过自动调宽
-				if (!table.querySelector('th[colspan]:not([colspan="1"]), td[colspan]:not([colspan="1"])')) {
-					sourceCells.forEach((cell, index) => {
-						const col = cols[index];
-						if (!col) return;
-						const columnCells = Array.from(table.querySelectorAll<HTMLTableCellElement>(
-							`thead th:nth-child(${index + 1}), tbody td:nth-child(${index + 1})`,
-						));
-						// 临时 nowrap 测量每个单元格的不折行内容宽，取最大值后还原
-						columnCells.forEach((item) => { item.style.whiteSpace = 'nowrap'; });
-						let maxContent = 0;
-						columnCells.forEach((item) => { maxContent = Math.max(maxContent, item.scrollWidth); });
-						columnCells.forEach((item) => { item.style.whiteSpace = ''; });
-						const border = cell.offsetWidth - cell.clientWidth;
-						const needed = maxContent + border;
-						if (needed <= col.getBoundingClientRect().width + 1) return;
-						col.style.width = `${needed}px`;
-						const cloneCol = cloneCols[index];
-						if (cloneCol) cloneCol.style.width = `${needed}px`;
+				const columnGroups = columnCellGroups(table, cols.length);
+				sourceCells.forEach((cell, index) => {
+					const col = cols[index];
+					const columnCells = columnGroups[index];
+					if (!col || !columnCells) return;
+					// 临时 nowrap 测量每个单元格的不折行内容宽，取最大值后还原。量的是 Range
+					// 而不是 scrollWidth——table-layout:fixed 下每一列都已被精确分完宽度、没有
+					// 多余空间可以撑大时，Chrome 里溢出的 td 的 scrollWidth 会原样等于
+					// clientWidth（量不出真实内容宽），Range 直接读排好版的文字包围盒不受这个限制。
+					columnCells.forEach((item) => { item.style.whiteSpace = 'nowrap'; });
+					let maxContent = 0;
+					columnCells.forEach((item) => {
+						const range = document.createRange();
+						range.selectNodeContents(item);
+						const style = getComputedStyle(item);
+						const contentWidth = range.getBoundingClientRect().width + parseFloat(style.paddingLeft) + parseFloat(style.paddingRight);
+						maxContent = Math.max(maxContent, contentWidth);
 					});
-				}
+					columnCells.forEach((item) => { item.style.whiteSpace = ''; });
+					const border = cell.offsetWidth - cell.clientWidth;
+					const needed = Math.ceil(maxContent) + border;
+					if (needed <= col.getBoundingClientRect().width + 1) return;
+					col.style.width = `${needed}px`;
+					const cloneCol = cloneCols[index];
+					if (cloneCol) cloneCol.style.width = `${needed}px`;
+				});
 			}
 			shell.style.setProperty('--ms-table-head-height', `${head.getBoundingClientRect().height}px`);
 			shell.dataset.stickyReady = 'true';
