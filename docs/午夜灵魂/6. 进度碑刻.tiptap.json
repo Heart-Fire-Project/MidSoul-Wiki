@@ -7490,9 +7490,9 @@
                           {
                             "type": "ink",
                             "attrs": {
-                              "fg": "#6525D0",
+                              "fg": "#703be7",
                               "bg": null,
-                              "fgDark": "#A472FC",
+                              "fgDark": null,
                               "bgDark": null
                             }
                           }
@@ -7698,9 +7698,9 @@
                           {
                             "type": "ink",
                             "attrs": {
-                              "fg": "#8F959E",
+                              "fg": "#cfc2d1",
                               "bg": null,
-                              "fgDark": "#757575",
+                              "fgDark": null,
                               "bgDark": null
                             }
                           }
