@@ -475,12 +475,9 @@ html {
   width: var(--ms-table-visible-width, 100%);
   pointer-events: none;
   position: sticky;
-  /* 导航栏是 position:sticky + z-index:200，贴在 top:0 的表头会被它盖住。
-     让开导航栏的高度；navbar 开了 hideOnScroll，收起时再贴回 0，
-     免得表头上方留一条空带。navbarHidden 是 CSS Modules 哈希类。 */
-  top: var(--ifm-navbar-height);
-  /* navbar 显示/隐藏会切换 top，避免表头"忽然掉下来" */
-  transition: top 0.2s ease;
+  /* 始终贴住视口最上方。navbar 出现时（hideOnScroll 回滚）会半透明覆盖
+     表头，但表头上方不会露出表格前的内容，视觉上始终"贴顶"。 */
+  top: 0;
   visibility: hidden;
   /* 真实表头仍在下面参与 table 的列宽计算。固定层必须自成不透明的
      stacking context，否则快速滚动时底层文字会从固定层顶边露出 1～2px。 */
@@ -488,7 +485,6 @@ html {
   z-index: 4;
 }
 
-body:has(.navbar[class*='navbarHidden']) .markdown .ms-table-head-sticky { top: 0; }
 
 .markdown .ms-table-shell[data-sticky-ready='true'] .ms-table-head-sticky { visibility: visible; }
 .markdown .ms-table-head-clip {

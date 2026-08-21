@@ -154,7 +154,10 @@ function useStickyTableHeader(enabled: boolean) {
 			sourceCells.forEach((cell, index) => {
 				const target = cloneCells[index];
 				if (!target) return;
-				const width = cell.getBoundingClientRect().width;
+				// offsetWidth 返回整数（含边框），Firefox 下与真实单元格宽度
+				// 一致；getBoundingClientRect 的分数像素会在 Firefox 造成
+				// 表头与内容列线 1px 错位。
+				const width = cell.offsetWidth;
 				target.style.width = `${width}px`;
 				target.style.minWidth = `${width}px`;
 				target.style.maxWidth = `${width}px`;
