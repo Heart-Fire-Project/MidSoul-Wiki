@@ -162,20 +162,32 @@ function useStickyTableHeader(enabled: boolean, adjustHeaderColumns: boolean) {
 				target.style.minWidth = `${width}px`;
 				target.style.maxWidth = `${width}px`;
 			});
-			// equal（fixed）布局下列宽固定，表头 nowrap 后过窄的列会溢出；
-			// 把列宽自动调到至少容纳表头（标题与内容取较大值）。
+			// equal（fixed）布局下列宽固定，表头/内容 nowrap 后过窄的列会溢出；
+			// 把列宽自动调到「该列所有单元格的最大内容宽」（标题与内容取较大值）。
 			if (adjustHeaderColumns) {
 				const cols = Array.from(table.querySelectorAll<HTMLTableColElement>('colgroup col'));
 				const cloneCols = Array.from(clone.querySelectorAll<HTMLTableColElement>('colgroup col'));
-				sourceCells.forEach((cell, index) => {
-					const col = cols[index];
-					const border = cell.offsetWidth - cell.clientWidth;
-					const needed = cell.scrollWidth + border;
-					if (!col || needed <= cell.offsetWidth) return;
-					col.style.width = `${needed}px`;
-					const cloneCol = cloneCols[index];
-					if (cloneCol) cloneCol.style.width = `${needed}px`;
-				});
+				// colspan 表格的 nth-child 无法与列一一对应，跳过自动调宽
+				if (!table.querySelector('th[colspan]:not([colspan="1"]), td[colspan]:not([colspan="1"])')) {
+					sourceCells.forEach((cell, index) => {
+						const col = cols[index];
+						if (!col) return;
+						const columnCells = Array.from(table.querySelectorAll<HTMLTableCellElement>(
+							`thead th:nth-child(${index + 1}), tbody td:nth-child(${index + 1})`,
+						));
+						// 临时 nowrap 测量每个单元格的不折行内容宽，取最大值后还原
+						columnCells.forEach((item) => { item.style.whiteSpace = 'nowrap'; });
+						let maxContent = 0;
+						columnCells.forEach((item) => { maxContent = Math.max(maxContent, item.scrollWidth); });
+						columnCells.forEach((item) => { item.style.whiteSpace = ''; });
+						const border = cell.offsetWidth - cell.clientWidth;
+						const needed = maxContent + border;
+						if (needed <= col.getBoundingClientRect().width + 1) return;
+						col.style.width = `${needed}px`;
+						const cloneCol = cloneCols[index];
+						if (cloneCol) cloneCol.style.width = `${needed}px`;
+					});
+				}
 			}
 			shell.style.setProperty('--ms-table-head-height', `${head.getBoundingClientRect().height}px`);
 			shell.dataset.stickyReady = 'true';
@@ -183,6 +195,10 @@ function useStickyTableHeader(enabled: boolean, adjustHeaderColumns: boolean) {
 		const syncHorizontal = () => { clone.style.transform = `translateX(${-scroll.scrollLeft}px)`; };
 		const observer = new ResizeObserver(updateLayout);
 		observer.observe(table);
+		// fixed 布局下文字溢出不会改变表格尺寸，RO 不会因此触发；web font
+		// 加载完成后文字变宽（Edge/Windows 的 fallback 字体宽度不同），需要
+		// 重新测量一次，让过窄的列被自动调宽。
+		if (document.fonts?.ready) document.fonts.ready.then(() => updateLayout()).catch(() => undefined);
 		scroll.addEventListener('scroll', syncHorizontal, { passive: true });
 		updateLayout();
 		syncHorizontal();
