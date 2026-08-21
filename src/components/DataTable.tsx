@@ -131,7 +131,7 @@ export function useScrollAffordance(scrollRef: React.RefObject<HTMLDivElement | 
  * 表头不再跟随。这里仅在纵向滚动时移动真实 thead；它仍留在原表格内部，
  * 所以横向滚动、列宽、合并单元格都会天然保持一致。 */
 
-function useStickyTableHeader(enabled: boolean) {
+function useStickyTableHeader(enabled: boolean, adjustHeaderColumns: boolean) {
 	const shellRef = useRef<HTMLDivElement>(null);
 	const scrollRef = useRef<HTMLDivElement>(null);
 	const tableRef = useRef<HTMLTableElement>(null);
@@ -162,6 +162,21 @@ function useStickyTableHeader(enabled: boolean) {
 				target.style.minWidth = `${width}px`;
 				target.style.maxWidth = `${width}px`;
 			});
+			// equal（fixed）布局下列宽固定，表头 nowrap 后过窄的列会溢出；
+			// 把列宽自动调到至少容纳表头（标题与内容取较大值）。
+			if (adjustHeaderColumns) {
+				const cols = Array.from(table.querySelectorAll<HTMLTableColElement>('colgroup col'));
+				const cloneCols = Array.from(clone.querySelectorAll<HTMLTableColElement>('colgroup col'));
+				sourceCells.forEach((cell, index) => {
+					const col = cols[index];
+					const border = cell.offsetWidth - cell.clientWidth;
+					const needed = cell.scrollWidth + border;
+					if (!col || needed <= cell.offsetWidth) return;
+					col.style.width = `${needed}px`;
+					const cloneCol = cloneCols[index];
+					if (cloneCol) cloneCol.style.width = `${needed}px`;
+				});
+			}
 			shell.style.setProperty('--ms-table-head-height', `${head.getBoundingClientRect().height}px`);
 			shell.dataset.stickyReady = 'true';
 		};
@@ -178,13 +193,13 @@ function useStickyTableHeader(enabled: boolean) {
 			shell.style.removeProperty('--ms-table-visible-width');
 			delete shell.dataset.stickyReady;
 		};
-	}, [enabled]);
+	}, [enabled, adjustHeaderColumns]);
 	return { shellRef, scrollRef, tableRef, cloneRef, headRef };
 }
 
 export default function DataTable({ id, rowIds, data = [], head = 1, widths, layout, hideHeader = false, noFirstCol = false }: DataTableProps) {
 	const showHeader = head > 0 && !hideHeader;
-	const sticky = useStickyTableHeader(showHeader);
+	const sticky = useStickyTableHeader(showHeader, layout === 'equal' && Boolean(widths));
 	// 横滚提示与吸顶表头无关，隐藏表头的表格同样需要。
 	useScrollAffordance(sticky.scrollRef);
 	useEffect(() => {
@@ -204,9 +219,6 @@ export default function DataTable({ id, rowIds, data = [], head = 1, widths, lay
 		const style = cellStyle(cell);
 		const colSpan = cell.cs && cell.cs > 1 ? cell.cs : undefined;
 		const rowSpan = cell.rs && cell.rs > 1 ? cell.rs : undefined;
-		// 适应内容布局下表头不换行：列宽至少按标题宽度走，而不是被
-		// 内容（如单字符「-」）压到标题折行
-		if (Tag === 'th' && layout === 'content') style.whiteSpace = 'nowrap';
 		return <Tag key={index} colSpan={colSpan} rowSpan={rowSpan} style={style}>{cellMd(cell.t)}</Tag>;
 	})}</tr>;
 	const tableStyle = layout ? { tableLayout: layout === 'equal' ? 'fixed' : 'auto', width: '100%' } as CSSProperties : undefined;

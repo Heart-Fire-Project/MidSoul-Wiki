@@ -432,6 +432,10 @@ html {
   margin-top: calc(var(--ms-table-head-height, 0px) * -1);
 }
 
+/* 表头不换行：自适应列宽按「标题与内容较大值」走；equal 固定列宽的
+   表格由 DataTable 的 JS 把过窄的列自动调到至少容纳表头 */
+.markdown .ms-table-shell th { white-space: nowrap; }
+
 .markdown .ms-table-shell { margin: 1.5rem 0; position: relative; }
 .markdown .ms-table-shell[id], .markdown .ms-table-shell tr[id], .markdown span[id] { scroll-margin-top: 4.5rem; }
 
