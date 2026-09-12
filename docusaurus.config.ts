@@ -75,6 +75,10 @@ const config: Config = {
   future: {
     v4: true,
     faster: true,
+    // 显式指定 git 历史读取策略：faster 的 SSG worker 线程里 NODE_ENV
+    // 判断不可靠，default-v1 可能退回硬编码空数据，导致文档底部
+    // 「最后更新时间」渲染为 null
+    experimental_vcs: 'git-ad-hoc',
   },
 
   url: "https://wiki.hfpro.dev",
@@ -118,6 +122,10 @@ const config: Config = {
           routeBasePath: "wiki",
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
+          // 每篇文档底部自动显示「最后更新时间/作者」，基于 git 历史，
+          // 无需在文档里手写日期
+          showLastUpdateTime: true,
+          showLastUpdateAuthor: true,
         },
         blog: {
           blogTitle: "更新日志",
