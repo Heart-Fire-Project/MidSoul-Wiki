@@ -23,6 +23,11 @@ const CACHE = path.join(ROOT, '.cache-fonts');
 const OUT = path.join(ROOT, 'src', 'css', 'fonts');
 const SOURCE = 'https://cdn.jsdelivr.net/gh/notofonts/noto-cjk@main/Serif/SubsetOTF/SC';
 
+// 锁定 fonttools/brotli 版本：版本漂移会改变 woff2 字节输出。
+// 本地（macOS arm64）与 CI（macos-latest，同架构）必须生成完全一致的
+// 文件，否则 CI 自动同步会产生无意义的二进制 diff。
+const FONTTOOLS = 'fonttools[woff]==4.65.0';
+
 // 400：h1/h2/h3、页脚标题、翻页标签、首页大标题。
 // 700：Infima 的 --ifm-heading-font-weight，作用于 h4~h6 与博客标题。
 // 600 全站没有任何规则用到，不生成。
@@ -53,7 +58,7 @@ for (const { weight, source } of WEIGHTS) {
   const input = download(source);
   const output = path.join(OUT, `NotoSerifSC-${weight}.woff2`);
   execFileSync('uvx', [
-    '--quiet', '--from', 'fonttools[woff]', 'pyftsubset', input,
+    '--quiet', '--from', FONTTOOLS, 'pyftsubset', input,
     `--output-file=${output}`,
     '--flavor=woff2',
     `--text-file=${charsetFile}`,

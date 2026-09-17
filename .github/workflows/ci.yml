@@ -1,6 +1,6 @@
 name: CI
 
-# 部署由 Cloudflare Pages 自己盯着 main 分支做，这里只负责验证。
+# 部署由 Cloudflare Pages 自己盯着 main 分支做，这里负责验证 + 字体子集自动同步。
 # 关键一项是 pnpm build：docusaurus.config.ts 设了 onBrokenLinks: "throw"，
 # 但那只在有人真的跑构建时才生效——没有 CI 的话，带坏链的改动会一路合进
 # main，直到部署失败或有人本地构建才被发现。
@@ -9,29 +9,33 @@ on:
     branches: [main]
   pull_request:
 
+# fonts job 需要 push 回仓库（字体子集自动同步）
+permissions:
+  contents: write
+
 jobs:
   verify:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           # showLastUpdateTime 依赖完整 git 历史（git log 取文档最后修改时间）
           fetch-depth: 0
 
-      - uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@v5
         with:
           version: 10
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
-          node-version: 20
+          node-version: 24
           cache: pnpm
 
       - run: pnpm install --frozen-lockfile
 
-      # 先跑最便宜的：图片体积与字体子集覆盖
-      - name: 资源护栏
-        run: pnpm check:assets
+      # 图片体积护栏（字体子集缺字由下面的 fonts job 自动同步，不再拦截 CI）
+      - name: 图片体积检查
+        run: pnpm check:images
 
       - name: 类型检查
         run: pnpm typecheck
@@ -39,6 +43,52 @@ jobs:
       - name: 编辑器往返测试
         run: pnpm test
 
-      # 顺带校验站内链接（onBrokenLinks: throw）
+      # 顺带校验站内链接（onBrokenLinks: "throw"）
       - name: 构建
         run: pnpm build
+
+  fonts:
+    # 文档出现字体子集没覆盖的新字时，自动重新生成 woff2 并提交。
+    # 必须用 macOS（arm64）runner：与作者本地同架构，配合脚本里锁定的
+    # fonttools 版本，生成的字体文件字节一致，不会产生平台差异 diff。
+    # 公开仓库的标准 macOS runner 免费且无分钟限制。
+    if: github.event_name == 'push'
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      # 用官方安装脚本装 uv（不走第三方 action：少一层 Node 运行时依赖，
+      # 也避开 astral-sh/setup-uv v8 起不再发布浮动标签的版本管理）
+      - name: 安装 uv
+        run: |
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - uses: pnpm/action-setup@v5
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: 同步字体子集
+        run: |
+          pnpm fonts
+          if git diff --quiet -- src/css/fonts scripts/font-charset.txt; then
+            echo "字体子集已是最新，无需提交"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/css/fonts scripts/font-charset.txt
+          git commit -m "chore: 自动同步字体子集 [skip ci]"
+          git push
+
+      - name: 字体子集全量校验
+        run: pnpm check:assets

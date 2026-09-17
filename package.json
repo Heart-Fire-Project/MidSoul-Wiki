@@ -15,7 +15,8 @@
     "typecheck": "tsc",
     "fonts": "node scripts/build-font-subset.mjs",
     "test": "node src/components/editor/fromMarkdown.test.mjs && node src/components/editor/toMarkdown.test.mjs && node src/components/editor/tableIO.test.mjs && node src/components/columnCellGroups.test.mjs",
-    "check:assets": "node scripts/check-assets.mjs"
+    "check:assets": "node scripts/check-assets.mjs",
+    "check:images": "node scripts/check-images.mjs"
   },
   "dependencies": {
     "@docusaurus/core": "3.10.2",
