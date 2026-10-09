@@ -4,7 +4,7 @@
  *
  * 站点原先从 fonts.googleapis.com 加载 Noto Serif SC / Noto Sans SC。中文
  * 受众多半在国内，那个域名基本不可达，且 @import 写在 CSS 首行是阻塞渲染
- * 的。正文已回落系统字体栈（PingFang SC / 微软雅黑），标题衬线体是设计
+ * 的。正文用浏览器默认无衬线字体（sans-serif），标题衬线体是设计
  * 主特征，改成自托管子集。
  *
  *   pnpm fonts

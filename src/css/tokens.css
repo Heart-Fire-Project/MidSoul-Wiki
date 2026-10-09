@@ -13,8 +13,10 @@
   --ifm-line-height-base: 1.75;
   /* 正文用系统字体栈：中文正文字量大，网络字体要么拖慢首屏、要么（走
      Google Fonts 时）对国内读者根本加载不出来。标题衬线体是设计主特征，
-     仍自托管子集，见 custom.css 的 @font-face。 */
-  --ifm-font-family-base: 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif;
+     仍自托管子集，见 custom.css 的 @font-face。
+     只写通用族 sans-serif，不点名具体字体：读者在浏览器里设置的默认无衬线
+     字体（如思源黑体）才能生效；没设置的话各系统默认就是苹方 / 微软雅黑。 */
+  --ifm-font-family-base: sans-serif;
   --ifm-heading-font-family: 'Noto Serif SC', serif;
   --ifm-table-stripe-background: transparent;
 }
