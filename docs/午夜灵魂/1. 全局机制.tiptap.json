@@ -1180,6 +1180,216 @@
         "content": [
           {
             "type": "text",
+            "text": "数值计算"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "午夜灵魂的数值变动表述一般有以下 3 种："
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "直接乘算"
+                  },
+                  {
+                    "type": "inlineMath",
+                    "attrs": {
+                      "latex": "M_d"
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "："
+                  },
+                  {
+                    "type": "text",
+                    "text": "通常为"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "属性 +X%"
+                  },
+                  {
+                    "type": "text",
+                    "text": "的格式"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "加算"
+                  },
+                  {
+                    "type": "inlineMath",
+                    "attrs": {
+                      "latex": "P"
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "："
+                  },
+                  {
+                    "type": "text",
+                    "text": "通常为"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "属性 +X"
+                  },
+                  {
+                    "type": "text",
+                    "text": "的格式"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "最终乘算"
+                  },
+                  {
+                    "type": "inlineMath",
+                    "attrs": {
+                      "latex": "M_f"
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "："
+                  },
+                  {
+                    "type": "text",
+                    "text": "通常为"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "属性提升/降低至 X%"
+                  },
+                  {
+                    "type": "text",
+                    "text": "的格式"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "一般情况下，数值计算遵循直接乘算 → 加算 → 最终乘算的顺序，也即"
+          },
+          {
+            "type": "inlineMath",
+            "attrs": {
+              "latex": "K_f=(K_0\\times M_d+P)\\times M_f"
+            }
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
             "text": "气息探测"
           }
         ]
@@ -1613,6 +1823,50 @@
         ]
       },
       {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "在实际游戏中，最终值计算遵循如下顺序："
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "探测者直接乘算 → 探测者加算 → 探测者最终乘算 → 受测者直接乘算 → 受测者加算 → 受测者最终乘算"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "其中，两个直接乘算都只按照原范围（即基础值，或受其他因素影响的基础值）计算加成，而最终乘算则按照计算到该阶段时的实际值计算加成，即最终是"
+          },
+          {
+            "type": "inlineMath",
+            "attrs": {
+              "latex": "D_f=[(D_0\\times M_{dA}+P_A)\\times M_{fA}+D_0\\times M_{dB}+P_B]\\times M_{fB}"
+            }
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "其中 A 为本次判定的探测者，B 为本次判定的受测者。"
+          }
+        ]
+      },
+      {
         "type": "heading",
         "attrs": {
           "textAlign": null,
@@ -1912,7 +2166,7 @@
                     "content": [
                       {
                         "type": "text",
-                        "text": "除了目测，你也可以用气息探测来粗略判定距离"
+                        "text": "除了目测，你也可以用气息探测来粗略判定距离……"
                       }
                     ]
                   }
@@ -2215,6 +2469,166 @@
                     772
                   ],
                   "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 1,
+                  "textColor": null,
+                  "verticalAlign": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "传送门的充能进度下限将在充能到一定进度时获得提升"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "attrs": {
+              "anchorId": null
+            },
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    772
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 1,
+                  "textColor": null,
+                  "verticalAlign": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "……不过也不要过于依赖气息探测，它并非随时都是可靠的"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "attrs": {
+              "anchorId": null
+            },
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    772
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 1,
+                  "textColor": null,
+                  "verticalAlign": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "灵魂守卫者的选取有软保底机制，但运气太差它也救不了"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "attrs": {
+              "anchorId": null
+            },
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    772
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 1,
+                  "textColor": null,
+                  "verticalAlign": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "管理员可以经由调试面板添加至多 9 张自定义地图！"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "attrs": {
+              "anchorId": null
+            },
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    772
+                  ],
+                  "align": null,
                   "backgroundColor": "#CEDCFE",
                   "backgroundOpacity": 0.5,
                   "textColor": null,
@@ -2455,6 +2869,86 @@
                     772
                   ],
                   "align": null,
+                  "backgroundColor": "#CEDCFE",
+                  "backgroundOpacity": 0.5,
+                  "textColor": null,
+                  "verticalAlign": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "如果你的充能速度很低，参与多人充能反而会降低整体速度"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "attrs": {
+              "anchorId": null
+            },
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    772
+                  ],
+                  "align": null,
+                  "backgroundColor": "#CEDCFE",
+                  "backgroundOpacity": 0.5,
+                  "textColor": null,
+                  "verticalAlign": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "有些时候延长充能阶段倒计时并不是什么好的选择……"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "attrs": {
+              "anchorId": null
+            },
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    772
+                  ],
+                  "align": null,
                   "backgroundColor": "#FBC0BC",
                   "backgroundOpacity": 0.5,
                   "textColor": null,
@@ -2673,6 +3167,86 @@
                       {
                         "type": "text",
                         "text": "如果你的武器有附魔光效，那么此时你可以造成加倍的伤害"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "attrs": {
+              "anchorId": null
+            },
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    772
+                  ],
+                  "align": null,
+                  "backgroundColor": "#FBC0BC",
+                  "backgroundOpacity": 0.5,
+                  "textColor": null,
+                  "verticalAlign": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "有多个守卫者时，分工合作是很有必要的！"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "attrs": {
+              "anchorId": null
+            },
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    772
+                  ],
+                  "align": null,
+                  "backgroundColor": "#FBC0BC",
+                  "backgroundOpacity": 0.5,
+                  "textColor": null,
+                  "verticalAlign": null,
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "有些跑图是没有意义的，有些追逐是应当放弃的"
                       }
                     ]
                   }

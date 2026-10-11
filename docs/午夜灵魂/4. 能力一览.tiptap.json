@@ -26,7 +26,7 @@
         "content": [
           {
             "type": "text",
-            "text": "截至目前，午夜灵魂共有 10 个技能，14 个天赋和 7 个灵魂宝物"
+            "text": "截至目前，午夜灵魂共有 14 个技能，18 个天赋和 8 个灵魂宝物"
           }
         ]
       },
@@ -1316,6 +1316,611 @@
         ]
       },
       {
+        "type": "heading",
+        "attrs": {
+          "textAlign": null,
+          "level": 4
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "济困扶危"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "生存"
+          }
+        ]
+      },
+      {
+        "type": "blockquote",
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "⚡ 80 ⌚ 5"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "使周围 2 格内血量最低的灵魂获得 4 吸收，并使其在 10 秒内回复 8 血量"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "ink",
+                "attrs": {
+                  "fg": "#8F959E",
+                  "bg": null,
+                  "fgDark": "#757575",
+                  "bgDark": null
+                }
+              }
+            ],
+            "text": "每次使用该技能都会使技能冷却 +20 秒，至多提升至 160 秒"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": null,
+          "level": 4
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "同气连枝"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "协同"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "策略"
+          }
+        ]
+      },
+      {
+        "type": "blockquote",
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "⚡ 75 ⌚ 12"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "移速 +20% 并建立谊链，其将使对方技能冷却速度 +200% 并使双方的移速加成取两者间的更高值；若无法建立则改为移速 +60%"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "ink",
+                "attrs": {
+                  "fg": "#8F959E",
+                  "bg": null,
+                  "fgDark": "#757575",
+                  "bgDark": null
+                }
+              }
+            ],
+            "text": "仅在自身无谊链时方能与 16 格内最近的无谊链灵魂建立谊链"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "ink",
+                "attrs": {
+                  "fg": "#8F959E",
+                  "bg": null,
+                  "fgDark": "#757575",
+                  "bgDark": null
+                }
+              }
+            ],
+            "text": "谊链长度超过 32 格⁺或任意一方垂死时技能立即结束；技能结束时解除谊链"
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "attrs": {
+          "hideHeader": false,
+          "noFirstCol": false,
+          "anchorId": null
+        },
+        "content": [
+          {
+            "type": "tableRow",
+            "attrs": {
+              "anchorId": null
+            },
+            "content": [
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 5,
+                  "rowspan": 1,
+                  "colwidth": [
+                    154,
+                    154,
+                    154,
+                    154,
+                    154
+                  ],
+                  "align": "left",
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "verticalAlign": "top",
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "⁺ 谊链颜色提示范围"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "attrs": {
+              "anchorId": null
+            },
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    154
+                  ],
+                  "align": "left",
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "verticalAlign": "middle",
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "距离范围(格)"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    154
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "verticalAlign": "middle",
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "0 ~ 23"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    154
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "verticalAlign": "middle",
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "24 ~ 27"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    154
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "verticalAlign": "middle",
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "28 ~ 31"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    154
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "verticalAlign": "middle",
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "32 ~ +∞"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "attrs": {
+              "anchorId": null
+            },
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    154
+                  ],
+                  "align": "left",
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "verticalAlign": "middle",
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "粒子颜色"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    154
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "verticalAlign": "middle",
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "蓝色"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    154
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "verticalAlign": "middle",
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "黄色"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    154
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "verticalAlign": "middle",
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "橙色"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    154
+                  ],
+                  "align": null,
+                  "backgroundColor": null,
+                  "backgroundOpacity": 0,
+                  "textColor": null,
+                  "verticalAlign": "middle",
+                  "layoutMode": "equal",
+                  "tableHideHeader": false,
+                  "tableNoFirstCol": false
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "center"
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "红色"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
         "type": "horizontalRule"
       },
       {
@@ -1844,6 +2449,338 @@
         "type": "heading",
         "attrs": {
           "textAlign": null,
+          "level": 4
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "请君入阱"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "杀戮"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "策略"
+          }
+        ]
+      },
+      {
+        "type": "blockquote",
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "⚡ 40"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "原地放置诡雷，其将在周围有灵魂经过时触发"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "ink",
+                "attrs": {
+                  "fg": "#8F959E",
+                  "bg": null,
+                  "fgDark": "#757575",
+                  "bgDark": null
+                }
+              }
+            ],
+            "text": "⁺"
+          },
+          {
+            "type": "text",
+            "text": "并在 0.4 秒后爆炸"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "ink",
+                "attrs": {
+                  "fg": "#8F959E",
+                  "bg": null,
+                  "fgDark": "#757575",
+                  "bgDark": null
+                }
+              }
+            ],
+            "text": "诡雷爆炸时对周围 3 格内的单位造成 7 "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "link",
+                "attrs": {
+                  "href": "/midsoul/wiki/午夜灵魂/能力一览#%E9%9D%99%E9%BB%98%E4%BC%A4%E5%AE%B3",
+                  "target": "_blank",
+                  "rel": "noreferrer noopener",
+                  "class": null,
+                  "title": null
+                }
+              }
+            ],
+            "text": "静默伤害"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "ink",
+                "attrs": {
+                  "fg": "#8F959E",
+                  "bg": null,
+                  "fgDark": "#757575",
+                  "bgDark": null
+                }
+              }
+            ],
+            "text": "并使其发光 2 秒"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "ink",
+                "attrs": {
+                  "fg": "#8F959E",
+                  "bg": null,
+                  "fgDark": "#757575",
+                  "bgDark": null
+                }
+              }
+            ],
+            "text": "每存在 1 个属于你的诡雷，技能冷却速度 -20%；可以与诡雷交互¨以将其拆除"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "ink",
+                "attrs": {
+                  "fg": null,
+                  "bg": "#F2F3F5",
+                  "fgDark": null,
+                  "bgDark": "#333333"
+                }
+              }
+            ],
+            "text": "⁺ 触发：以诡雷为球心，位于半径 3 格的上半球内，但仅取高度小于 2 的部分"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "ink",
+                "attrs": {
+                  "fg": null,
+                  "bg": "#F2F3F5",
+                  "fgDark": null,
+                  "bgDark": "#333333"
+                }
+              }
+            ],
+            "text": "¨ 交互：基础交互时长 2 秒"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": null,
+          "level": 4
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "洞若观火"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "跃迁"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "策略"
+          }
+        ]
+      },
+      {
+        "type": "blockquote",
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "⚡ 70 ⌚ 20"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "移速 +20% 并原地释放瞑视之眼，其将注视 12 格内最近的灵魂并使其发光"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "ink",
+                "attrs": {
+                  "fg": "#8F959E",
+                  "bg": null,
+                  "fgDark": "#757575",
+                  "bgDark": null
+                }
+              }
+            ],
+            "text": "选中武器并短按 [Q] 以与瞑视之眼互换位置，至多可触发 2 次"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "ink",
+                "attrs": {
+                  "fg": "#8F959E",
+                  "bg": null,
+                  "fgDark": "#757575",
+                  "bgDark": null
+                }
+              }
+            ],
+            "text": "本技能不因进入擦刀状态而重置，技能结束时清除瞑视之眼"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": null,
           "level": 2
         },
         "content": [
@@ -2341,6 +3278,113 @@
         ]
       },
       {
+        "type": "heading",
+        "attrs": {
+          "textAlign": null,
+          "level": 4
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "幽脉同频"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "感知"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "充能传送门时，对守卫者的气息探测生效距离 +8 格，并使所有处于红色气息探测范围的守卫者发光"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "ink",
+                "attrs": {
+                  "fg": "#8F959E",
+                  "bg": null,
+                  "fgDark": "#757575",
+                  "bgDark": null
+                }
+              }
+            ],
+            "text": "气息探测不可用时天赋失效"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": null,
+          "level": 4
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "矢志不渝"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "救助"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "点亮灵灯所需时间 -1.5 秒，期间受到的击退效果 -75%"
+          }
+        ]
+      },
+      {
         "type": "horizontalRule"
       },
       {
@@ -2778,6 +3822,113 @@
               }
             ],
             "text": "无初始冷却；至多同时对 3 个碎片生效"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": null,
+          "level": 4
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "寂域威压"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "妨害"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "距离 12 格以内的灵魂交互速度 -30%，对正在点亮灵灯的灵魂效果减半"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": null,
+          "level": 4
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "截镫留鞭"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "妨害"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "位于未开启的传送门周围 3 格内时，其交互进度流失速度提升至 200%"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "ink",
+                "attrs": {
+                  "fg": "#8F959E",
+                  "bg": null,
+                  "fgDark": "#757575",
+                  "bgDark": null
+                }
+              }
+            ],
+            "text": "同名天赋效果不叠加"
           }
         ]
       },
@@ -3319,6 +4470,113 @@
         "type": "heading",
         "attrs": {
           "textAlign": null,
+          "level": 4
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "投石成绊"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "妨害"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "在落点生成一片持续 7 秒的砾石区域"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "ink",
+                "attrs": {
+                  "fg": "#8F959E",
+                  "bg": null,
+                  "fgDark": "#757575",
+                  "bgDark": null
+                }
+              }
+            ],
+            "text": "⁺"
+          },
+          {
+            "type": "text",
+            "text": "，令位于其中的守卫者沉默且移速 -75%"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "ink",
+                "attrs": {
+                  "fg": "#8F959E",
+                  "bg": null,
+                  "fgDark": "#757575",
+                  "bgDark": null
+                }
+              }
+            ],
+            "text": "短按 [右键] 掷出以使用"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "ink",
+                "attrs": {
+                  "fg": null,
+                  "bg": "#F2F3F5",
+                  "fgDark": null,
+                  "bgDark": "#333333"
+                }
+              }
+            ],
+            "text": "⁺ 砾石区域为半径 3.5 格的上半球，但仅取高度小于 2 的部分"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": null,
           "level": 2
         },
         "content": [
@@ -3411,6 +4669,31 @@
               }
             ],
             "text": "⁺ 经过：位于周围 2 格内"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": null,
+          "level": 4
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "静默伤害"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "受到此类伤害后不会触发受击效果"
           }
         ]
       },
