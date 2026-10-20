@@ -1,0 +1,47 @@
+name: 同步发版日志
+
+# 主仓库发版（GitHub Release）后，自动在本仓库 blog/ 生成更新日志。
+# 采用「定时拉取」而不是跨仓库触发：只需读主仓库的公开 Releases API，
+# 写回本仓库用自身 GITHUB_TOKEN，无需任何跨仓库 token 或手工配置。
+# 幂等：按版本号判断，已存在的版本不会重复生成（也能一次性补齐历史发版）。
+on:
+  schedule:
+    # 每小时整点检查一次（GitHub 定时任务可能延迟几分钟到半小时）
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+
+      # 脚本只依赖 Node 内置模块，不需要 pnpm install
+      - name: 从主仓库 Release 生成更新日志
+        env:
+          # 主仓库（读它的公开 Releases）
+          MAIN_REPO: Heart-Fire-Project/MidSoul
+          # 新日志的默认作者，取自 blog/authors.yml 的 key
+          BLOG_AUTHORS: hfp,roser
+          # 带上 token 提高 API 限额（只读公开数据）
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/sync-releases.mjs
+
+      - name: 提交新日志
+        run: |
+          if git diff --quiet -- blog/; then
+            echo "没有新发版，跳过提交"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add blog/
+          git commit -m "docs: 自动同步发版日志 [skip ci]"
+          git push

@@ -100,6 +100,35 @@ pnpm fonts
 
 需要 [uv](https://docs.astral.sh/uv/)（用来跑 fonttools）。源字体会自动下载并缓存到 `.cache-fonts/`（已 gitignore）。CI 会在仓库用字超出 `scripts/font-charset.txt` 时报错提醒。
 
+## 🔄 发版日志自动化
+
+主仓库发版（GitHub Release）后，CI 每小时自动把 Release 正文同步成本站 blog 更新日志，**无需任何跨仓库 token**（只读主仓库公开的 Releases API，写回本仓库用自身 `GITHUB_TOKEN`）。
+
+- 工作流：`.github/workflows/sync-blog.yml`（每小时 + 可在 Actions 页手动触发）
+- 脚本：`scripts/sync-releases.mjs`
+- 幂等：按**版本号**判断，已存在的版本不重复生成；也能一次性补齐历史发版
+
+主仓库与默认作者在工作流的环境变量里改：
+
+```yaml
+env:
+  MAIN_REPO: Heart-Fire-Project/MidSoul   # 读取哪个仓库的 Release
+  BLOG_AUTHORS: hfp,roser                 # 新日志默认作者（blog/authors.yml 的 key）
+```
+
+**tag 自动推断**（按 Release 正文的小节标题 + 条目关键词，无匹配则留空不猜）：
+
+| Release 正文里出现 | 生成的 tag |
+| :--- | :--- |
+| 「平衡」小节 | `balance` |
+| 「修复」小节，或条目含「修复 / 修正」 | `bugfix` |
+| 「优化」小节，或条目含「优化 / 性能 / 流畅」 | `improvement` |
+| 「地图」小节，或「内容」里新增地图 | `map` |
+| 「内容」里新增能力 / 天赋 / 技能 / 宝物 | `ability` |
+| 「内容」「新功能」小节 | `feature` |
+
+生成文件名为 `blog/YYYY-MM-DD-vX-Y.md`，版本号末尾的 `.0` 会省略（`v2.1.0` → `v2-1`）；`v1-0-x` 这类「范围版本」文件会覆盖同系列版本，不会重复补。
+
 ## 🚀 部署
 
 本项目由 Cloudflare Pages 自动托管，推送到 `main` 分支后自动构建部署。
