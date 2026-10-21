@@ -178,4 +178,11 @@ const coloredParagraphs = tiptapDocToMarkdown({
 });
 assert.ok(coloredParagraphs.includes("<p><span style={{color:'#777'}}>第一段</span></p>\n\n<p><span style={{backgroundColor:'#eee'}}>第二段</span></p>"), '纯样式段落丢失了块级边界');
 
+const struckRun = tiptapDocToMarkdown({ type: 'doc', content: [{ type: 'paragraph', content: [
+  { type: 'text', text: '前', marks: [{ type: 'strike' }] },
+  { type: 'text', text: 'code', marks: [{ type: 'code' }, { type: 'strike' }] },
+  { type: 'text', text: '后', marks: [{ type: 'strike' }] },
+] }] });
+assert.ok(struckRun.includes('~~前`code`后~~'), '相邻删除线没有合并，会拼出 GFM 不认的 ~~~~');
+
 console.log('tiptapToMarkdown: 全部通过');

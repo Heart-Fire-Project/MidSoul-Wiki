@@ -84,7 +84,12 @@ export function tiptapInlineToMarkdown(content, mode = 'mdx') {
     if (node.type === 'image') return `![${escapeText(attrs(node).alt ?? '')}](${attrs(node).src ?? ''})`;
     if (node.type === 'inlineMath') return `$${attrs(node).latex ?? ''}$`;
     return tiptapInlineToMarkdown(children(node), mode);
-  }).join('');
+  }).join('')
+    // 删除线逐个文本节点包裹，相邻两段（如「文字 + 行内代码」都划线）会拼出
+    // ~~a~~~~`x`~~，GFM 不认 4 个波浪号，发布页原样显示。strike 是三种分隔符
+    // 标记里最外层的一个，相接的「闭合 + 开启」直接抵消即可合并成一段。
+    // ponytail: ** / * 相邻也有同类问题，但与 <strong> 改写、*** 交错，不能这样抵消。
+    .replace(/~~~~/g, '');
 }
 
 function withAlignment(node, markdown) {
