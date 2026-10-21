@@ -18,26 +18,6 @@
         ]
       },
       {
-        "type": "callout",
-        "attrs": {
-          "color": "red",
-          "emoji": "❤️‍🔥"
-        },
-        "content": [
-          {
-            "type": "text",
-            "text": "当前文档内的部分内容已在 2.1 版本基础上作出修改，但尚不是 2.2 版本的完整内容"
-          },
-          {
-            "type": "hardBreak"
-          },
-          {
-            "type": "text",
-            "text": "具体内容可能随时变更，由此造成的不便我们深感歉意……"
-          }
-        ]
-      },
-      {
         "type": "heading",
         "attrs": {
           "textAlign": null,
@@ -58,7 +38,7 @@
         "content": [
           {
             "type": "text",
-            "text": "《午夜灵魂》是一张基于 Minecraft Java 1.21.11 打造的"
+            "text": "《午夜灵魂》是一张基于 Minecraft Java 26.3 打造的"
           },
           {
             "type": "text",

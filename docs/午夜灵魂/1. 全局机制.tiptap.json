@@ -93,49 +93,7 @@
         "content": [
           {
             "type": "text",
-            "text": "在受击时若没有死亡，则在 7 秒内移速 +100% 且不会受到伤害"
-          },
-          {
-            "type": "text",
-            "marks": [
-              {
-                "type": "ink",
-                "attrs": {
-                  "fg": "#8F959E",
-                  "bg": null,
-                  "fgDark": "#757575",
-                  "bgDark": null
-                }
-              }
-            ],
-            "text": "⁺"
-          },
-          {
-            "type": "text",
-            "text": "；若死亡，则进入垂死状态。"
-          }
-        ]
-      },
-      {
-        "type": "paragraph",
-        "attrs": {
-          "textAlign": null
-        },
-        "content": [
-          {
-            "type": "text",
-            "marks": [
-              {
-                "type": "ink",
-                "attrs": {
-                  "fg": null,
-                  "bg": "#F2F3F5",
-                  "fgDark": null,
-                  "bgDark": "#333333"
-                }
-              }
-            ],
-            "text": "⁺ 仙人掌、甜浆果丛、窒息伤害不触发"
+            "text": "在受击时若没有死亡，则在 7 秒内移速 +100% 且不会受到伤害；若死亡，则进入垂死状态。"
           }
         ]
       },

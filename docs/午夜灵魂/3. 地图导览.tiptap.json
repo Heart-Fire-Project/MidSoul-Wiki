@@ -84,6 +84,38 @@
         }
       },
       {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "地图原筑："
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "link",
+                "attrs": {
+                  "href": "https://www.minecraftmaps.com/48784-kannajouka",
+                  "target": "_blank",
+                  "rel": "noreferrer noopener",
+                  "class": null,
+                  "title": null
+                }
+              }
+            ],
+            "text": "Kannajouka"
+          },
+          {
+            "type": "text",
+            "text": " by WHLDTITAN"
+          }
+        ]
+      },
+      {
         "type": "table",
         "attrs": {
           "hideHeader": false,
@@ -353,6 +385,17 @@
                     "content": [
                       {
                         "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#DD9B02",
+                              "bg": null,
+                              "fgDark": "#FDD456",
+                              "bgDark": null
+                            }
+                          }
+                        ],
                         "text": "3⁺"
                       }
                     ]
@@ -385,6 +428,17 @@
                     "content": [
                       {
                         "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#2EA122",
+                              "bg": null,
+                              "fgDark": "#6DD163",
+                              "bgDark": null
+                            }
+                          }
+                        ],
                         "text": "2"
                       }
                     ]
@@ -868,6 +922,17 @@
                     "content": [
                       {
                         "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#2EA122",
+                              "bg": null,
+                              "fgDark": "#6DD163",
+                              "bgDark": null
+                            }
+                          }
+                        ],
                         "text": "2"
                       }
                     ]
@@ -900,6 +965,17 @@
                     "content": [
                       {
                         "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#DF7805",
+                              "bg": null,
+                              "fgDark": "#F6A54A",
+                              "bgDark": null
+                            }
+                          }
+                        ],
                         "text": "4"
                       }
                     ]
@@ -1080,6 +1156,38 @@
           "width": null,
           "height": null
         }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "地图原筑："
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "link",
+                "attrs": {
+                  "href": "https://www.minecraftmaps.com/48285-mountain-lake-village",
+                  "target": "_blank",
+                  "rel": "noreferrer noopener",
+                  "class": null,
+                  "title": null
+                }
+              }
+            ],
+            "text": "Mountain Lake Village"
+          },
+          {
+            "type": "text",
+            "text": " by ZachOBuilds"
+          }
+        ]
       },
       {
         "type": "table",
@@ -1331,6 +1439,17 @@
                     "content": [
                       {
                         "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#DF7805",
+                              "bg": null,
+                              "fgDark": "#F6A54A",
+                              "bgDark": null
+                            }
+                          }
+                        ],
                         "text": "4⁺"
                       }
                     ]
@@ -1363,6 +1482,17 @@
                     "content": [
                       {
                         "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#DD9B02",
+                              "bg": null,
+                              "fgDark": "#FDD456",
+                              "bgDark": null
+                            }
+                          }
+                        ],
                         "text": "3⁺"
                       }
                     ]
@@ -1816,8 +1946,8 @@
                     128
                   ],
                   "align": null,
-                  "backgroundColor": "#C5F1C1",
-                  "backgroundOpacity": 1,
+                  "backgroundColor": "#FFF897",
+                  "backgroundOpacity": 0.5,
                   "textColor": null,
                   "verticalAlign": null,
                   "layoutMode": "equal",
@@ -1833,7 +1963,18 @@
                     "content": [
                       {
                         "type": "text",
-                        "text": "2⁺"
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#DD9B02",
+                              "bg": null,
+                              "fgDark": "#FDD456",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "3"
                       }
                     ]
                   }
@@ -1865,6 +2006,17 @@
                     "content": [
                       {
                         "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#2EA122",
+                              "bg": null,
+                              "fgDark": "#6DD163",
+                              "bgDark": null
+                            }
+                          }
+                        ],
                         "text": "2⁺"
                       }
                     ]
@@ -2318,8 +2470,8 @@
                     128
                   ],
                   "align": null,
-                  "backgroundColor": "#FFF897",
-                  "backgroundOpacity": 0.5,
+                  "backgroundColor": "#C5F1C1",
+                  "backgroundOpacity": 1,
                   "textColor": null,
                   "verticalAlign": null,
                   "layoutMode": "equal",
@@ -2335,7 +2487,18 @@
                     "content": [
                       {
                         "type": "text",
-                        "text": "3"
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#2EA122",
+                              "bg": null,
+                              "fgDark": "#6DD163",
+                              "bgDark": null
+                            }
+                          }
+                        ],
+                        "text": "2⁺"
                       }
                     ]
                   }
@@ -2367,6 +2530,17 @@
                     "content": [
                       {
                         "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#DD9B02",
+                              "bg": null,
+                              "fgDark": "#FDD456",
+                              "bgDark": null
+                            }
+                          }
+                        ],
                         "text": "3⁺"
                       }
                     ]
@@ -2868,6 +3042,17 @@
                     "content": [
                       {
                         "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#2EA122",
+                              "bg": null,
+                              "fgDark": "#6DD163",
+                              "bgDark": null
+                            }
+                          }
+                        ],
                         "text": "2"
                       }
                     ]
@@ -2900,6 +3085,17 @@
                     "content": [
                       {
                         "type": "text",
+                        "marks": [
+                          {
+                            "type": "ink",
+                            "attrs": {
+                              "fg": "#245BDB",
+                              "bg": null,
+                              "fgDark": "#71A0FF",
+                              "bgDark": null
+                            }
+                          }
+                        ],
                         "text": "1⁺"
                       }
                     ]
