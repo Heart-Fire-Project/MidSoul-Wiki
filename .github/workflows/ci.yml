@@ -8,6 +8,8 @@ on:
   push:
     branches: [main]
   pull_request:
+  # sync-blog 推送发版日志后手动触发（bot 推送不会触发 push 事件）
+  workflow_dispatch:
 
 # fonts job 需要 push 回仓库（字体子集自动同步）
 permissions:
@@ -52,7 +54,7 @@ jobs:
     # 必须用 macOS（arm64）runner：与作者本地同架构，配合脚本里锁定的
     # fonttools 版本，生成的字体文件字节一致，不会产生平台差异 diff。
     # 公开仓库的标准 macOS runner 免费且无分钟限制。
-    if: github.event_name == 'push'
+    if: github.event_name != 'pull_request'
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v5
@@ -87,7 +89,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add src/css/fonts scripts/font-charset.txt
-          git commit -m "chore: 自动同步字体子集 [skip ci]"
+          # 不带 [skip ci]：Cloudflare Pages 认这个标记，带了新字体就不会部署
+          git commit -m "chore: 自动同步字体子集"
           git push
 
       - name: 字体子集全量校验
